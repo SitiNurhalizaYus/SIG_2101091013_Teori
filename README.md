@@ -36,7 +36,9 @@ Langkah-langkah atau prosedur pembuatan
 17. Gulir ke bawah ke bagian Bingkai kisi dan centang kotak Gambar koordinat . Format defaultnya adalah Degreestetapi muncul sebagai angka. Kita dapat menyesuaikan adalah dengan menambahkan simbol °. Pilih Customdan klik tombol Ekspresi di sebelahnya.
 
 18. Masukkan ekspresi berikut untuk membuat string yang mengambil nomor grid dan menambahkan simbol ° ke dalamnya. 
-'>'concat(to_string(@grid_number), '°    ')'>'
+![kota_padang_2101091013](https://user-images.githubusercontent.com/114122090/193395273-179c3d87-7682-4ded-a67f-24260990a8d7.png)
+
+         concat(to_string(@grid_number), '°    ')
 
 
 19. 
