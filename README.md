@@ -1,6 +1,13 @@
-# SIG-TEORI-2101091013-Modul 1
-Langkah-langkah atau prosedur pembuatan 
-## Membuat Peta (QGIS3)
+# SIG-TEORI-2101091013
+Tutorial Latihan :
+- [Modul 1](README.md##modul-1)
+- [Modul 2](README.md#modul-2)
+- [Modul 3](README.md#modul-3)
+- [Modul 4](README.md#modul-4)
+- [Modul 5](README.md#modul-5)
+
+## Modul 1
+# Membuat Peta (QGIS3)
 1. Unduh dan ekstrak data Kit Mulai Cepat Natural Earth. Buka QGIS. Temukan folder di panel Browser . Perluas folder untuk menemukan proyek. Ini adalah file proyek yang berisi lapisan bergaya dalam format Dokumen QGIS. Klik dua kali proyek untuk membukanya.Natural Earth quick startNatural_Earth_quick_start_for_QGIS_v3
 
 2. Gunakan kontrol geser dan zoom di Bilah Alat Navigasi Peta dan perbesar ke pulau sumatera, Indonesia.
@@ -62,3 +69,23 @@ Langkah-langkah atau prosedur pembuatan
 
 29. Simpan gambar dalam format yang Anda sukai. Di bawah ini adalah gambar PNG yang diekspor.
 ![kota_padang_2101091013](https://user-images.githubusercontent.com/114122090/193393792-461887f7-2536-4c9a-8c5e-03f07829806c.png)
+
+# Modul 2
+## 
+##
+##
+
+# Modul 3
+## 
+##
+##
+
+# Modul 4
+## 
+##
+##
+
+# Modul 5
+## 
+##
+##
