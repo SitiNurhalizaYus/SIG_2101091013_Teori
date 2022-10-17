@@ -1,13 +1,13 @@
 # SIG-TEORI-2101091013
 Tutorial Latihan :
-- [Modul 1](README.md#modul-1)
-- [Modul 2](README.md#modul-2)
+- [Modul 1](README.md#modul-1) Membuat Peta (QGIS3)
+- [Modul 2](README.md#modul-2) Bekerja dengan Atribut (QGIS3)
 - [Modul 3](README.md#modul-3)
 - [Modul 4](README.md#modul-4)
 - [Modul 5](README.md#modul-5)
 
 ## Modul 1
-# Membuat Peta (QGIS3)
+# `Membuat Peta (QGIS3)`
 1. Unduh dan ekstrak data Kit Mulai Cepat Natural Earth. Buka QGIS. Temukan folder di panel Browser . Perluas folder untuk menemukan proyek. Ini adalah file proyek yang berisi lapisan bergaya dalam format Dokumen QGIS. Klik dua kali proyek untuk membukanya.Natural Earth quick startNatural_Earth_quick_start_for_QGIS_v3
 ![1](https://user-images.githubusercontent.com/114122090/194772783-e133c99b-a385-4346-9062-4fbba6b8c30e.png)
 
@@ -85,10 +85,20 @@ Tutorial Latihan :
 29. Simpan gambar dalam format yang Anda sukai. Di bawah ini adalah gambar PNG yang diekspor.
 ![kota_padang_2101091013](https://user-images.githubusercontent.com/114122090/193393792-461887f7-2536-4c9a-8c5e-03f07829806c.png)
 
-# Modul 2
-## 
-##
-##
+## Modul 2
+# `Bekerja dengan Atribut (QGIS3)`
+## Prosedure
+1. Cari ne_10m_populated_places_simple.zip file di QGIS Browser dan perluas. Pilih ne_10m_populated_places_simple.shpfile dan seret ke kanvas.
+![1](https://user-images.githubusercontent.com/114122090/196235613-2cf07634-bd2c-4e69-9360-5a7049cd9d83.png)
+
+2. Lapisan baru ne_10m_populated_places_simplesekarang akan dimuat di QGIS dan Anda akan melihat banyak titik yang mewakili tempat-tempat berpenduduk di dunia. Tampilan default di kanvas QGIS menunjukkan geometri lapisan GIS. Setiap titik juga memiliki atribut terkait. Mari kita lihat mereka. Temukan Bilah Alat Atribut . Toolbar ini berisi banyak alat yang berguna untuk memeriksa, melihat, memilih, dan memodifikasi atribut dari sebuah lapisan.
+![2](https://user-images.githubusercontent.com/114122090/196236082-0d8c425b-f22a-45c9-a7b8-1ae57a46b7e0.png)
+
+> Catatan :
+> Jika Anda tidak melihat toolbar, Anda dapat mengaktifkannya dari View Toolbars Attributes Toolbar .
+
+3.Klik tombol Identifikasi pada Bilah Alat Atribut . Setelah alat dipilih, klik titik mana pun di kanvas. Atribut terkait dari titik itu akan ditampilkan di panel Identifikasi Hasil baru. Setelah Anda selesai menjelajahi atribut dari titik yang berbeda, Anda dapat mengklik tombol Tutup .
+
 
 # Modul 3
 ## 
