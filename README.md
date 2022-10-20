@@ -228,10 +228,11 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ```
       darker(@symbol_color, 130)
 ```
-![8](https://user-images.githubusercontent.com/114122090/197017812-ed24e0a2-4147-4bed-b1f7-10b8ae6c56a4.png)
+   ![8](https://user-images.githubusercontent.com/114122090/197017812-ed24e0a2-4147-4bed-b1f7-10b8ae6c56a4.png)
 
 >Catatan
 >Perhatikan bahwa ekspresi ini tidak tergantung pada warna isian yang  pilih.  akan melihat bahwa ini sangat berguna dalam langkah-langkah berikut di mana secara >otomatis mengatur warna batas berdasarkan warna isian yang disediakan.
+
 
 9. Kita akan melihat bahwa tombol Override yang ditentukan Data di sebelah Warna Stroke telah berubah menjadi kuning - menunjukkan bahwa properti ini dikendalikan oleh override. Render simbol tunggal dari lapisan pembangkit listrik tidak terlalu berguna. Itu tidak menyampaikan banyak informasi kecuali lokasi pembangkit listrik. Mari kita gunakan penyaji yang berbeda untuk membuatnya lebih berguna. Klik drop-down Symbology dan pilih Categorizedrenderer.
 ![9](https://user-images.githubusercontent.com/114122090/197017861-e0bc6689-8472-4318-a3c1-e3353cb87be2.png)
@@ -252,7 +253,7 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ```
       "primary_fuel" IN ('Biomass', 'Geothermal', 'Hydro', 'Solar', 'Wind', 'Storage', 'Wave and Tidal')
 ```
-![15](https://user-images.githubusercontent.com/114122090/197018104-23846d30-c56e-4694-941e-714d7223caae.png) 
+   ![15](https://user-images.githubusercontent.com/114122090/197018104-23846d30-c56e-4694-941e-714d7223caae.png) 
      
 15. Gulir ke bawah dan klik Pen sederhana . Pilih warna Isi yang sesuai . Setelah selesai, klik tombol Kembali .
 ![16](https://user-images.githubusercontent.com/114122090/197018355-87f0ca6b-2da0-490b-9fe5-393b4fcfb296.png)
@@ -270,7 +271,7 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ```
       "primary_fuel" IN ('Coal', 'Gas', 'Nuclear', 'Oil', 'Petcoke')
 ```
-![20](https://user-images.githubusercontent.com/114122090/197018574-230a52bc-d6f7-4d9f-865d-cea0b3933e67.png)
+   ![20](https://user-images.githubusercontent.com/114122090/197018574-230a52bc-d6f7-4d9f-865d-cea0b3933e67.png)
 
 20. Gulir ke bawah dan klik Pen sederhana . Pilih warna Isi yang sesuai . Setelah selesai, klik tombol Kembali .
 ![21](https://user-images.githubusercontent.com/114122090/197018527-daa44eb9-ba71-4b34-b640-2fe6b1e93162.png)
@@ -291,7 +292,7 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ```
       log10("capacity_mw") + 1
 ```
-![26](https://user-images.githubusercontent.com/114122090/197018705-ac999882-b594-4cb8-b4db-8c1c87832212.png)
+   ![26](https://user-images.githubusercontent.com/114122090/197018705-ac999882-b594-4cb8-b4db-8c1c87832212.png)
     
 26. Ulangi proses yang sama untuk aturan lainnya.
 ![27](https://user-images.githubusercontent.com/114122090/197018718-321ed12f-383f-408e-9f04-a23e315ead17.png)
