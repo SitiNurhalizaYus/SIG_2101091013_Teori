@@ -142,13 +142,15 @@ file : [modul2.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![13](https://user-images.githubusercontent.com/114122090/196244479-9a4ba926-259e-4928-8e4b-77a883210f40.png)
 
 14. Selanjutnya dapat memilih format apa pun yang Anda sukai sebagai Format . Untuk latihan ini, kita akan memilih GeoJSON. GeoJSON adalah format berbasis teks yang digunakan secara luas dalam pemetaan web. Klik tombol ... di sebelah Nama file dan masukkan populated_capitals.geojsonsebagai file output.
-![14](https://user-images.githubusercontent.com/114122090/196244505-6ab5ef9e-21ab-46fe-8093-3fab7aa902ac.png)
+
+    ![14](https://user-images.githubusercontent.com/114122090/196244505-6ab5ef9e-21ab-46fe-8093-3fab7aa902ac.png)
 
 15. Data input memiliki banyak kolom.Disini hanya dapat memilih sebagian dari kolom asli untuk diekspor. Perluas bagian Pilih bidang yang akan diekspor dan opsi ekspornya . Klik Deselect All dan centang kolom nameand pop_max. Klik Oke.
 ![14](https://user-images.githubusercontent.com/114122090/196988098-5645208b-9124-4b1c-a3a0-e105cf333ac8.png)
 
 16. Kemudian klik overwrite file untuk meberikan layer baru nantinya.
-![15](https://user-images.githubusercontent.com/114122090/196988651-9e06eabd-b5ac-4284-84f1-cbd43f22a4b5.png)
+
+     ![15](https://user-images.githubusercontent.com/114122090/196988651-9e06eabd-b5ac-4284-84f1-cbd43f22a4b5.png)
 
 17. Sebuah layer baru populated_capitalsakan dimuat di QGIS. 
 ![16](https://user-images.githubusercontent.com/114122090/196988932-5cd1dd70-b91f-406b-8196-3b47ffd94cb6.png)
