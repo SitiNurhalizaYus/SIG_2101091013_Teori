@@ -225,7 +225,9 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![7](https://user-images.githubusercontent.com/114122090/197017705-319f8079-435f-4638-a7ec-711ef9a9cdfa.png)
 
 8. Masukkan ekspresi berikut untuk mengatur warnanya menjadi 30% lebih gelap dari warna isian dan klik OK .
-```darker(@symbol_color, 130)```
+```
+      darker(@symbol_color, 130)
+```
 ![8](https://user-images.githubusercontent.com/114122090/197017812-ed24e0a2-4147-4bed-b1f7-10b8ae6c56a4.png)
 
 >Catatan
@@ -247,7 +249,9 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![14](https://user-images.githubusercontent.com/114122090/197018149-0e0e50f1-df7d-4570-9d4b-a017133678ec.png)
 
 14. Dalam dialog Pembuat String Ekspresi , masukkan ekspresi berikut dan klik OK . Di sini kami mengelompokkan beberapa kategori energi terbarukan ke dalam satu kategori.
-```"primary_fuel" IN ('Biomass', 'Geothermal', 'Hydro', 'Solar', 'Wind', 'Storage', 'Wave and Tidal')```
+```
+      "primary_fuel" IN ('Biomass', 'Geothermal', 'Hydro', 'Solar', 'Wind', 'Storage', 'Wave and Tidal')
+```
 ![15](https://user-images.githubusercontent.com/114122090/197018104-23846d30-c56e-4694-941e-714d7223caae.png) 
      
 15. Gulir ke bawah dan klik Pen sederhana . Pilih warna Isi yang sesuai . Setelah selesai, klik tombol Kembali .
@@ -263,7 +267,9 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![19](https://user-images.githubusercontent.com/114122090/197018442-249463d7-4a07-4a62-b205-93013dd93917.png)
 
 19. Dalam dialog Pembuat String Ekspresi , masukkan ekspresi berikut dan klik OK .
-```"primary_fuel" IN ('Coal', 'Gas', 'Nuclear', 'Oil', 'Petcoke')```
+```
+      "primary_fuel" IN ('Coal', 'Gas', 'Nuclear', 'Oil', 'Petcoke')
+```
 ![20](https://user-images.githubusercontent.com/114122090/197018574-230a52bc-d6f7-4d9f-865d-cea0b3933e67.png)
 
 20. Gulir ke bawah dan klik Pen sederhana . Pilih warna Isi yang sesuai . Setelah selesai, klik tombol Kembali .
@@ -282,7 +288,9 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![25](https://user-images.githubusercontent.com/114122090/197018654-3527f5c4-1e24-4dd1-865f-88b4eaa79917.png)
 
 25. Karena kapasitas pembangkit listrik sangat bervariasi di antara kumpulan data kami, cara yang efektif untuk mendapatkan rentang ukuran yang kecil adalah dengan menggunakan log10fungsi.  dapat bereksperimen dengan ekspresi yang berbeda untuk sampai pada apa yang terbaik untuk visualisasi pilihan . Masukkan ekspresi berikut dan klik OK .
-```log10("capacity_mw") + 1```
+```
+      log10("capacity_mw") + 1
+```
 ![26](https://user-images.githubusercontent.com/114122090/197018705-ac999882-b594-4cb8-b4db-8c1c87832212.png)
     
 26. Ulangi proses yang sama untuk aturan lainnya.
