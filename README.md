@@ -8,7 +8,7 @@ Tutorial Latihan :
 
 ## Modul 1
 # `Membuat Peta (QGIS3)`
-file : [modul1.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/05819c8059b8f05da157974393e37be8fa84bc17/kota_padang_2101091013.qpt)
+file : [modul1.qpt](/blob/05819c8059b8f05da157974393e37be8fa84bc17/kota_padang_2101091013.qpt)
 1. Unduh dan ekstrak data Kit Mulai Cepat Natural Earth. Buka QGIS. Temukan folder di panel Browser . Perluas folder untuk menemukan proyek. Ini adalah file proyek yang berisi lapisan bergaya dalam format Dokumen QGIS. Klik dua kali proyek untuk membukanya.Natural Earth quick startNatural_Earth_quick_start_for_QGIS_v3
 ![1](https://user-images.githubusercontent.com/114122090/194772783-e133c99b-a385-4346-9062-4fbba6b8c30e.png)
 
