@@ -162,11 +162,6 @@ Untuk tutorial ini kita akan mendownload dataset gempa bumi antara tahun 1900-20
 
 Hasilnya, kami mendapat 2585 insiden gempa. Klik pada ikon Unduh TSV .
 ![02](https://user-images.githubusercontent.com/114122090/196248277-3b5fd44f-b347-4997-a94e-45edb5511b5d.png)
-Untuk kenyamanan, Anda dapat langsung mengunduh salinan kumpulan data di atas dari tautan di bawah ini:
-
-gempa bumi_2021_11_25_14_31_59_+0530.tsv
-
-Sumber Data [NCEI]
 
 ## Procedure
 1. Periksa sumber data tabular Anda. Basis data gempa yang diunduh berisi Latitudedan Longitudebidang yang menunjukkan lokasi episentrum gempa dan atribut terkait lainnya. Kami akan menggunakan bidang ini untuk mengimpor file sebagai lapisan titik. Buka data dalam editor teks seperti Notepad/TextMate untuk melihat isinya. Kita akan melihat bahwa TAB memisahkan setiap bidang.
