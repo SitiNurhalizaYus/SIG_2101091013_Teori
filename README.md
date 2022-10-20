@@ -88,6 +88,7 @@ file : [modul1.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 
 ## Modul 2
 # `Bekerja dengan Atribut (QGIS3)`
+file : [modul2.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/af1283f530067d27baf4cd0e9015e668a32626df/siti%20nurhaliza%20yus_2101091013%20(Attributes%20).qgz)
 ## Prosedure
 1. Cari ne_10m_populated_places_simple.zip file di QGIS Browser dan perluas. Pilih ne_10m_populated_places_simple.shpfile dan seret ke kanvas.
 ![1](https://user-images.githubusercontent.com/114122090/196235613-2cf07634-bd2c-4e69-9360-5a7049cd9d83.png)
