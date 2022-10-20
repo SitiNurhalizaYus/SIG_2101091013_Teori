@@ -200,69 +200,100 @@ Hasilnya, kami mendapat 2585 insiden gempa. Klik pada ikon Unduh TSV .
 
 ## Modul 4
 # `Vektor Dasar (QGIS3)`
+file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/3801a0cb4f18889488feec9b11a05cb52da89181/Vektor%20Dasar%20(QGIS3)_2101091013_Siti%20Nurhaliza%20Yus.qgz)
+
 ## Procedure
 1. Buka zip kedua kumpulan data ke folder di komputer . Di Panel Browser QGIS, temukan direktori tempat  mengekstrak data. Perluas ne_10m_landfolder dan pilih ne_10m_land.shplayer. Seret layer ke kanvas.
+![1](https://user-images.githubusercontent.com/114122090/197017499-74746247-7898-4fb1-ab72-2245ad510bd9.png)
 
 2. Selanjutnya akan mendapatkan layer baru yang ne_10m_land ditambahkan ke panel Layers . Basis data pembangkit listrik global hadir sebagai file CSV, jadi kita perlu mengimpornya. Klik tombol Buka Pengelola Sumber Data pada Bilah Alat Sumber Data .  juga dapat menggunakan pintasan keyboard. Ctrl + L
+![2](https://user-images.githubusercontent.com/114122090/197017515-9fc1f427-d772-4d72-8f47-2536ec25dea0.png)
 
 3. Di jendela Pengelola Sumber Data , alihkan ke tab Teks Dibatasi . Klik tombol ... di sebelah Nama file dan telusuri direktori tempat  mengekstrak globalpowerplantdatabasev120.zipfile. Pilih global_power_plant_database.csv. QGIS akan otomatis mendeteksi bidang pembatas dan geometri. Biarkan Geometri CRS ke nilai default . Klik Tambah diikuti oleh Tutup .EPSG:4326 - WGS84
+![3](https://user-images.githubusercontent.com/114122090/197017530-2bac06e4-6e21-4d16-923e-ac407900a8c0.png)
 
 4. Sebuah layer baru global_power_plant_databaseakan ditambahkan ke panel Layers dan  akan melihat titik-titik yang mewakili pembangkit listrik di kanvas. Sekarang kita siap untuk menata kedua lapisan ini. Klik tombol Open the Layer Styling panel di bagian atas panel Layers .
+![4](https://user-images.githubusercontent.com/114122090/197017595-1941c4c7-df81-4e2d-9116-a0b639744203.png)
 
-5. Panel Layer Styling akan terbuka di sebelah kanan. Pilih ne_10m_landlapisannya terlebih dahulu. Ini akan menjadi lapisan dasar kami sehingga kami dapat menjaga gaya minimalis agar tidak mengganggu. Klik dan gulir ke bawah. Pilih warna Fill sesuai keinginan . Klik drop-down di sebelah Stroke color dan pilih . Ini akan mengatur garis besar poligon tanah menjadi transparan.  akan melihat hasil seleksi  diterapkan segera ke lapisan.Simple fillTransparent Stroke
+5. Panel Layer Styling akan terbuka di sebelah kanan. Pilih ne_10m_land lapisannya terlebih dahulu. Ini akan menjadi lapisan dasar kami sehingga kami dapat menjaga gaya minimalis agar tidak mengganggu. Klik dan gulir ke bawah. Pilih warna Fill sesuai keinginan . Klik drop-down di sebelah Stroke color dan pilih . Ini akan mengatur garis besar poligon tanah menjadi transparan.  akan melihat hasil seleksi  diterapkan segera ke lapisan.Simple fillTransparent Stroke
+![5](https://user-images.githubusercontent.com/114122090/197017638-c34c771c-b4fc-4b78-91d0-a97e3f67f9a6.png)
 
-6. Selanjutnya pilih global_power_plant_databaselapisan. Klik dan gulir ke bawah. Pilih pen segitiga.Simple marker
+6. Selanjutnya pilih global_power_plant_database lapisan. Klik dan gulir ke bawah. Pilih pen segitiga.Simple marker
+![6](https://user-images.githubusercontent.com/114122090/197017673-e685795f-63f2-43e8-b9b7-e9f6edf6fa16.png)
 
 7. Gulir ke atas dan pilih warna Isi sesuai keinginan . Teknik kartografi yang berguna adalah memilih versi warna isian yang sedikit lebih gelap sebagai warna Stroke . Daripada mencoba memilihnya secara manual, QGIS menyediakan ekspresi untuk mengontrol ini dengan lebih tepat. Klik tombol Penimpaan yang ditentukan data dan pilih Edit .
+![7](https://user-images.githubusercontent.com/114122090/197017705-319f8079-435f-4638-a7ec-711ef9a9cdfa.png)
 
 8. Masukkan ekspresi berikut untuk mengatur warnanya menjadi 30% lebih gelap dari warna isian dan klik OK .
-darker(@symbol_color, 130)
+```darker(@symbol_color, 130)```
+![8](https://user-images.githubusercontent.com/114122090/197017812-ed24e0a2-4147-4bed-b1f7-10b8ae6c56a4.png)
 
 >Catatan
 >Perhatikan bahwa ekspresi ini tidak tergantung pada warna isian yang  pilih.  akan melihat bahwa ini sangat berguna dalam langkah-langkah berikut di mana secara >otomatis mengatur warna batas berdasarkan warna isian yang disediakan.
 
 9. Kita akan melihat bahwa tombol Override yang ditentukan Data di sebelah Warna Stroke telah berubah menjadi kuning - menunjukkan bahwa properti ini dikendalikan oleh override. Render simbol tunggal dari lapisan pembangkit listrik tidak terlalu berguna. Itu tidak menyampaikan banyak informasi kecuali lokasi pembangkit listrik. Mari kita gunakan penyaji yang berbeda untuk membuatnya lebih berguna. Klik drop-down Symbology dan pilih Categorizedrenderer.
+![9](https://user-images.githubusercontent.com/114122090/197017861-e0bc6689-8472-4318-a3c1-e3353cb87be2.png)
 
-10. Lapisan tersebut global_power_plant_databaseberisi atribut yang menunjukkan bahan bakar utama yang digunakan di setiap pembangkit listrik. Kita dapat membuat gaya di mana setiap jenis bahan bakar yang unik ditampilkan dalam warna yang berbeda. Pilih primary_fuelsebagai Kolom . Klik Klasifikasi .  akan melihat beberapa kategori dan rendering peta berubah sesuai.
+10. Lapisan tersebut global_power_plant_database berisi atribut yang menunjukkan bahan bakar utama yang digunakan di setiap pembangkit listrik. Kita dapat membuat gaya di mana setiap jenis bahan bakar yang unik ditampilkan dalam warna yang berbeda. Pilih primary_fuelsebagai Kolom . Klik Klasifikasi . Kita akan melihat beberapa kategori dan rendering peta berubah sesuai.
+![10](https://user-images.githubusercontent.com/114122090/197017888-84a5cca2-a94d-4d19-be58-5bf0c28b7f4a.png)
 
 11. Meskipun tampilan Terkategori berguna, lapisan ini berisi terlalu banyak kategori untuk dapat ditafsirkan peta secara bermakna. Pendekatan yang lebih baik adalah mengelompokkan jenis kategori bahan bakar tertentu dan mengurangi jumlah kelas. Mari kita coba buat 3 kategori - Bahan bakar terbarukan , Bahan bakar tidak terbarukan , dan Lainnya . Pilih Rule-basedpenyaji. Pilih semua kecuali satu aturan dengan menahan Ctrltombol dan mengklik setiap baris. Setelah dipilih, klik tombol Hapus aturan yang dipilih untuk menghapusnya.
+![11](https://user-images.githubusercontent.com/114122090/197017980-54555322-20e9-41cd-a605-8aa2ab60b857.png)
 
 12. Pilih aturan yang tersisa dan klik Edit aturan saat ini .
+![12](https://user-images.githubusercontent.com/114122090/197018015-a5b14dec-ea2b-4ff6-bc84-790a07c8df21.png)
 
 13. Masukkan sebagai Label . Klik tombol Ekspresi di sebelah Filter .Renewable fuel
+![14](https://user-images.githubusercontent.com/114122090/197018149-0e0e50f1-df7d-4570-9d4b-a017133678ec.png)
 
 14. Dalam dialog Pembuat String Ekspresi , masukkan ekspresi berikut dan klik OK . Di sini kami mengelompokkan beberapa kategori energi terbarukan ke dalam satu kategori.
-      "primary_fuel" IN ('Biomass', 'Geothermal', 'Hydro', 'Solar', 'Wind', 'Storage', 'Wave and Tidal')
-      
+```"primary_fuel" IN ('Biomass', 'Geothermal', 'Hydro', 'Solar', 'Wind', 'Storage', 'Wave and Tidal')```
+![15](https://user-images.githubusercontent.com/114122090/197018104-23846d30-c56e-4694-941e-714d7223caae.png) 
+     
 15. Gulir ke bawah dan klik Pen sederhana . Pilih warna Isi yang sesuai . Setelah selesai, klik tombol Kembali .
+![16](https://user-images.githubusercontent.com/114122090/197018355-87f0ca6b-2da0-490b-9fe5-393b4fcfb296.png)
 
 16. Kita akan melihat satu aturan diterapkan pada lapisan untuk kategori bahan bakar terbarukan . Klik kanan baris dan pilih Salin . Klik kanan lagi dan pilih Tempel .
+![17](https://user-images.githubusercontent.com/114122090/197018382-d9d2c228-b778-42c6-950d-1b62b3e51da7.png)
 
 17. Salinan aturan yang ada akan ditambahkan. Pilih baris yang baru ditambahkan dan klik Edit aturan saat ini .
+![18](https://user-images.githubusercontent.com/114122090/197018422-fb5d15b3-c3cb-473f-a05b-e7180b9c5dfe.png)
 
 18. Masukkan sebagai Label . Klik tombol Ekspresi di sebelah Filter .Non-renewable fuel
+![19](https://user-images.githubusercontent.com/114122090/197018442-249463d7-4a07-4a62-b205-93013dd93917.png)
 
 19. Dalam dialog Pembuat String Ekspresi , masukkan ekspresi berikut dan klik OK .
-      "primary_fuel" IN ('Coal', 'Gas', 'Nuclear', 'Oil', 'Petcoke')
+```"primary_fuel" IN ('Coal', 'Gas', 'Nuclear', 'Oil', 'Petcoke')```
+![20](https://user-images.githubusercontent.com/114122090/197018574-230a52bc-d6f7-4d9f-865d-cea0b3933e67.png)
 
 20. Gulir ke bawah dan klik Pen sederhana . Pilih warna Isi yang sesuai . Setelah selesai, klik tombol Kembali .
+![21](https://user-images.githubusercontent.com/114122090/197018527-daa44eb9-ba71-4b34-b640-2fe6b1e93162.png)
 
 21. Ulangi proses Copy/Paste untuk menambahkan aturan ketiga. Pilih dan klik Edit aturan saat ini .
+![22](https://user-images.githubusercontent.com/114122090/197018603-bd6f584d-a48e-4f1c-92d4-463a6b2037ce.png)
 
 22. Masukkan Othersebagai Label . Pilih Else - Catch all untuk fitur lain daripada Filter . Ini akan memastikan bahwa setiap kategori yang terlewatkan dalam 2 aturan sebelumnya, akan ditata oleh aturan ini. Gulir ke bawah dan klik Pen sederhana . Pilih warna Isi yang sesuai . Setelah selesai, klik tombol Kembali .
+![23](https://user-images.githubusercontent.com/114122090/197018625-5e7fbfa4-9332-4a1a-a295-2ade91f4caa4.png)
 
 23. Pengkategorian ulang selesai sekarang.  akan melihat tampilan yang jauh lebih bersih yang menunjukkan distribusi sumber bahan bakar terbarukan vs. tidak terbarukan yang digunakan oleh pembangkit listrik dan distribusinya di seluruh negara. Namun ini tidak memberikan gambaran yang lengkap. Kita bisa menambahkan variabel lain ke styling. Daripada menampilkan semua pen dengan ukuran seragam, kami dapat menunjukkan ukuran yang proporsional dengan kapasitas pembangkit listrik masing-masing pembangkit. Teknik kartografi ini disebut pemetaan Multivariat . Klik kanan aturan dan pilih Ubah Ukuran .Renewable fuel
+![24](https://user-images.githubusercontent.com/114122090/197018631-4d6b438c-18f7-4952-b640-b35320a276cb.png)
 
 24. Klik tombol Penggantian yang ditentukan data di sebelah Ukuran . Pilih Sunting .
+![25](https://user-images.githubusercontent.com/114122090/197018654-3527f5c4-1e24-4dd1-865f-88b4eaa79917.png)
 
 25. Karena kapasitas pembangkit listrik sangat bervariasi di antara kumpulan data kami, cara yang efektif untuk mendapatkan rentang ukuran yang kecil adalah dengan menggunakan log10fungsi.  dapat bereksperimen dengan ekspresi yang berbeda untuk sampai pada apa yang terbaik untuk visualisasi pilihan . Masukkan ekspresi berikut dan klik OK .
-      log10("capacity_mw") + 1
-      
+```log10("capacity_mw") + 1```
+![26](https://user-images.githubusercontent.com/114122090/197018705-ac999882-b594-4cb8-b4db-8c1c87832212.png)
+    
 26. Ulangi proses yang sama untuk aturan lainnya.
+![27](https://user-images.githubusercontent.com/114122090/197018718-321ed12f-383f-408e-9f04-a23e315ead17.png)
 
 27. Setelah puas,  dapat menutup panel Layer Styling .
+![28](https://user-images.githubusercontent.com/114122090/197018742-fe6ec311-fa52-46dc-afbc-13c713f47460.png)
 
 28. Melihat visualisasi akhir kami,  dapat langsung melihat pola di dataset. Sebagai contoh, di Eropa terdapat lebih banyak pembangkit listrik yang menggunakan sumber energi terbarukan, tetapi kapasitasnya lebih rendah daripada pembangkit yang menggunakan sumber energi tidak terbarukan.
+![29](https://user-images.githubusercontent.com/114122090/197018766-4a9a6675-d40f-40e0-b8e5-774884b7ce51.png)
+![30](https://user-images.githubusercontent.com/114122090/197018797-2d3e09d5-b5bb-43fa-a083-f248ab67bfb2.png)
 
 
 ## Modul 5
