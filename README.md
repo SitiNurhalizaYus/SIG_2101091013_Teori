@@ -7,6 +7,7 @@ Tutorial Latihan :
 - [Modul 5](README.md#modul-5) Menghitung Panjang Garis dan Statistik (QGIS3)
 - [Modul 7](README.md#modul-7) Mosaik dan Kliping Raster (QGIS3)
 - [Modul 8](README.md#modul-8) Bekerja dengan Data Medan (QGIS3)
+- [Modul 9](README.md#modul-9) Bekerja dengan Data WMS (QGIS3) 
 
 ## Modul 1
 # `Membuat Peta (QGIS3)`
@@ -517,6 +518,68 @@ Sumber Data: [[GMTED2010]](https://www.qgistutorials.com/id/docs/credits.html#gm
 
 21. Jelajahi file keluaran di disk Kita dan klik dua kali untuk membuka Google Earth Pro.
 ![finish](https://user-images.githubusercontent.com/114122090/201891887-da7e5da8-9579-4e83-952b-f8a8672999b9.png)
+
+
+## Modul 9
+# `Bekerja dengan Data WMS (QGIS3) `
+file : [modul9.qpt]()
+
+
+## Procedure
+1.	Buka QGIS dan klik Buka Pengelola Sumber Data .
+
+2.	Di kotak dialog Pengelola Sumber Data beralih ke WMS/WMTS , klik Baru .
+
+3.	Di kotak dialog Buat Koneksi WMS/WMTS Baru di bawah Detail Koneksi , masukkan Nama sebagai SEDAC, dan tempel URL yang disalin di kotak teks URL . Klik Oke . Jika Kita mendapatkan kesalahan dengan URL yang disalin, coba dengan URL alternatif https://sedac.ciesin.columbia.edu/geoserver/ows.
+
+>Catatan :
+>Kita membuat koneksi baru ke layanan WMS - bukan lapisan tertentu. Layanan tunggal biasanya >menawarkan beberapa lapisan yang dapat ditambahkan ke proyek Kita.
+
+4.	Sekarang di kotak dialog Pengelola Sumber Data , klik Sambungkan . Semua lapisan yang tersedia akan dimuat. Kita akan melihat ID yang berbeda terdaftar di sebelah lapisan. ID 0berarti Kita mendapatkan peta semua lapisan. Jika Kita tidak menginginkan semua lapisan, Kita dapat memperluas daftar dengan mengklik ikon dan memilih lapisan yang diinginkan.
+
+5.	Untuk tutorial ini, kami tertarik pada lapisan tertentu. Telusuri . Pilih versi default dari lapisan ekspansi perkotaan 2030.Probabilities of Urban Expansion to 2030
+
+6.	Di bagian Pengkodean Gambar , Kita harus memilih format gambar. Format gambar itu penting, dan tergantung pada kasus penggunaan. Berdasarkan perspektif pengguna, berikut adalah beberapa petunjuk,
+
+Kualitas : Kompresi file untuk PNG adalah lossless, untuk JPEG itu adalah kompresi lossy dan TIFF dapat berupa keduanya. Itu berarti kualitas PNG akan lebih baik dibandingkan dengan JPEG. Jika tujuan utama Kita adalah mencetak peta, gunakan PNG.
+
+>Kecepatan : Karena gambar PNG tidak terkompresi dan dengan demikian ukurannya lebih besar, mereka akan membutuhkan waktu lebih lama untuk dimuat. Jika Kita menggunakan lapisan dalam proyek Kita sebagai lapisan referensi dan perlu banyak memperbesar/menggeser, gunakan JPEG.
+
+>Dukungan Klien : QGIS mendukung sebagian besar format, tetapi jika Kita mengembangkan aplikasi web, browser biasanya tidak mendukung TIFF, jadi Kita harus memilih format lain.
+
+>Jenis data : Jika lapisan Kita terutama vektor, PNG akan memberikan hasil yang lebih baik. Untuk lapisan citra, JPEG biasanya merupakan pilihan yang lebih baik.
+
+Untuk tutorial ini, pilih PNG sebagai formatnya. Ubah nama Layer jika Kita mau dan klik Add .
+
+7.	Sekarang lapisan Probabilitas Ekspansi Perkotaan hingga 2030 akan dimuat di kanvas. Gunakan alat Zoom/Pan untuk menjelajahi lapisan. Cara kerja layanan WMS adalah setiap kali Kita melakukan zoom/pan, ia mengirimkan koordinat area pKitang Kita ke server dan server membuat gambar untuk area pKitang tersebut dan mengembalikannya ke klien. Jadi, akan ada penundaan sebelum Kita melihat gambar untuk area tersebut setelah Kita memperbesar. Oleh karena itu, koneksi internet selalu diperlukan untuk mengakses lapisan ini.
+
+8.	Sekarang, perbesar ke tempat yang diketahui dan klik ikon Identifikasi Fitur di bilah alat.
+
+9.	Klik pada sembarang piksel di kanvas, itu akan muncul kotak dialog dengan nilai sel. Ini adalah nilai piksel dalam lapisan - yang menunjukkan kemungkinan bahwa piksel akan mengalami urbanisasi pada tahun 2030. Karena lapisan tidak disimpan secara lokal, nilai-nilai ini diambil dari penyedia layanan. Kita dapat melihat hasilnya lebih baik dengan memilih Format sebagai HTMLdan Lihat sebagai Tree.
+
+>Catatan :
+>Informasi diambil oleh GetFeatureInfo , ini adalah panggilan stKitar WMS yang memungkinkan kita >untuk mengambil informasi tentang fitur dan cakupan yang ditampilkan di peta. Jika peta terdiri >dari berbagai lapisan, dan GetFeatureInfo dapat diinstruksikan untuk mengembalikan beberapa >deskripsi fitur, HTML/GeoJSON adalah format file yang biasa digunakan untuk mengambil >informasi.
+
+10.	Untuk melihat, informasi tambahan tentang layer klik kanan pada layer dan pilih Properties... .
+
+11.	Di kotak dialog Properti Lapisan , alihkan ke tab Informasi di sini semua informasi seperti penyedia data , proyeksi , jangkauan dapat ditemukan. Klik OK untuk menutup kotak dialog setelah menjelajah.
+
+12.	Di Peramban QGIS , cari Ubin XYZ dan klik dan seret OpenStreetMapke kanvas.
+
+13.	Klik pada ikon panel Open the Layer Styling dan alihkan ke Transparency .
+
+14.	Setel opasitas Global ke 50 %
+
+15.	Sekarang di kanvas, lapisan Urban dapat dieksplorasi dengan referensi geografis.
+
+16.	Untuk mendapatkan lebih banyak akses ke transparansi layer, klik kanan pada layer dan pilih Properties... .
+
+17.	Di kotak dialog Properti Lapisan , alihkan ke tab Legenda , di bawah Widget yang tersedia pilih dan klik ikon Tambahkan widget yang dipilih . Klik Oke .Opacity slider
+
+18.	Sekarang widget penggeser akan tersedia untuk mengontrol opacity layer.
+
+
+
 
 
 
