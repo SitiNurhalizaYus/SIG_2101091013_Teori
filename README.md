@@ -306,4 +306,58 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 
 
 ## Modul 5
-#
+# `Menghitung Panjang Garis dan Statistik (QGIS3)`
+file : [modul5.qgz]
+()
+
+###Prosedur 
+1. Temukan ne_10m_railroads_north_america.zipfile yang diunduh di panel Browser dan perluas. Seret ne_10m_railroads_north_america.shpfile ke kanvas.
+![1](https://user-images.githubusercontent.com/114122090/201804982-083c3cf5-6619-400d-9aa3-3ed5aebac9d2.png)
+
+2. Selanjutnya akan melihat layer baru ne_10m_railroads_north_americadimuat di panel Layers . Kita akan melihat bahwa layer tersebut memiliki garis yang mewakili rel kereta api untuk seluruh Amerika Utara. Sekarang, mari hitung panjang setiap fitur garis. Pergi ke Memproses ‣ Kotak Alat .
+![3](https://user-images.githubusercontent.com/114122090/201804999-0f824be2-b631-46b1-be8b-e87212897daa.png)
+
+3. Cari dan temukan geometri Vektor ‣ Tambahkan algoritme atribut geometri. Klik dua kali untuk meluncurkannya.
+![4](https://user-images.githubusercontent.com/114122090/201805005-d775a27e-d358-4a96-a350-7d81536aa3d9.png)
+
+4. Dalam dialog Add Geometry Attributesne_10m_railroads_north_america , pilih sebagai Input layer . Coordinate Reference System (CRS) layer input adalah EPSG:4326 WGS84 . Ini adalah CRS Geografis dengan Lintang dan Bujur sebagai koordinat, WGS84 sebagai ellipsoid dan derajat sebagai satuan. Karena lintang dan bujur tidak memiliki panjang standar, Anda tidak dapat mengukur jarak atau luas secara akurat menggunakan fungsi geometri planar. Untungnya, QGIS menyediakan cara yang lebih baik untuk menghitung jarak menggunakan geometri ellipsoidal, yang merupakan metode paling akurat untuk lapisan yang menjangkau area yang luas seperti ini. Pilih Ellipsoidalsebagai opsi Hitung menggunakan . Klik Jalankan . Setelah proses selesai, klik Tutup.
+![5](https://user-images.githubusercontent.com/114122090/201805009-3dd6ab65-59f1-4f2e-ad54-6ab9d1e4aeff.png)
+      >Catatan
+      >Jika layer input Anda berada dalam Projected CRS , Anda dapat memilih opsi untuk perhitungan. Sistem koordinat lokal atau regional yang diproyeksikan dirancang       >untuk meminimalkan distorsi pada wilayah yang diminati, sehingga lebih akurat untuk perhitungan tersebut.Layer CRS
+
+5. Kita akan melihat layer baru dimuat di panel Layers . Ini adalah salinan dari lapisan input dengan kolom baru yang ditambahkan untuk jarak. Klik kanan layer dan pilih Open Attribute Table .Added geom infoAdded geom info
+![6](https://user-images.githubusercontent.com/114122090/201805015-f0d16929-3c91-4a4b-adad-ccf62372c86e.png)
+      >Catatan
+      >Alat Add Geometry Attribute menambahkan rangkaian atribut yang berbeda bergantung pada apakah lapisan masukan berupa titik, garis, atau poligon. Lihat                 >dokumentasi QGIS untuk detail lebih lanjut.
+
+6. Di Tabel Atribut , Kita akan melihat kolom baru bernama distance . Ini berisi panjang setiap garis fitur dalam meter . Perhatikan juga atribut sov_a3 yang berisi kode negara untuk setiap fitur. Tutup jendela Tabel Atribut .
+![7](https://user-images.githubusercontent.com/114122090/201805019-5706fd19-8ad1-4200-bf08-2b25fe0edf18.png)
+
+7. Sekarang setelah kita memiliki panjang segmen jalur kereta api individual, kita dapat menjumlahkannya untuk menemukan panjang total rel kereta api. Tetapi karena pernyataan masalah menuntut kita membutuhkan total panjang rel kereta api di Amerika Serikat, kita harus menggunakan hanya segmen-segmen yang ada di AS. Kita dapat menggunakan nilai kode negara di kolom sov_a3 untuk memfilter layer. Klik kanan layer dan pilih Filter .Added geom info
+![8](https://user-images.githubusercontent.com/114122090/201805022-8d6ed654-ef0d-44fb-880d-6cb9ae4493e7.png)
+
+8. Dalam dialog Pembuat Kueri , masukkan ekspresi berikut dan klik OK .
+```
+"sov_a3" = 'USA'
+```
+![9](https://user-images.githubusercontent.com/114122090/201805032-b4211763-6cc5-4748-bcbf-c7887ec103f3.png)
+
+9. Kita akan melihat ikon Filter muncul di sebelah layer di panel Layers yang menunjukkan bahwa filter diterapkan ke layer. Kita juga dapat mengonfirmasi secara visual bahwa lapisan tersebut sekarang berisi segmen garis hanya untuk Amerika Serikat. Sekarang kita siap menghitung jumlahnya. Klik tombol Tampilkan ringkasan statistik pada Bilah Alat Atribut .Added geom info
+![10](https://user-images.githubusercontent.com/114122090/201805035-e8fc7e75-cf92-4d40-b8ad-e2ce1a449df7.png)
+
+10. Panel Statistik baru akan terbuka. Pilih lapisan dan kolom.Added geom infolength
+![11](https://user-images.githubusercontent.com/114122090/201805038-a044f3c5-2703-4485-9b5b-7718b24e3210.png)
+
+11. Kita akan melihat berbagai statistik ditampilkan di panel. Satuan statistik sama dengan satuan lengthkolom- meter . Mari kita ubah perhitungan untuk menggunakan kilometer sebagai gantinya. Klik ikon Ekspresi di sebelah menu tarik-turun bidang di panel Statistik .
+![12](https://user-images.githubusercontent.com/114122090/201805045-3b53a50b-8ae6-4df1-9c81-51c06f369cc5.png)
+
+12. Masukkan ekspresi berikut dalam Dialog Ekspresi yang mengubah panjang menjadi kilometer.
+```
+length / 1000
+```
+![13](https://user-images.githubusercontent.com/114122090/201805053-67911cb1-b01f-4924-bdd9-d6e4798a9135.png)
+![14](https://user-images.githubusercontent.com/114122090/201805059-4698ed87-9f1b-42fe-bcb1-e87a09c64c38.png)
+
+13. Nilai Sum yang ditampilkan adalah total panjang rel di Amerika Serikat.
+![15](https://user-images.githubusercontent.com/114122090/201805063-903d4146-d82e-438f-af48-78fb86bab623.png)
+
