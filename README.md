@@ -307,8 +307,7 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 
 ## Modul 5
 # `Menghitung Panjang Garis dan Statistik (QGIS3)`
-file : [modul5.qgz]
-()
+file : [modul5.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/5b8d7345ab4eca9dc7ead2cc9c7f619bdaed1c73/Menghitung%20Panjang%20Garis%20dan%20Statistik%20(QGIS3)_siti%20nurhaliza%20yus_2101091013.qgz)
 
 ### Prosedur 
 1. Temukan ne_10m_railroads_north_america.zipfile yang diunduh di panel Browser dan perluas. Seret ne_10m_railroads_north_america.shpfile ke kanvas.
@@ -322,12 +321,12 @@ file : [modul5.qgz]
 
 4. Dalam dialog Add Geometry Attributesne_10m_railroads_north_america , pilih sebagai Input layer . Coordinate Reference System (CRS) layer input adalah EPSG:4326 WGS84 . Ini adalah CRS Geografis dengan Lintang dan Bujur sebagai koordinat, WGS84 sebagai ellipsoid dan derajat sebagai satuan. Karena lintang dan bujur tidak memiliki panjang standar, Anda tidak dapat mengukur jarak atau luas secara akurat menggunakan fungsi geometri planar. Untungnya, QGIS menyediakan cara yang lebih baik untuk menghitung jarak menggunakan geometri ellipsoidal, yang merupakan metode paling akurat untuk lapisan yang menjangkau area yang luas seperti ini. Pilih Ellipsoidalsebagai opsi Hitung menggunakan . Klik Jalankan . Setelah proses selesai, klik Tutup.
 ![5](https://user-images.githubusercontent.com/114122090/201805009-3dd6ab65-59f1-4f2e-ad54-6ab9d1e4aeff.png)
-      >Catatan
+      >Catatan : 
       >Jika layer input Anda berada dalam Projected CRS , Anda dapat memilih opsi untuk perhitungan. Sistem koordinat lokal atau regional yang diproyeksikan dirancang       >untuk meminimalkan distorsi pada wilayah yang diminati, sehingga lebih akurat untuk perhitungan tersebut.Layer CRS
 
 5. Kita akan melihat layer baru dimuat di panel Layers . Ini adalah salinan dari lapisan input dengan kolom baru yang ditambahkan untuk jarak. Klik kanan layer dan pilih Open Attribute Table .Added geom infoAdded geom info
 ![6](https://user-images.githubusercontent.com/114122090/201805015-f0d16929-3c91-4a4b-adad-ccf62372c86e.png)
-      >Catatan
+      >Catatan : 
       >Alat Add Geometry Attribute menambahkan rangkaian atribut yang berbeda bergantung pada apakah lapisan masukan berupa titik, garis, atau poligon. Lihat                 >dokumentasi QGIS untuk detail lebih lanjut.
 
 6. Di Tabel Atribut , Kita akan melihat kolom baru bernama distance . Ini berisi panjang setiap garis fitur dalam meter . Perhatikan juga atribut sov_a3 yang berisi kode negara untuk setiap fitur. Tutup jendela Tabel Atribut .
