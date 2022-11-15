@@ -5,6 +5,7 @@ Tutorial Latihan :
 - [Modul 3](README.md#modul-3) Mengimpor file Spreadsheet atau CSV (QGIS3)
 - [Modul 4](README.md#modul-4) Vektor Dasar (QGIS3)
 - [Modul 5](README.md#modul-5) Menghitung Panjang Garis dan Statistik (QGIS3)
+- [Modul 7](README.md#modul-7) Mosaik dan Kliping Raster (QGIS3)
 
 ## Modul 1
 # `Membuat Peta (QGIS3)`
@@ -360,3 +361,56 @@ length / 1000
 13. Nilai Sum yang ditampilkan adalah total panjang rel di Amerika Serikat.
 ![15](https://user-images.githubusercontent.com/114122090/201805063-903d4146-d82e-438f-af48-78fb86bab623.png)
 
+
+## Modul 7
+# `Mosaik dan Kliping Raster (QGIS3)`
+file : [modul7.qgz]()
+
+### Prosedur
+1. Buka QGIS dan temukan file yang diunduh di panel Browser . Perluas file zip individual untuk menampilkan .hgtfile. Tahan Ctrltombol dan pilih semua file individual. Setelah dipilih, seret ke kanvas.
+![1](https://user-images.githubusercontent.com/114122090/201807284-e80d305f-947e-4b8e-b078-1bd87d362338.png)
+
+2. Kita akan melihat 11 layer individual dimuat di panel Layers dan ditampilkan di kanvas. Kami akan menggabungkan ubin individual ini menjadi satu mozaik. Pergi ke Memproses ‣ Kotak Alat .
+![3](https://user-images.githubusercontent.com/114122090/201807297-0e404ff5-e738-4be3-a15c-e44574298dd2.png)
+
+3. Cari dan temukan GDAL Raster miscellaneous Merge tool. Klik dua kali untuk meluncurkannya.
+![4](https://user-images.githubusercontent.com/114122090/201807301-98791fec-126a-44c0-a0c9-cc7a4a7d1b8f.png)
+
+4. Dalam dialog Gabung , klik tombol … di sebelah Lapisan masukan . Klik Select All untuk memilih semua layer individual.
+![5](https://user-images.githubusercontent.com/114122090/201807305-2c08cee3-0054-41c6-9ab1-5871f3bf8392.png)
+![6](https://user-images.githubusercontent.com/114122090/201807309-e5730ca6-af64-4c2c-b666-4e664c2caa95.png)
+Seperti yang disebutkan dalam detail lapisan dataset , tipe data input adalah integer bertanda 16-bit . Untuk menjaga integritas data, kita harus menjaga tipe data yang sama untuk lapisan gabungan. Pilih Int16sebagai tipe data Output . Juga format data keluaran default adalah GeoTiff. File GeoTiff bisa menjadi sangat besar jika tidak dikompresi. Pilih sebagai Profil . Klik Jalankan .High Compression
+![7](https://user-images.githubusercontent.com/114122090/201807312-91e4c740-a9e3-4d8d-b23e-cb5f175a0fa0.png)
+![8](https://user-images.githubusercontent.com/114122090/201807315-cc1a29b0-9049-429c-b81a-515abbe257e6.png)
+
+5. Setelah pemrosesan selesai, layer baru marge akan ditambahkan ke panel Layers . Jika lapisan tidak berada di bagian atas tumpukan, pilih dan seret ke bagian atas panel Lapisan .
+![9](https://user-images.githubusercontent.com/114122090/201807319-30814b4f-31d7-4cba-b3dc-970384864dda.png)
+
+6. Kita akan melihat bahwa marge layer tersebut berisi data elevasi yang digabungkan dari masing-masing petak masukan. Visualisasi default hanya menampilkan nilai piksel dalam rentang 0-255. Tetapi data kami mengandung piksel dengan nilai -14 hingga 2371, menghasilkan rendering kontras rendah. Mari mengubahnya menjadi visualisasi yang lebih baik. Klik tombol Open the layer Styling panel di panel Layers .
+![10](https://user-images.githubusercontent.com/114122090/201807324-461ecb38-9a8c-4686-9c0a-eeb449f9631a.png)
+
+7. Di panel Layer Styling , klik dropdown Render type dan pilih Hillshaderenderer. Opsi rendering ini sangat cocok untuk data elevasi.
+![11](https://user-images.githubusercontent.com/114122090/201807329-ba103282-eaf9-4a49-b3cb-7718bce8f63a.png)
+![12](https://user-images.githubusercontent.com/114122090/201807332-0102bd6c-af8b-4255-819e-3d71f4bd55a1.png)
+
+8. Operasi umum lainnya saat bekerja dengan raster adalah untuk memotong raster ke area yang Anda minati. Untuk tutorial ini, kami akan memotong layer gabungan ke batas negara untuk Sri Lanka. Temukan ne_10m_admin_0_countries.zipfile yang diunduh dan perluas. Seret ne_10m_admin_0_countries.shpfile ke kanvas.
+![13](https://user-images.githubusercontent.com/114122090/201807341-3cae6880-43b5-424a-bb8c-7d1d6d4acf40.png)
+![14](https://user-images.githubusercontent.com/114122090/201807350-be5d7f50-91e4-40d3-aaa3-4f2baeff320c.png)
+
+9. ne_10m_admin_0_countriesPilih layer yang baru ditambahkan di panel Layers . Klik tombol Select Features by area atau satu klik pada Attributes Toolbar . Setelah dipilih, klik poligon untuk Sri Lanka untuk memilihnya.
+![15](https://user-images.githubusercontent.com/114122090/201807524-dbf27a7b-9402-4f2f-ad5a-ccdcd071e616.png)
+
+10. Pertahankan seleksi seperti apa adanya dan buka Processing Toolbox . Cari dan temukan GDAL Ekstraksi raster Klip raster dengan alat lapisan topeng. Klik dua kali untuk meluncurkannya.
+![16](https://user-images.githubusercontent.com/114122090/201807360-78f06cd3-0eb0-42b7-b4aa-dc8743e49962.png)
+
+11. Dalam dialog Clip Raster by Mask Layer , tetapkan OUTPUTsebagai Input Layer . Pilih ne_10m_admin_0_countriessebagai layer Mask , dan centang kotak Selected features only . Masukkan 0.0000sebagai Menetapkan nilai nodata yang ditentukan ke band keluaran . Seperti sebelumnya, pilih sebagai Profile . Klik Jalankan .High compression
+![17](https://user-images.githubusercontent.com/114122090/201807576-df217e22-c121-42e2-8dfc-1ba7f16a8c4e.png)
+![18](https://user-images.githubusercontent.com/114122090/201807372-a054900c-2785-4804-abec-afb119dca2b7.png)
+![19](https://user-images.githubusercontent.com/114122090/201807373-2e6fb9d2-cc50-4b6a-9b53-58952f43048c.png)
+![20](https://user-images.githubusercontent.com/114122090/201807380-7524c574-5785-4d8d-a92f-05fe1d627636.png)
+
+12. Sebuah layer baru OUTPUTakan ditambahkan ke panel Layers . Pada titik ini, mungkin sulit untuk melihat hasilnya karena kita memiliki terlalu banyak lapisan tumpang tindih yang terlihat. Klik tombol Kelola Tema Peta di panel Lapisan dan pilih .Hide All Layers
+
+13. Nyalakan hanya OUTPUTlayer terbaru dan beri gaya dengan Hilshadeperender seperti yang dilakukan sebelumnya
+
+14.  Lapisan elevasi keluaran gabungan dan subset untuk Sri Lanka sudah siap.
