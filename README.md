@@ -11,6 +11,7 @@ Tutorial Latihan :
 ## Modul 1
 # `Membuat Peta (QGIS3)`
 file : [modul1.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/05819c8059b8f05da157974393e37be8fa84bc17/kota_padang_2101091013.qpt)
+
 ## Prosedure
 1. Unduh dan ekstrak data Kit Mulai Cepat Natural Earth. Buka QGIS. Temukan folder di panel Browser . Perluas folder untuk menemukan proyek. Ini adalah file proyek yang berisi lapisan bergaya dalam format Dokumen QGIS. Klik dua kali proyek untuk membukanya.Natural Earth quick startNatural_Earth_quick_start_for_QGIS_v3
 ![1](https://user-images.githubusercontent.com/114122090/194772783-e133c99b-a385-4346-9062-4fbba6b8c30e.png)
@@ -21,7 +22,6 @@ file : [modul1.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 3. Kita dapat menonaktifkan beberapa lapisan peta untuk data yang tidak kami perlukan untuk peta ini. Perluas folder dan hapus centang pada kotak di sebelah dan lapisan. Sebelum kita membuat peta yang cocok untuk dicetak, kita perlu memilih proyeksi yang sesuai. CRS default untuk proyek diatur ke . Ini adalah CRS yang populer digunakan untuk pemetaan web dan merupakan pilihan yang layak untuk tujuan kita, sehingga kita dapat membiarkannya pada nilai defaultnya. Pergi ke Proyek Tata Letak Cetak Baru .z5 - 1:18mne_10m_geography_marine_polysne_10m_admin_0_disputed_areasEPSG:3857 Pseudo-Mercator
 
 4. Kita akan diminta untuk memasukkan judul untuk tata letak. Kita dapat membiarkannya kosong, disini saya akan mengisi dengan nama 'kota_padang_2101091013' dan klik Ok .
-
       ![3](https://user-images.githubusercontent.com/114122090/194772847-6299964a-2b59-4b2a-b58e-cfd392ce0376.png)
 
 5. Di jendela Print Layout, klik tombol Zoom full untuk menampilkan seluruh Layout.
@@ -84,14 +84,15 @@ file : [modul1.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 
 27. Klik pada peta dan gambar kotak di mana label seharusnya berada. Di tab Properti Item , perluas bagian Label dan masukkan label untuk peta. Demikian pula, tambahkan label lain untuk data dan kredit perangkat lunak.
 
-28. Setelah Anda puas dengan peta, Anda dapat mengekspornya sebagai Gambar, PDF, atau SVG. Untuk tutorial ini, mari kita ekspor sebagai gambar. Klik Tata Letak Ekspor sebagai Gambar .
+28. Setelah Kita puas dengan peta, Anda dapat mengekspornya sebagai Gambar, PDF, atau SVG. Untuk tutorial ini, mari kita ekspor sebagai gambar. Klik Tata Letak Ekspor sebagai Gambar .
 
-29. Simpan gambar dalam format yang Anda sukai. Di bawah ini adalah gambar PNG yang diekspor.
+29. Simpan gambar dalam format yang Kita sukai. Di bawah ini adalah gambar PNG yang diekspor.
 ![kota_padang_2101091013](https://user-images.githubusercontent.com/114122090/193393792-461887f7-2536-4c9a-8c5e-03f07829806c.png)
 
 ## Modul 2
 # `Bekerja dengan Atribut (QGIS3)`
 file : [modul2.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/af1283f530067d27baf4cd0e9015e668a32626df/siti%20nurhaliza%20yus_2101091013%20(Attributes%20).qgz)
+
 ## Prosedure
 1. Cari ne_10m_populated_places_simple.zip file di QGIS Browser dan perluas. Pilih ne_10m_populated_places_simple.shpfile dan seret ke kanvas.
 ![1](https://user-images.githubusercontent.com/114122090/196235613-2cf07634-bd2c-4e69-9360-5a7049cd9d83.png)
@@ -447,6 +448,7 @@ Berikut adalah cara mencari dan mengunduh data revelant dari USGS Earthexplorer.
 Untuk kenyamanan, Anda dapat mengunduh salinan data langsung dari bawah.
 
 [GMTED2010N10E060_300.zip](https://www.qgistutorials.com/id/docs/3/working_with_terrain.html#get-the-data)
+
 Sumber Data: [[GMTED2010]](https://www.qgistutorials.com/id/docs/credits.html#gmted2010)
 
 ## Procedure
@@ -511,8 +513,10 @@ Sumber Data: [[GMTED2010]](https://www.qgistutorials.com/id/docs/credits.html#gm
 
 20. Pilih Keyhole Markup Language [KML] sebagai Format . Klik ...di Nama file dan masukkan nama sebagai contour_smoothed.kml. Klik Oke .
 ![25](https://user-images.githubusercontent.com/114122090/201887718-ff9dace8-c69f-445b-bc21-44b86b3a8a04.png)
+![26](https://user-images.githubusercontent.com/114122090/201887727-8626024f-6d03-4c03-a01d-255b646756bf.png)
 
 21. Jelajahi file keluaran di disk Kita dan klik dua kali untuk membuka Google Earth Pro.
-![26](https://user-images.githubusercontent.com/114122090/201887727-8626024f-6d03-4c03-a01d-255b646756bf.png)
+![finish](https://user-images.githubusercontent.com/114122090/201891887-da7e5da8-9579-4e83-952b-f8a8672999b9.png)
+
 
 
