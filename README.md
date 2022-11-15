@@ -10,6 +10,7 @@ Tutorial Latihan :
 ## Modul 1
 # `Membuat Peta (QGIS3)`
 file : [modul1.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/05819c8059b8f05da157974393e37be8fa84bc17/kota_padang_2101091013.qpt)
+## Prosedure
 1. Unduh dan ekstrak data Kit Mulai Cepat Natural Earth. Buka QGIS. Temukan folder di panel Browser . Perluas folder untuk menemukan proyek. Ini adalah file proyek yang berisi lapisan bergaya dalam format Dokumen QGIS. Klik dua kali proyek untuk membukanya.Natural Earth quick startNatural_Earth_quick_start_for_QGIS_v3
 ![1](https://user-images.githubusercontent.com/114122090/194772783-e133c99b-a385-4346-9062-4fbba6b8c30e.png)
 
@@ -310,7 +311,7 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 # `Menghitung Panjang Garis dan Statistik (QGIS3)`
 file : [modul5.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/5b8d7345ab4eca9dc7ead2cc9c7f619bdaed1c73/Menghitung%20Panjang%20Garis%20dan%20Statistik%20(QGIS3)_siti%20nurhaliza%20yus_2101091013.qgz)
 
-### Prosedur 
+## Prosedure 
 1. Temukan ne_10m_railroads_north_america.zipfile yang diunduh di panel Browser dan perluas. Seret ne_10m_railroads_north_america.shpfile ke kanvas.
 ![1](https://user-images.githubusercontent.com/114122090/201804982-083c3cf5-6619-400d-9aa3-3ed5aebac9d2.png)
 
@@ -366,7 +367,7 @@ length / 1000
 # `Mosaik dan Kliping Raster (QGIS3)`
 file : [modul7.qgz]()
 
-### Prosedur
+## Prosedure
 1. Buka QGIS dan temukan file yang diunduh di panel Browser . Perluas file zip individual untuk menampilkan .hgtfile. Tahan Ctrltombol dan pilih semua file individual. Setelah dipilih, seret ke kanvas.
 ![1](https://user-images.githubusercontent.com/114122090/201807284-e80d305f-947e-4b8e-b078-1bd87d362338.png)
 
