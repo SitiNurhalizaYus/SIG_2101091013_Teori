@@ -4,7 +4,7 @@ Tutorial Latihan :
 - [Modul 2](README.md#modul-2) Bekerja dengan Atribut (QGIS3)
 - [Modul 3](README.md#modul-3) Mengimpor file Spreadsheet atau CSV (QGIS3)
 - [Modul 4](README.md#modul-4) Vektor Dasar (QGIS3)
-- [Modul 5](README.md#modul-5)
+- [Modul 5](README.md#modul-5) Menghitung Panjang Garis dan Statistik (QGIS3)
 
 ## Modul 1
 # `Membuat Peta (QGIS3)`
@@ -310,7 +310,7 @@ file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 file : [modul5.qgz]
 ()
 
-###Prosedur 
+### Prosedur 
 1. Temukan ne_10m_railroads_north_america.zipfile yang diunduh di panel Browser dan perluas. Seret ne_10m_railroads_north_america.shpfile ke kanvas.
 ![1](https://user-images.githubusercontent.com/114122090/201804982-083c3cf5-6619-400d-9aa3-3ed5aebac9d2.png)
 
