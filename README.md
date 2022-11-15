@@ -6,6 +6,7 @@ Tutorial Latihan :
 - [Modul 4](README.md#modul-4) Vektor Dasar (QGIS3)
 - [Modul 5](README.md#modul-5) Menghitung Panjang Garis dan Statistik (QGIS3)
 - [Modul 7](README.md#modul-7) Mosaik dan Kliping Raster (QGIS3)
+- [Modul 8](README.md#modul-8) Bekerja dengan Data Medan (QGIS3)
 
 ## Modul 1
 # `Membuat Peta (QGIS3)`
@@ -365,7 +366,7 @@ length / 1000
 
 ## Modul 7
 # `Mosaik dan Kliping Raster (QGIS3)`
-file : [modul7.qgz]()
+file : [modul7.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/4711acc366f036e3185f1e0ad8baa80712fbac15/Raster%20Mosaicing%20and%20Clipping%20(QGIS3)_2101091013_siti%20nurhaliza%20yus.qgz)
 
 ## Prosedure
 1. Buka QGIS dan temukan file yang diunduh di panel Browser . Perluas file zip individual untuk menampilkan .hgtfile. Tahan Ctrltombol dan pilih semua file individual. Setelah dipilih, seret ke kanvas.
@@ -404,14 +405,114 @@ Seperti yang disebutkan dalam detail lapisan dataset , tipe data input adalah in
 10. Pertahankan seleksi seperti apa adanya dan buka Processing Toolbox . Cari dan temukan GDAL Ekstraksi raster Klip raster dengan alat lapisan topeng. Klik dua kali untuk meluncurkannya.
 ![16](https://user-images.githubusercontent.com/114122090/201807360-78f06cd3-0eb0-42b7-b4aa-dc8743e49962.png)
 
-11. Dalam dialog Clip Raster by Mask Layer , tetapkan OUTPUTsebagai Input Layer . Pilih ne_10m_admin_0_countriessebagai layer Mask , dan centang kotak Selected features only . Masukkan 0.0000sebagai Menetapkan nilai nodata yang ditentukan ke band keluaran . Seperti sebelumnya, pilih sebagai Profile . Klik Jalankan .High compression
+11. Dalam dialog Clip Raster by Mask Layer , tetapkan marge sebagai Input Layer . Pilih ne_10m_admin_0_countriessebagai layer Mask , dan centang kotak Selected features only . Masukkan 0.0000 sebagai Menetapkan nilai nodata yang ditentukan ke band keluaran . Seperti sebelumnya, pilih sebagai Profile . Klik Jalankan .High compression
 ![17](https://user-images.githubusercontent.com/114122090/201807576-df217e22-c121-42e2-8dfc-1ba7f16a8c4e.png)
 ![18](https://user-images.githubusercontent.com/114122090/201807372-a054900c-2785-4804-abec-afb119dca2b7.png)
 ![19](https://user-images.githubusercontent.com/114122090/201807373-2e6fb9d2-cc50-4b6a-9b53-58952f43048c.png)
 ![20](https://user-images.githubusercontent.com/114122090/201807380-7524c574-5785-4d8d-a92f-05fe1d627636.png)
 
-12. Sebuah layer baru OUTPUTakan ditambahkan ke panel Layers . Pada titik ini, mungkin sulit untuk melihat hasilnya karena kita memiliki terlalu banyak lapisan tumpang tindih yang terlihat. Klik tombol Kelola Tema Peta di panel Lapisan dan pilih .Hide All Layers
+12. Sebuah layer baru marge akan ditambahkan ke panel Layers . Pada titik ini, mungkin sulit untuk melihat hasilnya karena kita memiliki terlalu banyak lapisan tumpang tindih yang terlihat. Klik tombol Kelola Tema Peta di panel Lapisan dan pilih .Hide All Layers
+![21](https://user-images.githubusercontent.com/114122090/201885617-cf008fab-7753-4671-8743-ad1f2595abe2.png)
 
-13. Nyalakan hanya OUTPUTlayer terbaru dan beri gaya dengan Hilshadeperender seperti yang dilakukan sebelumnya
+13. Nyalakan hanya marge layer terbaru dan beri gaya dengan Hilshadeperender seperti yang dilakukan sebelumnya
+![22](https://user-images.githubusercontent.com/114122090/201885654-bbe09bfd-0e9c-4342-b220-2baaf365aece.png)
 
 14.  Lapisan elevasi keluaran gabungan dan subset untuk Sri Lanka sudah siap.
+
+
+## Modul 8
+# `Bekerja dengan Data Medan (QGIS3)`
+file : [modul8.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/4711acc366f036e3185f1e0ad8baa80712fbac15/Working%20with%20Terrain%20Data%20(QGIS3)_siti%20nurhaliza%20yus_2101091013.qgz)
+
+Berikut adalah cara mencari dan mengunduh data revelant dari USGS Earthexplorer.
+
+1. Pergi ke USGS Earthexplorer . Di tab Kriteria Pencarian , klik Fitur Dunia . Di Feature Name enter Everest, di Country enter NEPAL, klik Show . Ini akan menampilkan tabel dengan informasi lokasi. Pilih Everest di bawah Placename .
+![1](https://user-images.githubusercontent.com/114122090/201886726-0bb2a64d-b1bc-4c04-b7e5-74013bb091af.png)
+
+2. Sekarang kanvas akan pindah ke lokasi Gunung Everest . Klik Kumpulan Data .
+![2](https://user-images.githubusercontent.com/114122090/201886789-f8569b15-62e1-458c-b8af-fe011da586fa.png)
+
+3. Luaskan grup Digital Elevation , dan centang GMTED2010 . Klik Hasil .
+![3](https://user-images.githubusercontent.com/114122090/201886852-45b68ee6-a279-460b-88a1-2ef3695ea561.png)
+
+4. Klik tombol Opsi Unduhan .
+![4](https://user-images.githubusercontent.com/114122090/201886927-52418f3c-6c37-44a0-9334-17d98564f5a8.png)
+>Peringatan :
+>Kita harus masuk ke situs saat ini. Anda dapat membuat akun gratis jika Anda tidak memilikinya.
+
+5. Pilih opsi 30 ARC SEC dan klik Download .
+![5](https://user-images.githubusercontent.com/114122090/201887030-b60ecdfe-5d31-4cc5-8aab-429a4e4caee8.png)
+
+6. Kita sekarang akan memiliki file bernama GMTED2010N10E060_300.zip . Data elevasi didistribusikan dalam berbagai format raster seperti ASC, BIL, GeoTiff, dll. QGIS mendukung berbagai format raster melalui pustaka GDAL. Data GMTED datang sebagai file GeoTiff yang terkandung dalam arsip zip ini.
+Untuk kenyamanan, Anda dapat mengunduh salinan data langsung dari bawah.
+
+[GMTED2010N10E060_300.zip](https://www.qgistutorials.com/id/docs/3/working_with_terrain.html#get-the-data)
+Sumber Data: [[GMTED2010]](https://www.qgistutorials.com/id/docs/credits.html#gmted2010)
+
+## Procedure
+1. Buka Lapisan Tambahkan Lapisan Tambahkan Lapisan Raster .
+![6](https://user-images.githubusercontent.com/114122090/201887230-d6cb7e70-f59f-4150-a99d-e9e8fcd545e6.png)
+
+2. Klik pada ... di bawah Sumber , cari dan pilih file bernama 10n060e_20101117_gmted_mea300.tif .
+![7](https://user-images.githubusercontent.com/114122090/201887245-0673d89a-c1c6-4e9d-b2af-bfdf995919cf.png)
+
+3. Kita akan melihat data medan yang ditampilkan di Kanvas QGIS. Setiap piksel dalam raster medan mewakili elevasi rata-rata dalam meter di lokasi tersebut. Piksel gelap mewakili area dengan ketinggian rendah dan piksel lebih terang mewakili area dengan ketinggian tinggi.
+![8](https://user-images.githubusercontent.com/114122090/201887271-44d9f16b-c785-4c7c-be25-0536e446ac83.png)
+
+4. Mari temukan bidang minat kita. Dari Wikipedia , kami menemukan bahwa koordinat untuk area yang kami minati - Gunung Everest - terletak pada koordinat 27.9881° LU, 86.9253° BT. Perhatikan bahwa QGIS menggunakan koordinat dalam format (X, Y), jadi Anda harus menggunakan koordinat sebagai (Bujur, Lintang). Tempelkan 86.9253,27.9881 ini di bagian bawah jendela QGIS di mana tertulis Koordinasi dan tekan Enter. Area pandang akan dipusatkan pada koordinat ini. Untuk memperbesar, Masukkan 1:1000000 di bidang Skala dan tekan Enter. Anda akan melihat viewport zoom ke area sekitar Himalaya.
+![9](https://user-images.githubusercontent.com/114122090/201887308-6c053f62-ae33-42b3-8b53-213fca465281.png)
+
+5. Kami sekarang akan memangkas raster ke area minat ini. Cari Klip di Kotak Alat Pemrosesan . Pilih di bawah algoritma GDAL.Clip Raster by extent
+![10](https://user-images.githubusercontent.com/114122090/201887369-1781dcc9-6737-4d8d-b253-2c61ef5419e7.png)
+
+6. Di jendela Clip Raster by Extent , pilih 10n060e_20101117_gmted_mea300sebagai Input Layer... , klik Clipping extent dan pilih , klik Clipped (extent) dan masukkan nama sebagai . Klik Jalankan .Use Map canvas extent...mt_everest.tif
+![11](https://user-images.githubusercontent.com/114122090/201887411-5302b141-7ff5-4b4a-9e14-ca495f554e91.png)
+
+7. Sebuah layer baru mt_everestakan muncul di kanvas. Cari Hill di Processing Toolbox . Pilih Hillshadealgoritma di bawah algoritma GDAL.
+![12](https://user-images.githubusercontent.com/114122090/201887442-a9567638-83dc-4d33-a612-3dc5a3a60168.png)
+
+8. Di jendela Hillshade , pilih mt_everestsebagai Elevation Layer , masukkan 315.000dalam Azimuth (sudut horizontal) , masukkan 45.000dalam sudut Vertikal . Klik ...di Hillshade dan masukkan namanya sebagai mt_everest_hillshade.tif. Klik Jalankan .
+![13](https://user-images.githubusercontent.com/114122090/201887529-b24e151a-6b40-4fbb-89fb-aad8fa9c5ffa.png)
+
+9. Sebuah layer baru mt_everest_hillshadeakan muncul di kanvas.
+![14](https://user-images.githubusercontent.com/114122090/201887544-14398536-8dfe-4f69-a594-ed0f96ba7f47.png)
+
+10. Cari Contour di Processing Toolbox . Pilih Contouralgoritma di bawah algoritma GDAL.
+![15](https://user-images.githubusercontent.com/114122090/201887597-2d00d267-00e2-42e7-82c7-959de76e4240.png)
+
+11. Di jendela Contour , pilih mt_everestsebagai Input Layer , masukkan Interval 250antara garis kontur . Klik ...di Kontur dan masukkan nama sebagai mt_everest_contour.gpkg. Klik Jalankan .
+![16](https://user-images.githubusercontent.com/114122090/201887630-0252f6db-dc2c-4f52-8186-40d94a1c494e.png)
+
+12. Sebuah layer baru mt_everest_contourakan muncul di kanvas. Klik kanan pada layer dan klik Open Attribute Table .
+![17](https://user-images.githubusercontent.com/114122090/201887642-35ee392b-75ab-4fc6-8de4-b4332a3f26e0.png)
+
+13. Kita akan melihat bahwa setiap fitur baris memiliki atribut bernama ELEV . Ini adalah ketinggian dalam meter yang diwakili oleh setiap garis. Klik pada tajuk kolom beberapa kali untuk mengurutkan nilai dalam urutan menurun. Di sini Anda akan menemukan garis yang mewakili elevasi tertinggi dalam data kami, yaitu Gunung Everest.
+![18](https://user-images.githubusercontent.com/114122090/201887668-08ed9071-4ea0-479f-896c-f56361e501c6.png)
+
+14. Pilih baris atas, dan klik tombol Zoom to selection .
+![19](https://user-images.githubusercontent.com/114122090/201887678-26d07158-5260-409c-8f54-f9f6beecb0a3.png)
+
+15. Beralih ke jendela utama QGIS. Anda akan melihat garis kontur yang dipilih disorot dengan warna kuning. Ini adalah area elevasi tertinggi dalam kumpulan data kami.
+![20](https://user-images.githubusercontent.com/114122090/201887686-03436aba-41a6-4e6e-a51c-0c31bd4b5821.png)
+
+16. Cari Smooth di Processing Toolbox . Pilih di Smoothbawah geometri Vektor.
+![21](https://user-images.githubusercontent.com/114122090/201887696-b48ae4b6-3096-47b4-a3d4-1b9be5a988bd.png)
+
+17. Di jendela Smooth , pilih mt_everest_contoursebagai Input Layer5 , masukkan Iterasi . Klik Jalankan .
+![22](https://user-images.githubusercontent.com/114122090/201887702-4fe534a5-d14d-4202-bd30-308f2deaa45d.png)
+>Peringatan : 
+>Algoritma pemulusan bekerja dengan menambahkan simpul ekstra di sepanjang garis. Saat Anda menambah jumlah iterasi, jumlah simpul di garis kontur bertambah banyak. Jadi berhati-hatilah dalam menggunakan jumlah iterasi yang lebih tinggi. Anda dapat mengurangi ukuran berkas keluaran dengan mengekspornya sebagai berkas bentuk dan menyederhanakan hasilnya menggunakan Mapshaper .
+
+18. Sebuah layer baru Smoothedakan muncul di kanvas. Lapisan ini akan memiliki tepi yang lebih halus dibandingkan dengan mt_everest_contourlapisan.
+![23](https://user-images.githubusercontent.com/114122090/201887709-1249b05c-c801-4aee-91c8-9414e4107f5f.png)
+
+19. Kita juga dapat memvisualisasikan lapisan kontur dan memverifikasi analisis Anda dengan mengekspor lapisan kontur sebagai KML dan melihatnya di Google Earth. Klik kanan pada layer yang telah dihaluskan, pilih Export ‣ Save Feature As... .
+![24](https://user-images.githubusercontent.com/114122090/201887714-c531475b-52d3-4257-a250-8afe9023e4ef.png)
+
+20. Pilih Keyhole Markup Language [KML] sebagai Format . Klik ...di Nama file dan masukkan nama sebagai contour_smoothed.kml. Klik Oke .
+![25](https://user-images.githubusercontent.com/114122090/201887718-ff9dace8-c69f-445b-bc21-44b86b3a8a04.png)
+
+21. Jelajahi file keluaran di disk Kita dan klik dua kali untuk membuka Google Earth Pro.
+![26](https://user-images.githubusercontent.com/114122090/201887727-8626024f-6d03-4c03-a01d-255b646756bf.png)
+
+
