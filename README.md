@@ -5,9 +5,15 @@ Tutorial Latihan :
 - [Modul 3](README.md#modul-3) Mengimpor file Spreadsheet atau CSV (QGIS3)
 - [Modul 4](README.md#modul-4) Vektor Dasar (QGIS3)
 - [Modul 5](README.md#modul-5) Menghitung Panjang Garis dan Statistik (QGIS3)
+- [Modul 6](README.md#modul-6) Styling dan Analisis Raster Dasar (QGIS3)
 - [Modul 7](README.md#modul-7) Mosaik dan Kliping Raster (QGIS3)
 - [Modul 8](README.md#modul-8) Bekerja dengan Data Medan (QGIS3)
 - [Modul 9](README.md#modul-9) Bekerja dengan Data WMS (QGIS3) 
+- [Modul 10](README.md#modul-10) Bekerja dengan Proyeksi (QGIS3)
+- [Modul 11](README.md#modul-11) Lembar Topo Georeferensi dan Peta yang Dipindai (QGIS3)
+- [Modul 12](README.md#modul-12) Citra Udara BasisGeo
+- [Modul 13](README.md#modul-13) Digitalisasi Data Peta (QGIS3)
+- [Modul 14](README.md#modul-14) Mencari dan Mengunduh Data OpenStreetMap (QGIS3)
 
 ## Modul 1
 # `Membuat Peta (QGIS3)`
@@ -365,6 +371,9 @@ length / 1000
 13. Nilai Sum yang ditampilkan adalah total panjang rel di Amerika Serikat.
 ![15](https://user-images.githubusercontent.com/114122090/201805063-903d4146-d82e-438f-af48-78fb86bab623.png)
 
+## Modul 6
+# `Styling dan Analisis Raster Dasar (QGIS3)`
+file : [modul6.qpt]()
 
 ## Modul 7
 # `Mosaik dan Kliping Raster (QGIS3)`
@@ -524,7 +533,6 @@ Sumber Data: [[GMTED2010]](https://www.qgistutorials.com/id/docs/credits.html#gm
 # `Bekerja dengan Data WMS (QGIS3) `
 file : [modul9.qpt]()
 
-
 ## Procedure
 1.	Buka QGIS dan klik Buka Pengelola Sumber Data .
 
@@ -579,7 +587,26 @@ Untuk tutorial ini, pilih PNG sebagai formatnya. Ubah nama Layer jika Kita mau d
 18.	Sekarang widget penggeser akan tersedia untuk mengontrol opacity layer.
 
 
+## Modul 10
+# `Bekerja dengan Proyeksi (QGIS3)`
+file : [modul10.qpt]()
 
 
+## Modul 11
+# `Lembar Topo Georeferensi dan Peta yang Dipindai (QGIS3)`
+file : [modul11.qpt]()
 
 
+## Modul 12
+# `Citra Udara BasisGeo`
+file : [modul12.qpt]()
+
+
+## Modul 13
+# `Digitalisasi Data Peta (QGIS3)`
+file : [modul13.qpt]()
+
+
+## Modul 14
+# `Mencari dan Mengunduh Data OpenStreetMap (QGIS3)`
+file : [modul14.qpt]()
