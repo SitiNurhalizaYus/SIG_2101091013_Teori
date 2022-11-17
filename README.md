@@ -376,6 +376,49 @@ length / 1000
 # `Styling dan Analisis Raster Dasar (QGIS3)`
 file : [modul6.qpt]()
 
+## Procedure
+1.	Buka QGIS dan temukan file yang diunduh di panel Browser . Perluas gpw-v4-population-count-rev11_2000_2pt5_min_tif.zipfile dan seret gpw-v4-population-count-rev11_2000_2pt5_min.tiffile ke kanvas.
+
+2.	Layer baru gpw-v4-population-count-rev11_2000_2pt5_minakan ditambahkan ke panel Layers . Demikian pula, cari gpw-v4-population-count-rev11_2010_2pt5_min_tif.zipfile dan seret gpw-v4-population-count-rev11_2010_2pt5_min.tiffile ke kanvas.
+
+3.	Mari jelajahi lapisan ini. Klik tombol Identifikasi pada Bilah Alat Atribut . Setelah alat dipilih, klik titik mana pun di kanvas.
+
+4.	Nilai yang terkait dengan piksel tersebut akan ditampilkan di panel Identifikasi Hasil yang baru. Di panel Identifikasi Hasil , ubah Mode menjadi . Ini akan menampilkan nilai piksel dari semua raster, bukan hanya lapisan paling atas. Bandingkan nilai dari kedua layer. Karena resolusi raster kira-kira 5km x 5km, nilai piksel mewakili total populasi di area (25 km persegi) yang diwakili oleh piksel.Top down
+
+5.	Tutup panel Identifikasi Hasil . Mari buat visualisasi layer yang lebih baik. Klik tombol Open the layer Styling panel di panel Layers .
+
+6.	Di panel Layer Styling , klik dropdown Render type dan pilih renderer.Singleband pseudocolor
+
+7.	Renderer ini akan memberi style pada layer menggunakan color ramp. Ramp warna default adalah putih-merah di mana nilai minimum akan diberi warna putih dan nilai maksimum di lapisan akan diberi warna merah. Nilai tengah akan diberi warna interpolasi linier merah. Perluas Pengaturan Nilai Min / Maks dan pilih opsi. Kita akan melihat bahwa visualisasi peta sekarang jauh lebih baik. Rentang data stKitar ditetapkan dari 2% hingga 98% dari nilai data, artinya outlier tidak akan digunakan untuk menetapkan nilai minimum dan maksimum, sehingga menghasilkan visualisasi yang jauh lebih representatif.Cumulative count cut
+
+8.	Tutup panel Layer Styling . Kita bisa menerapkan gaya serupa ke lapisan lain juga. Namun ada cara yang lebih mudah untuk mentransfer gaya dari satu lapisan ke lapisan lainnya. Klik kanan gpw-v4-population-count-rev11_2010_2pt5_minlayer dan pilih Styles ‣ Copy Style .
+
+9.	Sekarang klik kanan gpw-v4-population-count-rev11_2000_2pt5_minlayer tanpa gaya dan pilih Styles ‣ Paste Style .
+
+10.	Parameter gaya yang sama akan diterapkan ke lapisan lainnya. Fitur ini sangat berguna ketika Kita ingin membandingkan lapisan yang berbeda menggunakan kategorisasi yang sama. Saat Kita mengaktifkan visibilitas lapisan atas, Kita dapat melihat perubahan populasi secara visual.
+
+11.	Tugas kita adalah membuat peta tematik dari perubahan populasi. Mari hitung selisih antara 2 layer dan buat raster lain di mana setiap piksel mewakili perubahan dalam populasi. Pergi ke Raster ‣ Kalkulator raster .
+
+12.	Di bagian Raster bands , Kita dapat memilih layer dengan mengklik dua kali pada layer tersebut. Band diberi nama setelah nama raster diikuti dengan @dan nomor band. Karena setiap raster kami hanya memiliki 1 band, Kita akan diberi nama dengan @1ditambahkan ke nama layer. Kalkulator raster dapat menerapkan operasi matematika pada piksel raster. Dalam hal ini kita ingin memasukkan rumus sederhana untuk mengurangkan populasi tahun 2010 dari tahun 2000. Masukkan ekspresi berikut. Selanjutnya, klik tombol ... di sebelah Output layer .
+```
+"gpw-v4-population-count-rev11_2010_2pt5_min@1" - "gpw-v4-population-count-rev11_2000_2pt5_min@1"
+```
+
+13.	Masukkan population_change_2010_2000.tifsebagai file Keluaran . Klik OK untuk memulai perhitungan.
+
+14.	Setelah selesai, layer baru population_change_2010_2000akan ditambahkan ke panel Layers . Mari ubah gaya sehingga perubahan populasi negatif dan positif divisualisasikan dengan lebih baik. Klik tombol Open the layer Styling panel di panel Layers .
+
+15.	Salah satu opsinya adalah menggunakan teknik penataan yang serupa seperti sebelumnya dan memilih jalan warna yang berbeda. Klik drop-down Color ramp dan pilih Spectralramp. Klik drop-down lagi dan pilih untuk menetapkan warna biru ke nilai rendah dan merah ke nilai tinggi.Invert Color Ramp
+
+16.	Ini adalah visualisasi yang bagus, tetapi tidak mudah untuk ditafsirkan. Mari buat peta yang lebih baik dengan 4 kategori terpisah, Decline, Neutral, Growthdan . Gulir ke bawah ke tabel dengan kelas. Tahan tombol dan pilih semua baris. Klik tombol Hapus baris yang dipilih .High GrowthShift
+
+17.	Ubah mode InterpolasiDiscrete ke . Kami sekarang akan membuat peta warna secara manual. Klik tombol Tambahkan nilai secara manual . Masukkan -100sebagai Nilai dan Declinesebagai Label . Tetapkan warna biru untuk kategori ini. Cara kerja peta warna adalah semua nilai yang lebih rendah dari nilai yang dimasukkan akan diberi warna entri tersebut. Kita akan melihat bahwa kanvas hanya akan menampilkan area dengan perubahan populasi negatif.
+
+18.	Lengkapi peta warna dengan nilai yang sesuai. Saya memilih 100, 1000dan 100000sebagai batas atas untuk Neutral, Growthdan kategori masing-masing. Tetapkan warna untuk setiap kategori yang dibuat, misalnya krem, oranye, dan merah.High Growth
+
+19.	Setelah Kita puas dengan visualisasinya, tutup panel Layer Styling . Kita sekarang memiliki peta tematik global tentang perubahan populasi.
+
+
 ## Modul 7
 # `Mosaik dan Kliping Raster (QGIS3)`
 file : [modul7.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/4711acc366f036e3185f1e0ad8baa80712fbac15/Raster%20Mosaicing%20and%20Clipping%20(QGIS3)_2101091013_siti%20nurhaliza%20yus.qgz)
@@ -586,28 +629,276 @@ Untuk tutorial ini, pilih PNG sebagai formatnya. Ubah nama Layer jika Kita mau d
 17.	Di kotak dialog Properti Lapisan , alihkan ke tab Legenda , di bawah Widget yang tersedia pilih dan klik ikon Tambahkan widget yang dipilih . Klik Oke .Opacity slider
 
 18.	Sekarang widget penggeser akan tersedia untuk mengontrol opacity layer.
+![Working with WMS Data (QGIS3)_siti nurhaliza yus_2101091013](https://user-images.githubusercontent.com/114122090/202321773-92cd2e0d-6352-45f4-9f01-7937f166f6dd.PNG)
 
 
 ## Modul 10
 # `Bekerja dengan Proyeksi (QGIS3)`
 file : [modul10.qpt]()
 
+## Procedure
+1.	Buka QGIS. Pergi ke Layer ‣ Add Layer ‣ Add Vector Layer... .
+
+2.	Klik ... di sebelah Sumber , Telusuri ke ne_10m_admin_0_countries.shpfile yang diunduh dan klik Tambah .
+
+3.	Di bagian bawah jendela QGIS, Kita akan melihat label Coordinate . Saat Kita menggerakkan kursor di atas peta, koordinat X dan Y di lokasi tersebut akan ditampilkan. Di pojok kanan bawah Kita akan melihat EPSG:4326 . Ini adalah kode untuk CRS (Projection) saat ini untuk proyek - juga dikenal sebagai Project CRS .
+
+4.	Untuk menentukan proyeksi layer, kita dapat melihat ke dalam metadata. Klik kanan pada ne_10m_admin_0_countrieslayer dan pilih Properties .
+
+5.	Beralih ke tab Informasi di dialog Properti Lapisan . Luaskan bagian Informasi dari penyedia . Di bagian bawah, Kita akan melihat nama proyeksi di bawah CRS .
+
+6.	Sekarang mari kita lihat bagaimana kita bisa mengubah proyeksi layer. Operasi ini disebut Re-Projection . Daripada memproyeksikan ulang seluruh lapisan, kita juga dapat memilih subset fitur dan memproyeksikannya kembali ke lapisan baru. Gunakan alat Select features by area or single click dan klik fitur United Kingdom untuk memilihnya.
+
+7.	Cari dan temukan algoritma Vector General ‣ Proyeksi ulang layer di kotak alat Pemrosesan.
+
+8.	Pilih ne_10m_admin_0_countriessebagai Input layer , centang Selected features only lalu klik ikon bola dunia di sebelah Target CRS , cari dan pilih . Di Diproyeksikan ulang , pilih dan klik Simpan ke file . Sekarang pilih direktori dan masukkan nama sebagai dan klik Run .EPSG:27700 - OSGB 1936 / British National Grid...united_kingdom.gkpg
+
+9.	Sebuah layer baru united_kingdomakan muncul pada Layer Panel . Seperti yang Kita lihat, kedua layer masih sejajar satu sama lain - meskipun berada di CRS yang berbeda. Ini karena QGIS mendukung transformasi CRS On-The-Fly (OTF) . Artinya, setiap kali CRS sebuah layer tidak cocok dengan Project CRS, maka secara otomatis akan diubah menjadi Project CRS sehingga dapat ditampilkan dengan benar. Sekarang mari atur Project CRS agar cocok dengan CRS united_kingdomLayer yang baru dibuat. Hapus ne_10m_admin_0_countrieslayer dan, klik kanan pada united_kingdomlayer Layer CRS ‣ Set Project CRS from Layer .
+
+10.	Kita akan melihat Proyek CRS diperbarui ke EPSG:27700.
+
+11.	Sekarang mari tambahkan layer Raster. Pergi ke Layer ‣ Add Layer ‣ Add Raster Layer... .
+
+12.	Klik di ...sebelah Sumber , pilih layer MiniScale_(stKitard)_R23.tif. Klik Tambahkan .
+
+13.	Sekarang layer baru MiniScale_(stKitard)_R23ditambahkan ke kanvas.
+
+14.	Untuk membuat kedua layer terlihat, ganti urutan layer dengan menyeret MiniScale_(stKitard)_R23ke bawah di panel Layers .
+
+15.	Klik kanan pada MiniScale_(stKitard)_R23layer dan klik Properties .
+
+16.	Di Layer Properties , pindah ke Information , CRS adalah . Ini menegaskan bahwa CRS layer raster sama dengan Project CRS.EPSG:27700 - OSBG 1935 / British National Grid - Projected
+>Catatan
+>Jika Kita ingin memproyeksikan ulang lapisan raster, Kita dapat menggunakan GDAL ‣ >Proyeksi raster ‣ Algoritma warp (proyeksi ulang) di kotak alat Pemrosesan.
+
 
 ## Modul 11
 # `Lembar Topo Georeferensi dan Peta yang Dipindai (QGIS3)`
 file : [modul11.qpt]()
+
+## Procedure
+1.	Buka QGIS dan klik Raster ‣ Georeferencer untuk membuka alat.
+>Catatan
+>Dari QGIS versi 3.26 dan seterusnya, Georeferencer dapat diluncurkan >dari Layer ‣ Georeferencer .
+
+2.	Georeferensi dibagi menjadi 2 bagian. Bagian atas tempat gambar akan ditampilkan dan bagian bawah tempat tabel yang menunjukkan GCP Anda akan muncul.
+
+3.	Sekarang kita akan membuka gambar JPG kita. Buka File ‣ Buka Raster . Telusuri ke gambar yang diunduh dari peta yang dipindai dan klik Buka .
+
+4.	Anda akan melihat gambar akan dimuat di bagian atas. Anda dapat menggunakan kontrol zoom/pan pada bilah alat untuk mempelajari lebih lanjut tentang peta.
+
+5.	Sekarang kita perlu menetapkan koordinat ke beberapa titik di peta ini. Jika Anda melihat lebih dekat, Anda akan melihat kotak koordinat dengan tanda. Ini adalah garis grid Lintang dan Bujur.
+
+6.	Sebelum menambahkan Titik Kontrol Tanah (GCP), kita perlu menentukan Pengaturan Transformasi. Klik ikon roda gigi di jendela georeferensi untuk membuka dialog pengaturan Transformasi.
+
+7.	Dalam dialog Pengaturan transformasi , pilih jenis Transformasi sebagai . Lihat Dokumentasi QGIS untuk mempelajari tentang berbagai jenis transformasi dan penggunaannya. Kemudian pilih metode Resampling sebagai . Klik tombol Select CRS di sebelah Target SRS .Polynomial 2Nearest neighbor
+
+8.	Jika Anda melakukan geo-referensi peta yang dipindai seperti ini, Anda dapat memperoleh informasi CRS dari peta itu sendiri. Melihat gambar peta kita, koordinatnya ada di Lintang/Bujur. Tidak ada informasi datum yang diberikan, jadi kita harus mengasumsikan yang sesuai. Karena ini adalah India dan petanya cukup tua, kita bisa bertaruh bahwa data Everest 1830 akan memberi kita hasil yang baik. Cari everestdan pilih CRS dengan definisi terlama dari datum Everest (EPSG:4042). Klik Oke .
+
+>Catatan :
+>Survey of India Topo Sheets dibuat antara tahun 1960 dan 2000 menggunakan spheroid >Everest 1956 dan datum India_nepal. Jika Anda melakukan georeferensi SOI Topo Sheets, , >Anda dapat menentukan CRS Kustom di QGIS dengan parameter berikut dan >menggunakannya dalam langkah ini. Definisi ini mencakup parameter delta_x, delta_y dan >delta_z untuk mengubah datum ini menjadi WGS84. Lihat halaman ini untuk informasi lebih >lanjut tentang Sistem Grid India .
++proj=longlat +a=6377301.243 +b=6356100.2284 +towgs84=295,736,257,0,0,0,0 +no_defs
+>Catatan :
+>Sebagian besar peta dibuat menggunakan Proyeksi CRS. Jika peta yang Anda coba >georeferensi menggunakan proyeksi CRS yang Anda ketahui, tetapi label graticules berada >dalam CRS Geografis (lintang/bujur), Anda dapat menggunakan alur kerja alternatif untuk >meminimalkan distorsi. Alih-alih menggunakan CRS Geografis seperti yang kami gunakan di >sini, Anda dapat membuat kisi vektor di QGIS dan mengubahnya menjadi CRS yang >diproyeksikan untuk digunakan sebagai referensi pengambilan koordinat yang >akurat. Lihat halaman ini untuk detail lebih lanjut.
+9.	Beri nama raster keluaran Anda sebagai 1870_southern_india_modified.tif. Pilih LZWsebagai Kompresi . Periksa Simpan poin GCP untuk menyimpan poin sebagai file terpisah untuk tujuan di masa mendatang. Pastikan opsi Muat di QGIS saat selesai dicentang. Klik Oke .
+
+>Catatan :
+>File GeoTIFF yang tidak terkompresi bisa berukuran sangat besar. Jadi mengompresi mereka >selalu merupakan ide yang bagus. Anda dapat mempelajari lebih lanjut tentang berbagai opsi >kompresi TIFF (LZW, PACKBITS, atau DEFLATE) di artikel ini .
+10.	Sekarang kita dapat mulai menambahkan Ground Control Points (GCP). Klik pada tombol Tambah Titik .
+
+11.	Sekarang tempatkan cross-hair di persimpangan garis grid dan klik kiri, ini akan berfungsi sebagai ground-truth dalam kasus kita. Saat garis kisi diberi label, kita dapat menentukan koordinat X dan Y dari titik-titik tersebut. Di jendela pop-up, masukkan koordinat. Ingat bahwa X = bujur dan Y = lintang. Klik Oke .
+
+12.	Anda akan melihat tabel GCP sekarang memiliki baris dengan detail GCP pertama Anda.
+
+13.	Demikian pula, tambahkan lebih banyak GCP yang mencakup seluruh gambar. Semakin banyak poin yang Anda miliki, semakin akurat gambar Anda didaftarkan ke koordinat target. Transformasi membutuhkan setidaknya 6 GCP. Setelah Anda menambahkan jumlah poin minimum yang diperlukan untuk transformasi, Anda akan melihat bahwa GCP sekarang memiliki nilai bukan nol dan kesalahan . Jika GCP tertentu memiliki nilai error yang luar biasa tinggi, hal itu biasanya berarti kesalahan manusia dalam memasukkan nilai koordinat. Jadi, Anda dapat menghapus GCP itu dan menangkapnya lagi. Anda juga dapat mengedit nilai koordinat di Tabel GCP dengan mengeklik sel di salah satu Tujuan. X atau Des. kolom Y.Polynomial 2dXdYResidual
+
+14.	Setelah Anda puas dengan GCP, klik tombol Mulai Georeferensi . Ini akan memulai proses membengkokkan gambar menggunakan GCP dan membuat raster target.
+
+15.	Setelah proses selesai, Anda akan melihat lapisan georeferensi dimuat di QGIS. Georeferensi sekarang selesai. Juga, Anda akan melihat Project CRS di kanan bawah diatur ke EPSG:4042 seperti yang dijelaskan di Pengaturan Transformasi.
+
+16.	Seret dan lepas OpenStreetMapas Base Map dari dropdown XYZ Tiles di bagian bawah panel Browser untuk memverifikasi lapisan georeferensi. Untuk menyetel transparansi, klik ikon Open layer styling panel dan pilih tab Transparency . Atur transparansi menjadi . Sekarang gambar georeferensi harus dilapisi dengan garis peta dasar.40 %
+
+17.	Jika georeferensi membutuhkan lebih banyak penyesuaian, kita dapat mulai dari poin GCP yang terkumpul. Telusuri 1870_southern_india_modified.tiflokasi file. Anda dapat menemukan file tambahan, 1870_southern_india_modified.tif.points. File ini akan berisi informasi poin GCP.
+
+18.	Buka alat georeferensi di QGIS, klik File ‣ Load GCP Points , dan pilih 1870_southern_india_modified.tif.points. Ini akan memuat GCP yang dibuat sebelumnya. Kemudian muat 1870_southern_india_modified.tifuntuk menyempurnakan pekerjaan Anda.
 
 
 ## Modul 12
 # `Citra Udara BasisGeo`
 file : [modul12.qpt]()
 
+Prosedur
+1.	Kami akan menggunakan peta dasar dari OpenStreetMap untuk menangkap koordinat georeferensi. QGIS3 hadir dengan dukungan built-in untuk lapisan petak. Ini umumnya dikenal sebagai lapisan 'XYZ' karena dibuat menggunakan petak peta individual untuk setiap tingkat zoom (z) pada petak koordinat ax,y. Anda dapat menemukan OpenStreetMaplapisan di bawah Ubin XYZ di Panel Peramban . Seret layer ke kanvas utama. Setelah dimuat, catat Sistem Referensi Koordinat (CRS) untuk lapisan ini di corder kanan bawah. Ini diatur sebagai . Ini penting karena koordinat yang kami simpulkan dari lapisan ini selama georeferensi akan berada di CRS ini.EPSG 3857 Pseudo Mercator
+
+>Catatan :
+>Lihat halaman ini untuk detail lebih lanjut tentang lapisan XYZ dan cara menambahkan peta dasar lainnya di QGIS.
+2.	Gambar yang kami georeferensi adalah untuk . Anda dapat memperbesar/menggeser untuk menemukan taman ini di peta. Tapi itu rumit dan tidak praktis. Dari QGIS versi 3.20 dan seterusnya, ada dukungan bawaan untuk Nominatim Geocoder berbasis OpenStreetMap. Klik bilah pencarian di kiri bawah jendela QGIS. Untuk menggunakan ini sebagai awalan geocoder, tempat pencarian dengan . Pencarian akan memunculkan daftar alamat yang dapat dipilih. Klik alamat pertama.Washington Square Park, New York>> Washington Square Park
+
+3.	Kanvas peta akan dipusatkan ke Square Park. Sekarang mari kita mulai georeferensi. Luncurkan Georeferensi dari Raster ‣ Georeferensi .
+Catatan
+Dari QGIS versi 3.26 dan seterusnya, Georeferencer dapat diluncurkan dari Layer ‣ Georeferencer .
+
+4.	Untuk melakukan georeferensi pada citra udara, kita harus memilih titik koordinat dari OpenStreetMap, jadi pertama-tama mari tempatkan alat Georeferensi ke jendela utama QGIS. Pilih Configure Georeference dari Settings ‣ Configure Georeferencer .
+
+5.	Centang Show georeferencer window docked dan klik OK .
+
+6.	Jendela Georeferencer akan diletakkan di bagian bawah jendela utama QGIS. Mari memuat file gambar dengan mengklik ikon Open Raster di jendela Georeferencer dan menavigasi ke file JPG yang diunduh. Klik Buka.
+
+7.	Sebelum menambahkan Titik Kontrol Tanah (GCP), kita perlu menentukan Pengaturan Transformasi. Klik ikon Pengaturan Transformasi untuk membuka dialog Pengaturan Transformasi. Pilih jenis Transformasi sebagai . Lihat Dokumentasi QGIS untuk mempelajari tentang berbagai jenis transformasi dan penggunaannya. Seperti disebutkan sebelumnya, peta dasar kita ada di CRS, jadi tetapkan itu sebagai Target CRS . Anda dapat membiarkan nama raster Output ke default dan memilih sebagai Compression . Periksa Gunakan 0 untuk transparansi bila diperlukan . Periksa Simpan poin GCPPolynomial 2EPSG 3857 Pseudo MercatorLZWuntuk menyimpan poin sebagai file terpisah untuk tujuan masa depan. Pastikan opsi Muat di QGIS saat selesai dicentang. Klik Oke .
+
+8.	Sekarang klik tombol Add Point pada toolbar dan pilih lokasi yang mudah dikenali pada gambar. Sudut, persimpangan, tiang dll, membuat titik kontrol yang baik. Setelah Anda mengklik gambar di lokasi titik kontrol, Anda akan melihat pop-up yang meminta Anda untuk memasukkan koordinat peta. Klik tombol Dari kanvas peta .
+
+9.	Di OpenStreetMaplapisan, klik lokasi yang tepat di lapisan referensi. Koordinat akan diisi secara otomatis dari klik Anda pada kanvas peta. Klik Oke .
+
+>Catatan :
+>Tips: Saat memilih GCP pada gedung, selalu pilih bagian bawah gedung. Sebagian besar citra >udara dan satelit memiliki bangunan miring, jadi memilih titik di atap akan menimbulkan >kesalahan.
+10.	Demikian pula, pilih setidaknya 6 titik pada gambar dan tambahkan koordinatnya dari lapisan referensi. Setelah Anda menambahkan jumlah poin minimum yang diperlukan untuk transformasi, Anda akan melihat bahwa GCP sekarang memiliki nilai bukan nol dX, dY, dan Residualerror. Jika GCP tertentu memiliki nilai error yang luar biasa tinggi, hal itu biasanya berarti kesalahan manusia dalam memasukkan nilai koordinat. Jadi, Anda dapat menghapus GCP itu dan menangkapnya lagi.
+
+11.	Setelah Anda puas dengan GCP, klik Mulai georeferensi . Ini akan memulai proses membengkokkan gambar menggunakan GCP dan membuat raster target. Setelah proses selesai, Anda akan melihat layer dimuat di QGIS. Tutup jendela Georeferensi .
+
+12.	Sekarang klik pada ikon panel penataan lapisan Terbuka dan Beralih ke tab Transparansi . Tambahkan 255sebagai nilai tambahan tanpa data . Ini akan menghapus batas putih di sekitar gambar. Sekarang Anda akan melihat gambar georeferensi Anda terhampar dengan baik di lapisan dasar.
+
+>Catatan :
+>Citra 8-bit memiliki nilai piksel dalam rentang 0-255. 0 berwarna hitam dan 255 berwarna >putih.
+![image](https://user-images.githubusercontent.com/114122090/202321419-c856f175-f198-4dc9-ae23-1010c450a1e6.png)
+
+
 
 ## Modul 13
 # `Digitalisasi Data Peta (QGIS3)`
 file : [modul13.qpt]()
 
+## Procedure
+1.	Di QGIS, mari muat file gambar. Pergi ke Layer ‣ Add Layer ‣ Add Raster Layer .
+
+2.	Dalam dialog Pengelola Sumber Data pilih Raster. Di bawah Sumber klik ...dan cari yang diunduh BX24_GeoTifv1-02.tifdan klik Buka . Kemudian klik Tambah diikuti dengan Tutup.
+
+3.	Ini adalah file raster yang besar, dan Kita mungkin memperhatikan bahwa saat Kita memperbesar atau menggeser peta, peta memerlukan sedikit waktu untuk merender gambar. QGIS menawarkan solusi sederhana untuk membuat raster memuat lebih cepat dengan menggunakan Image Pyramids . QGIS membuat petak pra-render pada resolusi yang berbeda, dan ini disajikan kepada Kita alih-alih raster penuh. Ini membuat navigasi peta cepat dan responsif. Klik kanan BX24_GeoTifv1-02layer dan pilih Properties .
+
+4.	Dalam dialog Properti Lapisan , Pilih tab Piramida . Tahan Ctrltombol dan pilih semua resolusi yang ditawarkan di panel Resolusi . Biarkan opsi lain ke default dan klik Bangun piramida .
+
+5.	Setelah proses selesai, kotak dialog akan menampilkan piramida tanpa tKita silang. Ini menKitakan pembangunan Piramida Gambar sudah selesai. Klik Oke .
+
+6.	Sebelum kita mulai, kita perlu mengatur Opsi Digitalisasi default . Buka Pengaturan ‣ Opsi... .
+
+7.	Pilih tab Digitalisasi di dialog Opsi . Centang Enable snapping by default di bawah bagian Snapping . Dalam mode snap Default pilih Vertex . Ini akan memungkinkan Kita untuk menjepret ke simpul terdekat. Saya juga lebih suka menyetel toleransi gertakan default dan Radius pencarian untuk suntingan titik dalam piksel daripada unit peta. Ini akan memastikan bahwa jarak jepretan tetap konstan terlepas dari tingkat zoom. Tergantung pada resolusi layar komputer Kita, Kita dapat memilih nilai yang sesuai. Klik Oke .
+
+8.	Sekarang kita siap untuk memulai digitalisasi. Pertama-tama kita akan membuat layer jalan dan mendigitalkan jalan di sekitar area taman. Klik ikon Layer ‣ Create Layer ‣ New GeoPackage Layer... dari Panel. GeoPackage adalah format data terbuka, non-proprietary, platform-independen, dan berbasis stKitar untuk sistem informasi geografis yang diimplementasikan sebagai wadah database SQLite. Ini membuatnya lebih mudah untuk memindahkannya daripada sekumpulan shapefile. Dalam tutorial ini, kami membuat beberapa lapisan poligon dan lapisan garis sehingga GeoPackage akan lebih cocok. Kita selalu dapat memuat GeoPackage dan mengekspor layer sebagai shapefile atau format lain yang Kita inginkan.
+
+9.	Dalam dialog Lapisan GeoPackage Baru , klik tombol ... dan simpan database GeoPackage baru bernama digitizing.gpkg. Pilih nama Tabel sebagai Roadsdan pilih LineStringsebagai jenis Geometri . Peta topografi dasar adalah CRS.EPSG:2193 - NZGD 2000
+
+10.	Saat membuat lapisan GIS, Kita harus memutuskan atribut setiap fitur. Karena ini adalah layer jalan, kita juga akan memiliki dua atribut utama - Nama dan Kelas. Di Bidang Baru Masukkan Namejenis data Teks, dengan panjang Maksimum50 dan klik Tambahkan ke daftar atribut. Sekarang buat atribut baru dengan tipe Text data , dengan sebagai Maximum length . Klik OkeClass50
+
+11.	Setelah Roadslayer dimuat, klik tombol Toggle Editing untuk menempatkan layer dalam mode edit.
+
+12.	Klik tombol Tambahkan Fitur Garis . Klik pada kanvas peta untuk menambahkan simpul baru. Tambahkan simpul baru bersama dengan fitur jalan. Setelah Kita mendigitalkan ruas jalan, klik kanan untuk mengakhiri fitur.
+
+>Catatan
+>Kita dapat menggunakan roda gulir mouse untuk memperbesar atau memperkecil saat melakukan digitasi. Kita juga dapat menahan tombol gulir dan menggerakkan mouse untuk >menjelajah.
+
+13.	Setelah Kita mengklik kanan untuk mengakhiri fitur, Kita akan mendapatkan dialog pop-up yang disebut Road - Feature Attributes . Di sini Kita dapat memasukkan atribut dari fitur yang baru dibuat. Lewati memasukkan nilai apa pun untuk fid karena ini adalah id berurutan yang akan dibuat secara otomatis. Masukkan nama jalan seperti yang tertera di peta topo. Secara opsional, tetapkan juga nilai Kelas Jalan. Klik Oke .
+
+14.	Gaya default dari layer garis baru adalah garis tipis. Mari kita ubah untuk lebih melihat fitur digital pada kanvas. Pilih Roadslayer dan klik Layer Styling Panel .
+
+15.	Di Layer Styling Panel , cari gaya layer jalan yang berbeda. Pilih . Klik Oke .topo road
+
+16.	Sekarang lapisan jalan akan terlihat jelas. Jika Kita puas dengan pekerjaannya, klik tombol Save Layer Edits untuk menyimpan perubahan.
+
+17.	Sebelum mendigitalkan jalan yang tersisa, penting untuk memperbarui beberapa pengaturan snap penting lainnya untuk membuat lapisan bebas kesalahan. Klik kanan pada ruang mana pun di area toolbar dan aktifkan toolbar Snapping.
+
+18.	Sekarang Enable Snapping (Magnet Icon) akan muncul di panel. Klik untuk mengaktifkannya dan pilih Semua Lapisan dan pilih .Open Snapping Options..
+
+19.	Dalam dialog Snapping options , klik Snapping on Intersection , yang memungkinkan Kita menjepret perpotongan lapisan latar belakang.
+
+20.	Sekarang Kita dapat mengklik tombol Tambahkan fitur dan mendigitalkan jalan lain di sekitar taman. Pastikan untuk mengklik Simpan Hasil Editan setelah menambahkan fitur baru untuk menyimpan pekerjaan Kita. Alat yang berguna untuk membantu Kita mendigitalkan adalah Vertex Tool . Klik tombol Vertex Tool dan pilih .Vertex Tool (Current Layer)
+21.	Setelah alat simpul diaktifkan, klik fitur apa pun untuk menampilkan simpul. Klik pada simpul mana pun untuk memilihnya. Verteks akan mengubah warna setelah dipilih. Sekarang Kita dapat mengklik dan menyeret mouse Kita untuk memindahkan simpul. Ini berguna saat Kita ingin melakukan penyesuaian setelah fitur dibuat. Kita juga dapat menghapus simpul yang dipilih dengan mengklik Deletetombol. ( di mac)Option+Delete
+
+22.	Setelah Kita selesai mendigitalkan semua jalan, klik tombol Toggle Editing . Klik Simpan .
+
+23.	Sekarang kita akan membuat layer lain untuk mendigitalkan taman sebagai poligon. Klik ikon Layer ‣ Create Layer ‣ New GeoPackage Layer... dari Panel. Dalam dialog New GeoPackage Layer , klik tombol ... dan pilih database GeoPackage bernama digitizing.gpkg. Beri nama layer baru sebagai atribut yang disebut Parks. Pilih MultiPolygonsebagai Jenis . Peta topografi dasar adalah CRS. Klik Oke . Di New Field Enter , dan ketik sebagai Text data , dengan sebagai Maximum length dan klik :guilabel:` Add to Fields List.`. Klik Oke .EPSG:2193 - NZGD 2000Name50
+
+>Catatan :
+>Poligon vs Multi-Poligon
+>Polygon - Planar Permukaan didefinisikan oleh 1 batas eksterior dan 0 atau lebih batas >interior. Setiap batas interior mendefinisikan sebuah lubang di Poligon.
+>Multi-Polygon - Ini digunakan untuk mewakili area dengan lubang di dalamnya atau terdiri >dari beberapa area yang terpisah. Misalnya, 3 poligon terputus-putus dapat ditarik dan >dikelompokkan sebagai fitur tunggal.
+24.	Dialog pop-up akan muncul. Pilih tombol Tambahkan Lapisan Baru .
+
+25.	Sekarang pilih layer Parkslalu klikroad Toggle Editing dan klik tombol Add feature dan klik pada kanvas peta untuk menambahkan simpul poligon. Digitalkan poligon yang mewakili taman. Pastikan Kita menjepret simpul jalan sehingga tidak ada celah antara poligon taman dan garis jalan. Klik kanan untuk menyelesaikan poligon.
+
+26.	Masukkan nama taman di jendela pop-up Taman - Atribut Fitur .
+
+27.	Sekarang digitalkan bagian atas taman. Masukkan nama taman dan simpan perubahannya.
+
+28.	Sekarang, sebelum mendigitalkan poligon dalam, mari atur pengaturan yang dapat memudahkan pekerjaan ini. Lapisan Multi-Poligon menawarkan pengaturan berguna lainnya yang disebut Hindari persimpangan poligon baru . Pilih Enable Snapping (Magnet Icon), klik untuk mengaktifkannya, dan klik All Layers dan pilih .Advanced Configuration
+
+29.	Klik tombol di bilah alat gertakan.Avoid Overlap on Active layers
+
+30.	Sekarang di Edit Konfigurasi Lanjutan , pilih Unit sebagai pixels.
+
+31.	Centang kotak di kolom Hindari Tumpang Tindih pada baris untuk Parkslapisan tersebut.
+
+32.	Klik Tambahkan fitur untuk menambahkan poligon. Dengan Avoid Overlap , Kita akan dapat dengan cepat mendigitalkan poligon baru tanpa khawatir akan menjepret tepat ke poligon tetangga.
+
+33.	Klik kanan untuk menyelesaikan poligon dan masukkan atribut. Ajaibnya poligon baru menyusut dan tersentak tepat ke batas poligon tetangga! Ini sangat berguna saat mendigitalkan batas kompleks di mana Kita tidak perlu tepat dan masih memiliki poligon yang benar secara topologi. Klik Toggle Editing untuk menyelesaikan pengeditan Parkslayer.
+
+34.	Sekarang saatnya mendigitalkan lapisan bangunan. Buat layer poligon baru bernama Buildingsdengan mengklik ikon Layer ‣ Create Layer ‣ New GeoPackage Layer... dari Panels. Atur Bangunan dan MuiltiPolygon . Pilih CRS sebagai . Klik Oke .EPSG:2193 - NZGD 2000
+
+35.	Setelah Buildingslapisan ditambahkan, matikan lapisan Parksdan Roadsuntuk membuat peta topo dasar terlihat. Pilih Buildingslayer dan klik Toggle Editing .
+
+36.	Mendigitalkan bangunan bisa menjadi tugas yang rumit, dan juga menantang untuk menambahkan simpul secara manual sehingga ujung-ujungnya tegak lurus dan membentuk persegi panjang. Kami akan menggunakan toolbar QGIS yang disebut Shape Digitizing untuk membantu tugas ini. Klik kanan pada ruang kosong mana pun di area bilah alat dan aktifkan file .Shape Digitizing Toolbar
+
+37.	Aktifkan pengeditan dengan menekan ikon pensil Toggle Editing .
+
+38.	Sekarang di bawah Add Rectangle dropdown pilih Add Rectangle from Extent tombol.
+
+39.	Perbesar ke area dengan bangunan. Klik dan seret mouse untuk menggambar persegi panjang yang sempurna. Demikian pula, tambahkan bangunan yang tersisa.
+
+40.	Kita akan melihat bahwa beberapa bangunan tidak vertikal, dan kita perlu menggambar persegi panjang pada sudut yang sesuai dengan tapak bangunan. Di bawah Add Rectangle dropdown pilih Add Rectangle from Center dan tombol Point .
+
+41.	Perbesar ke area bangunan berbentuk wajik. Klik di tengah untuk menjatuhkan titik dan seret mouse untuk menggambar persegi panjang.
+
+42.	Kita perlu memutar persegi panjang ini agar sesuai dengan gambar di peta topo. Alat putar tersedia di toolbar Advanced Digitizing . Klik kanan pada area kosong di bagian toolbar dan aktifkan toolbar Advanced Digitizing .
+
+43.	Klik tombol Putar Fitur .
+
+44.	Gunakan alat fitur Select Single untuk memilih poligon yang ingin Kita putar. Setelah alat Fitur Putar diaktifkan, Kita akan melihat garis bidik di tengah poligon. Klik tepat pada garis bidik itu dan seret mouse sambil menahan tombol klik kiri. Pratinjau fitur yang diputar akan muncul. Lepaskan tombol mouse saat poligon sejajar dengan tapak bangunan.
+
+45.	Simpan hasil edit layer dan klik Toggle Editing setelah Kita selesai mendigitalkan semua bangunan. Kita dapat menyeret lapisan untuk mengubah urutan tampilannya. Tugas digitalisasi sekarang selesai. Kita dapat bermain dengan opsi gaya dan pelabelan di properti lapisan untuk membuat peta yang terlihat bagus dari data yang Kita buat.
+![Digitizing Map Data (QGIS3)_siti nurhaliza yus_2101091013](https://user-images.githubusercontent.com/114122090/202320865-7d6ebc21-d5ea-4998-b9f7-e3a9b2f615a8.jpeg)
+
+
 
 ## Modul 14
 # `Mencari dan Mengunduh Data OpenStreetMap (QGIS3)`
 file : [modul14.qpt]()
+
+## Procedure
+1.	Cari dan pasang plugin QuickOSM dari QGIS Official Plugin Repository. Lihat Menggunakan Plugin untuk instruksi mengunduh plugin. Pastikan Kita telah memilih kotak centang. Klik Tutup .
+
+2.	Setelah diinstal, luncurkan plugin dari Vector ‣ QuickOSM ‣ QuickOSM... .
+
+3.	Di tab Kueri cepat , Kita dapat menyetel filter untuk memilih subkumpulan. Atribut fitur peta dalam database OSM disimpan sebagai Tag . Tag diwakili dengan kunci dan nilai. Kuncinya adalah topik dan nilai adalah bentuk spesifik. Lihat halaman wiki Fitur Peta OSM untuk daftar lengkap tag untuk berbagai jenis fitur. Bilah diwakili menggunakan tag amenity:bardan pub dengan tag amenity:pub. Kami pertama-tama akan mengekstrak bilah. Pilih amenitysebagai Kunci dari menu drop-down.
+
+4.	Pilih bardari menu tarik-turun Nilai .
+
+5.	Kami dapat merangkai banyak kueri di versi terbaru (v2.0.0 +) dari plugin QuickOSM. Klik tombol plus bilah pemilihan kueri berikutnya akan muncul. Klik pada kotak pilihan pertama dimana kita bisa mendapatkan opsi Anddan Or. Dan hanya akan memilih fitur yang benar untuk semua kueri. Atau akan memilih semua fitur yang benar untuk salah satu kueri. Klik Oruntuk memilih fitur bar dan pub.
+
+6.	Pilih amenitysebagai Kunci dari menu drop-down. Kemudian pilih pubdari menu tarik-turun Nilai .
+
+7.	Masukkan Londonsebagai Masuk untuk membatasi pencarian di dalam batas kota.
+
+8.	Luaskan bagian Lanjutan . Dalam model data OSM, fitur direpresentasikan menggunakan node, cara, dan relasi . Karena kami tertarik dengan fitur poin, Kita hanya dapat memilih Nodedan Points. Klik Jalankan kueri .
+
+9.	Setelah kueri selesai, alihkan ke jendela utama QGIS. Kita akan melihat layer baru bernama amenity_bar_amenity_pub_Londonditambahkan ke panel Layers . Kanvas akan menunjukkan lokasi bar dan pub yang diekstrak.
+
+10.	Buka tabel Atribut layer. Ada 2091fitur. Fasilitas kolom berisi kategori apakah fitur tersebut adalah pubatau bar. Dengan menggunakan kolom kategorikal ini, mari beri gaya pada layer kita.
+
+11.	Klik pada icon panel Open the Layer StylingCategorized , pilih kemudian pada Value pilih amenitykemudian klik Classify . Sekarang layer akan ditata dengan 2 warna yang menampilkan keduanya barsdan pubs.
+
+12.	Sekarang klik kanan pada layer, Export ‣ Save Feature As... untuk mengekspor layer sebagai GeoPackage.
+
+13.	Di kotak dialog Save Vector Layer as... , di Format pilih GeoPackage, di File name klik ...dan telusuri ke direktori tempat Kita ingin menyimpan data dan beri nama outputnya london.gpkg. Dalam Nama lapisan masukkan bar_and_pubs. Klik Oke .
+
+14.	Sekarang lapisan GeoPackage london_bar_and_pubsakan ditambahkan ke kanvas.
+![image](https://user-images.githubusercontent.com/114122090/202321345-3fb0642c-96fc-41cc-a660-2a037fd0babf.png)
+
