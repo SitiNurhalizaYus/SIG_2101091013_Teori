@@ -1,5 +1,6 @@
 # SIG-TEORI-2101091013
 Tutorial Latihan :
+## #Basic GIS operations
 - [Modul 1](README.md#modul-1) Membuat Peta (QGIS3)
 - [Modul 2](README.md#modul-2) Bekerja dengan Atribut (QGIS3)
 - [Modul 3](README.md#modul-3) Mengimpor file Spreadsheet atau CSV (QGIS3)
@@ -14,6 +15,18 @@ Tutorial Latihan :
 - [Modul 12](README.md#modul-12) Citra Udara BasisGeo
 - [Modul 13](README.md#modul-13) Digitalisasi Data Peta (QGIS3)
 - [Modul 14](README.md#modul-14) Mencari dan Mengunduh Data OpenStreetMap (QGIS3)
+
+## #Intermediate GIS operations
+- [Modul 1](README.md#modul-15) Performing Table Joins (QGIS3)
+- [Modul 2](README.md#modul-16) Performing Spatial Joins (QGIS3)
+- [Modul 3](README.md#modul-17) Performing Spatial Queries (QGIS3)
+- [Modul 4](README.md#modul-18) Nearest Neighbor Analysis (QGIS3)
+- [Modul 5](README.md#modul-19) Sampling Raster Data using Points or Polygons (QGIS3)
+- [Modul 6](README.md#modul-20) Calculating Raster Area (QGIS3)
+- [Modul 7](README.md#modul-21) Creating Heatmaps (QGIS3)
+- [Modul 8](README.md#modul-22) Animating Time Series Data (QGIS3)
+- [Modul 9](README.md#modul-23) Handling Invalid Geometries (QGIS3)
+
 
 ## Modul 1
 # `Membuat Peta (QGIS3)`
