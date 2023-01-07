@@ -919,7 +919,8 @@ file : [modul14.qpt]()
 
 ## Modul 1
 # `Performing Table Joins (QGIS3)`
-file : [modul1.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/a88b54890b808b333ea320897242a8ddc5e6972d/performing%20table%20joins.qgz)
+file : [modul1.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/a88b54890b808b333ea320897242a8ddc5e6972d/performing%20table%20joins.qgz)
+view : [modul1.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/a88b54890b808b333ea320897242a8ddc5e6972d/performing%20table%20joins.png)
 
 ## Procedure
 1. Temukan tl_2019_06_tract.zipfile di Peramban QGIS dan kembangkan. Pilih tl_2019_06_tract.shpfile dan seret ke kanvas.
@@ -989,3 +990,51 @@ Klik pada warna Stroke dan klik .Transparent stroke
 Tempat sampah dapat disesuaikan, klik pada Nilai ini akan memunculkan dialog untuk memasukkan nilai batas atas dan bawah.
 --
 Setelah  puas menutup panel styling Layer. Kami sekarang memiliki visualisasi informasi kepadatan populasi yang terlihat bagus di California.
+
+## Modul 2
+# `Performing Spatial Joins (QGIS3)`
+file : [modul2.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.qgz)
+view : [modul2.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.png)
+
+
+
+## Modul 3
+# `Performing Spatial Joins (QGIS3)`
+file : [modul3.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.qgz)
+view : [modul3.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.png)
+
+
+## Modul 4
+# `Nearest Neighbor Analysis (QGIS3)`
+file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Nearest%20Neighbor%20Analysis%20(QGIS3).qgz)
+view : [modul4.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Nearest%20Neighbor%20Analysis%20(QGIS3).png)
+
+
+## Modul 5
+# `Sampling Raster Data using Points or Polygons (QGIS3)`
+file : [modul5.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Sampling%20Raster%20Data%20using%20Points%20or%20Polygons%20(QGIS3).qgz)
+view : [modul5.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Sampling%20Raster%20Data%20using%20Points%20or%20Polygons%20(QGIS3).png)
+
+
+## Modul 6
+# `Calculating Raster Area (QGIS3)`
+file : [modul6.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Calculating%20Raster%20Area%20(QGIS3).qgz)
+view : [modul6.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Calculating%20Raster%20Area%20(QGIS3).png)
+
+
+## Modul 7
+# `Creating Heatmaps (QGIS3)`
+file : [modul7.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Creating%20Heatmaps%20(QGIS3).qgz)
+view : [modul7.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Creating%20Heatmaps%20(QGIS3).png)
+
+
+## Modul 8
+# `Animating Time Series Data (QGIS3)`
+file : [modul8.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Animating%20Time%20Series%20Data%20(QGIS3).qgz)
+view : [modul8.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Animating%20Time%20Series%20Data%20(QGIS3).png)
+
+
+## Modul 9
+# `Handling Invalid Geometries (QGIS3)`
+file : [modul9.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Handling%20Invalid%20Geometries%20(QGIS3).qgz)
+view : [modul9.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Handling%20Invalid%20Geometries%20(QGIS3).png)
