@@ -1456,10 +1456,8 @@ END
 ![image](https://user-images.githubusercontent.com/114122090/211200072-e6853b02-6800-4045-b93e-cb37e9da1778.png)
 
 17.	Jika kita memerlukan visualisasi peta panas untuk disimpan sebagai lapisan raster permanen atau ingin menyesuaikan peta panas dengan opsi lanjutan seperti kernel yang berbeda atau radius dinamis, Anda dapat menggunakan Peta Panas (Estimasi Kepadatan Kernel) dari Kotak Alat Pemrosesan. Kami sekarang akan menggunakan algoritma ini. Pergi ke Memproses ‣ Kotak Alat .
-![image](https://user-images.githubusercontent.com/114122090/211200086-aec4fdad-607c-4b50-b384-f3488ff94a75.png)
 
 18.	Sebelum kita dapat membuat peta panas, kita perlu memproyeksikan ulang data sumber ke CRS yang diproyeksikan. Karena jarak memainkan peran penting dalam perhitungan peta panas, tidak benar menggunakan CRS geografis. Cari dan temukan algoritma Vector general ‣ Proyeksi ulang layer .
-![image](https://user-images.githubusercontent.com/114122090/211200093-6b6102e7-ffa8-46fa-8163-7b8dcc175dc4.png)
 
 19.	Pada dialog Reproject layer , klik tombol Select CRS untuk Target CRS . Cari dan pilih CRS. CRS yang diproyeksikan ini adalah pilihan yang baik untuk data di Inggris. Klik Jalankan .EPSG:27700 OSGB 1936 / British National Grid
 ![image](https://user-images.githubusercontent.com/114122090/211200105-7f85b848-c0e0-4ce2-9214-aede80a366eb.png)
@@ -1499,7 +1497,6 @@ view : [modul8.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211200305-696be455-2e39-4fc3-b2bd-109216f80581.png)
 
 3.	Di drop-down pemilihan penyaji, pilih Heatmappenyaji. Selanjutnya, pilih jalur Viridiswarna dari pemilih Jalur warna .
-![image](https://user-images.githubusercontent.com/114122090/211200313-6ddc92a1-e0db-41be-a68d-7c09dac50853.png)
 
 4.	Sesuaikan nilai Radius ke 5.0. Di bagian bawah, luaskan bagian Layer Rendering dan sesuaikan Opacity menjadi 75.0%. Ini memberikan efek visual yang bagus dari hotspot dengan lapisan tanah di bawahnya.
 ![image](https://user-images.githubusercontent.com/114122090/211200320-794da2c7-3cab-44a5-bfa7-75068e309aae.png)
@@ -1514,7 +1511,6 @@ view : [modul8.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211200342-445d3ed2-8239-46bf-bd2c-e321d8deb4d0.png)
 
 8.	Sekarang simbol jam akan muncul di sebelah nama layer. Klik pada (ikon Jam) dari Bilah Alat Navigasi Peta.Temporal Control Panel
-![image](https://user-images.githubusercontent.com/114122090/211200345-22a18ff5-c1e7-4696-87eb-82d6109d805c.png)
 
 9.	Klik pada (ikon putar) untuk mengaktifkan kontrol animasi. Klik Atur ke Rentang Penuh (ikon segarkan) di sebelah Rentang untuk secara otomatis mengatur rentang waktu agar cocok dengan kumpulan data.Animated Temporal Navigation
 ![image](https://user-images.githubusercontent.com/114122090/211200359-a68aedc9-d41a-4d4e-ae12-d0252c2cb653.png)
@@ -1528,7 +1524,6 @@ view : [modul8.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 11.	Akan sangat membantu juga untuk menampilkan label yang menunjukkan kerangka waktu saat ini di peta. Kita dapat melakukannya dengan menggunakan dekorasi Judul bawaan. Pergi ke Lihat ‣ Dekorasi ‣ Label Judul 
 ![image](https://user-images.githubusercontent.com/114122090/211200386-66db0c1b-01b9-4ceb-85f9-b680db6e8b42.png)
 
- 
 12.	Klik kotak centang untuk mengaktifkannya dan klik tombol dan masukkan ekspresi berikut untuk menampilkan tahun. Di sini variabel berisi stempel waktu irisan waktu saat ini yang ditampilkan. Jadi kita bisa menggunakan stempel waktu itu dan memformatnya untuk menampilkan tahun kejadian. Lihat Dokumentasi QGIS untuk detail tentang berbagai opsi pemformatan yang didukung untuk stempel waktu.Insert an Expression@map_start_time
 ```
 format_date(@map_start_time, 'yyyy')
@@ -1542,15 +1537,11 @@ format_date(@map_start_time, 'yyyy')
 
 15.	Klik pada ... direktori Output untuk memilih direktori tempat gambar akan disimpan.
 
-
 16.	Pada Extent pilih Hitung dari Layer ‣ ne_10_land layer. Klik Simpan.
 
 17.	Setelah ekspor selesai, Kita akan melihat gambar PNG untuk setiap tahun (total 18 gambar) di direktori keluaran.
  
 18.	Sekarang mari buat GIF animasi dari gambar-gambar ini. Ada banyak opsi untuk membuat animasi dari masing-masing bingkai gambar. ezgif untuk alat yang mudah dan online. Kunjungi situs dan klik Pilih File dan pilih semua file .png. Setelah dipilih, klik Unggah dan buat GIF! tombol. Setelah dibuat, Kita dapat mengunduh GIF menggunakan tombol Simpan .
- 
-
-
 
 ## Modul 9
 # `Handling Invalid Geometries (QGIS3)`
@@ -1558,3 +1549,46 @@ file : [modul9.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 view : [modul9.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Handling%20Invalid%20Geometries%20(QGIS3).png)
 
 ## Prosedure
+1.	Jelajahi India-States.zipfile yang diunduh di Peramban QGIS. Perluas dan seret India-States.shpfile ke kanvas peta.
+ 
+2.	Kita akan melihat India-Stateslayer baru dimuat di panel Layers . Pergi ke Memproses ‣ Kotak Alat .
+ 
+3.	Kami akan mencoba menjalankan algoritme pemrosesan pada lapisan input untuk mendemonstrasikan bagaimana geometri yang tidak valid dapat menyebabkan masalah selama operasi geoproses. Cari dan temukan Kartografi ‣ Algoritma pewarnaan topologi. Klik dua kali untuk meluncurkannya.
+ 
+4.	Dalam dialog pewarnaan Topologi , pilih India-Statessebagai lapisan Input . Simpan semua parameter lain ke default dan klik Run .
+ 
+>Catatan :
+>Algoritma pewarnaan topologi mengimplementasikan algoritma untuk mewarnai peta sehingga tidak ada poligon yang berdekatan memiliki warna yang sama. Ini adalah >teknik kartografi yang berguna dan Teorema Empat Warna menyatakan bahwa 4 warna cukup untuk mencapai hasil ini. Ada versi teori graf dari torem ini yang disebut >teorema Lima warna . Implementasi algoritma QGIS didasarkan pada grafik sehingga dalam praktiknya Anda akan melihat bahwa lapisan poligon kompleks seperti ini akan >membutuhkan hingga 5 warna.
+
+5.	Saat algoritme berjalan, kita akan melihat peringatan ditampilkan di tab Log . 1 fitur di lapisan input memiliki geometri yang tidak valid dan dilewati selama pemrosesan. Pengaturan default untuk menangani geometri yang tidak valid di Kotak Alat Pemrosesan terletak di Pengaturan ‣ Opsi ‣ Pemrosesan ‣ Umum ‣ Pemfilteran fitur tidak valid dan diatur ke . Ini adalah pengaturan default yang bagus, tetapi jika masukan Anda besar, Anda mungkin melewatkan peringatan ini dan mungkin tidak mengetahui bahwa fitur masukan telah dilewati. Anda mungkin ingin mengubah nilainya menjadi .Skip (ignore) features with invalid geometriesStop algorithm execution when a geometry is invalid
+ 
+6.	Kembali ke jendela utama QGIS, kita akan melihat layer baru Coloredditambahkan ke panel Layers . Perhatikan bahwa layer baru tidak memiliki status yang geometrinya tidak valid. Kami sekarang tahu bahwa poligon keadaan tertentu ini memiliki geometri yang tidak valid tetapi kami tidak tahu apa penyebabnya. Kita dapat dengan mudah mengetahuinya. Cari dan temukan geometri Vektor ‣ Periksa algoritme validitas.
+ 
+7.	Dalam dialog Check ValidityIndia-States , pilih sebagai Input layer . Pilih GEOSsebagai Metode . Klik Jalankan .
+ 
+8.	Saat algoritme selesai diproses, Anda akan melihat 3 layer baru di panel Layers - , dan . Lapisan berisi lokasi dan deskripsi kesalahan geometri. Klik kanan dan pilih Open Attribute Table .Valid outputInvalid outputError outputError output
+ 
+>Catatan :
+>Dokumentasi QGIS memiliki artikel terperinci tentang Jenis pesan kesalahan dan artinya yang menjelaskan penyebab semua kesalahan.
+
+9.	Kita akan melihat bahwa pesan kesalahannya adalah Ring self-intersection . Pilih baris dan klik tombol Zoom map to selected features . Saat memperbesar, Anda akan melihat akar penyebab galat geometri.
+ 
+10.	QGIS hadir dengan algoritme bawaan untuk memperbaiki kesalahan geometri secara otomatis. Cari dan temukan geometri Vektor ‣ Perbaiki algoritma geometri . Klik dua kali untuk menjalankannya.
+ 
+11.	Dalam dialog Fix GeometriesIndia-States , pilih sebagai Input layer dan klik Run .
+ 
+12.	Layer baru akan ditambahkan ke panel Layers . Pada titik ini, kesalahan geometri telah diperbaiki dan Kita dapat menjalankan algoritme pemrosesan apa pun pada lapisan ini tanpa masalah. Tetapi kita dapat melihat bahwa masih ada celah antara poligon yang berdekatan yang tidak terduga dan dapat menyebabkan kesalahan topologi di kemudian hari. Kami juga dapat memperbaikinya dengan mengedit poligon. Klik tombol Toggle Editing pada Digitizing Toolbar . Pilih Vertex Tool dan dari drop-down pilih .Fixed GeometriesVertex Tool (Current Layer)
+ 
+13.	Saat alat vertex aktif, klik pada vertex untuk memilihnya. Kita dapat menekan Deletetombol untuk menghapus simpul atau menyeretnya untuk memindahkannya. Kita dapat memindahkan simpul sehingga tepi poligon sekarang menyentuh poligon yang berdekatan.
+ 
+14.	Setelah selesai, klik tombol Toggle Editing lagi dan klik Save .
+ 
+15.	Mari jalankan lagi algoritma Kartografi ‣ Pewarnaan topologi .
+ 
+16.	Dalam dialog Pewarnaan Topologi , pastikan Anda memilih sebagai lapisan Input . Klik Jalankan .Fixed Geometries
+ 
+17.	Kita akan melihat algoritme berjalan tanpa kesalahan dan lapisan baru Coloredakan ditambahkan ke panel Lapisan . Perhatikan bahwa algoritme tidak mewarnai lapisan dengan sendirinya, tetapi bekerja dengan menambahkan kolom baru yang dipanggil color_idke setiap poligon yang dapat digunakan untuk menetapkan warna unik yang berbeda dari poligon yang berdekatan. Pilih Coloredlayer dan klik tombol Open the Layer Styling Panel .
+ 
+18.	Pilih Categorizedpenyaji dan kolom color_id sebagai Value . Klik Klasifikasikan . Kita sekarang akan melihat peta berwarna sehingga poligon yang berdekatan memiliki warna yang berbeda.
+
+
