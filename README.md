@@ -948,39 +948,54 @@ view : [modul1.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211183569-9f51277b-a2d3-4f39-a284-1dfc490c1c77.png)
 
 9. CSV sekarang akan diimpor sebagai tabel ke QGIS dan muncul seperti ACST5Y2019.S0101pada panel Lapisan . Sekarang klik kanan pada layer dan pilih Open Attribute Table .
+![image](https://user-images.githubusercontent.com/114122090/211183858-e0c17796-e421-47b9-a813-eaabee5a9645.png)
 
 10. Kolom ID tersebut berisi id unik untuk setiap record, yang dapat digunakan untuk menggabungkan tabel ini dengan tl_2019_06_tractlayer. Jika  membandingkan nilai IDdengan GEOIDkolom dari tl_2019_06_tract.  akan melihat bahwa itu diawali dengan 1400000US . Untuk menggabungkan kedua tabel ini dengan sukses, nilainya harus sama persis. Mari kita hapus awalan ini dan tambahkan kolom baru dengan 11 karakter terakhir yang berisi nilai yang sama persis.
+![image](https://user-images.githubusercontent.com/114122090/211183864-a00fa7bb-efe7-4214-904e-6ddecceda4fc.png)
 
 11. Untuk membuat kolom baru dengan 11 digit terakhir, buka Processing Toolbox dengan masuk ke Processing ‣ Toolbox , dan cari dan temukan tabel Vector ‣ Algoritma kalkulator lapangan.
+![image](https://user-images.githubusercontent.com/114122090/211183869-f685515e-f82e-473e-9993-a4d59cf54def.png)
 
 12. Dalam dialog Kalkulator bidang ACST5Y2019.S0101 , pilih sebagai Input layer , masukkan Nama bidang geoid , dan pilih Jenis Bidang Hasil . Sekarang cari dalam ekspresi. Kita dapat menggunakan fungsi ini untuk mengekstrak bagian yang diperlukan dari bidang id.stringsubstr
+![image](https://user-images.githubusercontent.com/114122090/211183874-dde13e11-adc0-4e7e-9e6f-37fb08612a7a.png)
 
 13. Masukkan ekspresi di bawah ini. Kami menggunakan fungsi substr dan mengekstrak nilai dari posisi -11 (nilai negatif dihitung dari akhir). Hasil akhir dapat dilihat di bagian Pratinjau . Klik Jalankan.
 
 ```
 substr("id", -11)
 ```
+![image](https://user-images.githubusercontent.com/114122090/211183880-04dfa7d1-dfe8-4591-a416-e2fd5e41e488.png)
 
 14. Sekarang layer baru Calculated akan dimuat di kanvas, mari kita periksa tabel atribut. Kolom baru geoiddengan nilai yang dapat dicocokkan dengan risalah pencacahan akan hadir.
+![image](https://user-images.githubusercontent.com/114122090/211183884-96c5db7a-3fc3-4e53-ad39-16b8df863e8b.png)
 
 15. Untuk membuat gabungan tabel, buka Processing Toolbox dengan masuk ke Processing ‣ Toolbox , dan cari dan temukan atribut Vector general ‣ Join dengan algoritma nilai bidang.
+![image](https://user-images.githubusercontent.com/114122090/211183888-9e09f934-2141-4327-90ff-8623e4fc34e7.png)
 
 16. Dalam dialog Gabungkan atribut menurut nilai bidang tl_2019_06_tract , pilih sebagai lapisan Input dan GEOIDsebagai bidang Tabel . Pilih Calculatedsebagai Input layer 2 dan geoidsebagai Table field 2 . Di bawah bidang Layer2 untuk menyalin , klik pada ....
+![image](https://user-images.githubusercontent.com/114122090/211183899-7c6e6e3f-d864-4672-9363-668dd726f690.png)
 
 17. Periksa , dan . Klik Oke .Geographic Area NameEstimate!!Total!!Total population geoid
+![image](https://user-images.githubusercontent.com/114122090/211183904-2b703299-0e28-4a1b-8a05-d113bd6c6fb0.png)
 
 18. Centang catatan Buang yang tidak dapat digabungkan . Ini akan menghilangkan catatan tambahan apa pun di tabel populasi. Klik tombol ... di bawah layer gabungan untuk memilih lokasi file keluaran dan pilih .Save to File...
+![image](https://user-images.githubusercontent.com/114122090/211183907-80886f40-e86b-4ea5-881d-02d7774f09e4.png)
 
 19. Beri nama geopackage keluaran sebagai california_total_population.gpkg. Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211183912-b156b8ad-40d1-4751-a183-afe76cec0631.png)
 
 20. Setelah pemrosesan selesai, verifikasi bahwa algoritme berhasil jika semua fitur 8057 digabungkan. Klik Tutup .
+![image](https://user-images.githubusercontent.com/114122090/211183917-bee8f0a0-f3ff-431d-9cc6-35715cb8f4e1.png)
 
 21. Kita akan melihat layer baru california_total_populationdimuat di panel Layers . Pada titik ini, bidang dari file CSV digabungkan dengan lapisan saluran sensus. Sekarang setelah kita memiliki data kependudukan di lapisan sensus, kita dapat menatanya untuk membuat visualisasi distribusi kepadatan penduduk. Klik tombol Buka Panel Penataan Lapisan .
+![image](https://user-images.githubusercontent.com/114122090/211183922-b5a9eefd-1f26-4dac-ab08-46040a42f8fa.png)
 
 22. Di panel Layer Styling , pilih Graduateddari menu drop-down. Saat kami ingin membuat peta kepadatan populasi, kami ingin menetapkan warna berbeda untuk setiap fitur saluran sensus berdasarkan kepadatan populasi. Kami memiliki populasi di kolom Estimasi!!Total!!Total populasi , dan area area di ALAND . Klik tombol Ekspresi , untuk menghitung persentase jumlah penduduk pada setiap saluran pencacahan.
 
 >Catatan
 >Saat membuat peta tematik (choropleth) seperti ini, penting untuk menormalkan nilai yang petakan. Memetakan jumlah total per poligon tidak benar. Penting >untuk menormalkan nilai-nilai yang dibagi dengan luas. Jika  menampilkan total seperti kejahatan,  dapat menormalkannya dengan membaginya dengan total >populasi, sehingga memetakan tingkat kejahatan dan bukan >>kejahatan. Belajarlah lagi
+
+![image](https://user-images.githubusercontent.com/114122090/211183929-4b298913-f20b-490f-9d4d-f157dd0e0d57.png)
 
 
 23. Masukkan ekspresi berikut untuk menghitung kepadatan populasi. Area fitur diberikan dalam kilometer persegi. Kami kemudian mengubahnya menjadi meter persegi dengan mengalikan dengan 1000000dan menghitung kepadatan penduduk dengan rumus Penduduk/Luas . Pratinjau hasilnya dan klik OK .
@@ -989,19 +1004,30 @@ substr("id", -11)
 1000000 * ("Estimate!!Total!!Total population"/"ALAND")
 ```
 
+![image](https://user-images.githubusercontent.com/114122090/211183941-30c9c9b0-30b5-4336-8aa4-84dc3cba2c78.png)
+
 24. Di Panel Penataan Lapisan , klik klasifikasikan dan masukkan kelas sebagai 10.
+![image](https://user-images.githubusercontent.com/114122090/211183948-ab7b8ba8-3cf6-4926-9667-73e0f7c1d8d1.png)
 
 25. Klik pada jalur warna untuk memilih jalur warna RdYlGn.
+![image](https://user-images.githubusercontent.com/114122090/211183949-07d656ac-8182-4038-8e36-bc4b15ce22d8.png)
 
 26. Kerapatan yang lebih tinggi lebih penting, mari kita tetapkan warna hijau untuk kerapatan rendah dan merah untuk area dengan kerapatan tinggi. Klik pada jalur warna dan pilih Balikkan Jalur Warna .
+![image](https://user-images.githubusercontent.com/114122090/211183955-e3cb93e0-a34c-4bc0-bad6-429d562be222.png)
 
 27. Sekarang kami memiliki visualisasi informasi kepadatan populasi yang sangat baik di California. Untuk membuatnya lebih baik, mari kita buat batas setiap saluran sensus transparan. Klik pada tab Simbol.
+![image](https://user-images.githubusercontent.com/114122090/211183959-90d9f3b0-5a1c-4e62-862b-4d2bed67bfb5.png)
 
 28. Klik pada warna Stroke dan klik .Transparent stroke
+![image](https://user-images.githubusercontent.com/114122090/211183961-0838342f-df2d-450f-888f-5d7a8e5c3ffc.png)
 
 29. Tempat sampah dapat disesuaikan, klik pada Nilai ini akan memunculkan dialog untuk memasukkan nilai batas atas dan bawah.
+![image](https://user-images.githubusercontent.com/114122090/211183968-6e699ddc-ee5a-41ab-9cc5-b87a34e941b4.png)
 
 30. Setelah  puas menutup panel styling Layer. Kami sekarang memiliki visualisasi informasi kepadatan populasi yang terlihat bagus di California.
+![Screenshot (1243)](https://user-images.githubusercontent.com/114122090/211184021-be5ff3e2-642b-46af-a812-7208ec851653.png)
+
+
 
 ## Modul 2
 # `Performing Spatial Joins (QGIS3)`
