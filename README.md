@@ -926,8 +926,7 @@ view : [modul1.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 1. Temukan tl_2019_06_tract.zipfile di Peramban QGIS dan kembangkan. Pilih tl_2019_06_tract.shpfile dan seret ke kanvas.
 ![image](https://user-images.githubusercontent.com/114122090/211183380-170909c0-1d6c-496f-a7ef-22181943e5eb.png)
 
-2. Dialog Select Transformation akan meminta untuk mengkonversi dari EPSG:4269 ke EPSG:4326 . Dialog ini menyajikan beberapa transformasi untuk mengkonversi antara koordinat antara proyeksi tersebut. Tinggalkan pilihan ke pilihan default dan klik OK .
-![image](https://user-images.githubusercontent.com/114122090/211183408-c9275ab0-4f80-4b18-9d33-cf40fbaa1223.png)
+2. Dialog Select Transformation akan meminta untuk mengkonversi dari EPSG:4269 ke EPSG:4326 . Dialog ini menyajikan beberapa transformasi untuk mengkonversi antara koordinat antara proyeksi tersebut. Tinggalkan pilihan ke pilihan default dan klik OK.
 
 3. Kita akan melihat layer tl_2019_06_tractdimuat di panel Layers . Lapisan ini berisi batas-batas bidang sensus di California. Klik kanan pada tl_2019_06_tractlayer dan pilih Open Attribute Table .
 ![image](https://user-images.githubusercontent.com/114122090/211183478-568775a6-1c00-4bc7-b4c6-eee339df38d2.png)
@@ -1033,6 +1032,70 @@ substr("id", -11)
 # `Performing Spatial Joins (QGIS3)`
 file : [modul2.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.qgz)
 view : [modul2.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.png)
+
+## Procedure
+1. Temukan nybb_19a.zipfile di Peramban QGIS dan kembangkan. Pilih nybb_19a/nybb.shplayer dan seret ke kanvas. Ini adalah lapisan poligon yang mewakili batas wilayah di kota New York.
+![image](https://user-images.githubusercontent.com/114122090/211190037-bf9b3303-6b54-4413-a9ef-6ace45036fcd.png)
+
+2. Selanjutnya, cari V_SSS_SEGMENTRATING_1.zipfile dan perluas. Pilih dot_V_SSS_SEGMENTRATING_1_20190129.shplayer dan tambahkan ke kanvas. Ini adalah lapisan garis dari semua jalan di kota.
+![image](https://user-images.githubusercontent.com/114122090/211190061-2e026e80-4fa1-4223-85e9-cd018422f136.png)
+
+3. Mari kita periksa atribut yang tersedia untuk setiap fitur dot_V_SSS_SEGMENTRATING_1_20190129layer. Klik kanan dan pilih Open Attribute Table .
+![image](https://user-images.githubusercontent.com/114122090/211190080-ae08f531-1241-422a-8364-ae5ac359db54.png)
+
+4. Kita akan melihat atribut yang dipanggil Rating_Byang memiliki nilai dalam rentang 0-10 yang mewakili peringkat segmen jalan. Atribut RatingWordmemiliki peringkat deskriptif. Kita dapat menggunakan Rating_B bidang tersebut untuk menghitung peringkat rata-rata.
+![image](https://user-images.githubusercontent.com/114122090/211192582-ba1486b1-a1f1-4df6-980d-35ce924a3b98.png)
+
+5. Kita mungkin telah memperhatikan bahwa beberapa fitur memiliki peringkat NR. Ini adalah segmen yang tidak diberi peringkat. Memasukkan mereka ke dalam analisis kami tidak akan benar. Sebelum kita melakukan penggabungan spasial, mari siapkan Filter untuk mengecualikan rekaman ini. Klik kanan dot_V_SSS_SEGMENTRATING_1_20190129layer dan pilih Filter .
+![image](https://user-images.githubusercontent.com/114122090/211192611-571da133-d151-4864-9a8d-68ef204bd849.png)
+
+6. Di Pembuat Kueri , ketikkan ekspresi berikut untuk memilih semua rekaman yang tidak diberi peringkat NR. Anda juga dapat membuat ekspresi secara interaktif dengan mengklik Field , Operator dan memilih Value yang sesuai . Klik Oke .
+```
+"RatingWord" != 'NR'
+```
+![image](https://user-images.githubusercontent.com/114122090/211192637-81daddfa-e193-4b62-819f-1e695706b1b1.png)
+
+7. Kita akan melihat dot_V_SSS_SEGMENTRATING_1_20190129layer sekarang memiliki ikon filter yang menunjukkan bahwa ada filter aktif yang diterapkan ke layer ini. Sekarang kita bisa melakukan penggabungan spasial menggunakan layer ini. Pergi ke Memproses ‣ Kotak Alat .
+![image](https://user-images.githubusercontent.com/114122090/211192652-2944b0e1-7225-44fe-b4a8-aab10ec6727f.png)
+
+8. Cari dan temukan Vector general ‣ Gabungkan atribut berdasarkan algoritma lokasi (ringkasan). Klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211192679-527d1dbc-f470-4ff7-9f8c-f4ef226d9b34.png)
+
+9. Dalam dialog Gabungkan atribut berdasarkan lokasi (ringkasan)nybb , pilih sebagai Input layer . Lapisan jalan dot_V_SSS_SEGMENTRATING_1_20190129akan menjadi lapisan Gabung . Anda dapat membiarkan predikat Geometri pada default Intersects. Klik tombol … di sebelah Fields to sumarize .
+![image](https://user-images.githubusercontent.com/114122090/211192736-47d066e5-a034-4aeb-bd44-9a7ab21ffd7f.png)
+
+>Catatan :
+>Kiat untuk membantu Anda memilih masukan yang benar dan menggabungkan lapisan: Lapisan masukan adalah >salah satu yang akan dimodifikasi dengan atribut baru dalam gabungan spasial. Karena kami ingin bidang >peringkat rata-rata ditambahkan ke lapisan wilayah, itu akan menjadi lapisan masukan.
+
+10. Pilih Rating_Bdan klik OK .
+![image](https://user-images.githubusercontent.com/114122090/211192952-e9880e8b-0aa7-439a-870c-114aef079f31.png)
+
+11. Demikian pula, klik tombol … di sebelah Ringkasan untuk menghitung .
+![image](https://user-images.githubusercontent.com/114122090/211193094-0870a4d2-cdae-447d-a7a1-eee2a4d086ec.png)
+
+12. Pilih meansebagai operator ringkasan dan klik OK . Sekarang kita siap untuk memulai pemrosesan. Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211193123-654b7dc4-ddff-46e1-92e5-51282b132574.png)
+
+13.	Algoritme pemrosesan akan bekerja melalui fitur dan menerapkan gabungan spasial. Verifikasi bahwa pekerjaan pemrosesan berhasil dan klik Tutup .
+![image](https://user-images.githubusercontent.com/114122090/211193203-f6871ba8-023c-43d0-ae40-72d237199a68.png)
+ 
+14.	Kembali ke jendela utama QGIS, kita akan melihat layer baru ditambahkan ke kanvas. Buka tabel atribut untuk lapisan ini. Anda akan melihat kolom baru ditambahkan ke layer input borough dengan rating rata-rata semua jalan yang bersinggungan dengan fitur tersebut.Joined layerRating_B_mean
+![image](https://user-images.githubusercontent.com/114122090/211193226-19089a9e-3144-4ed1-ba61-cf67ef0ee148.png)
+
+15.	Sekarang kita dapat melakukan operasi terbalik. Terkadang analisis Anda memerlukan atribut dari lapisan lain berdasarkan hubungan spasial tetapi tidak menyelesaikan penyelesaian apa pun. Kita dapat menggunakan algoritma untuk analisis tersebut. Tugasnya adalah menambahkan nama borough ke setiap fitur di layer jalan berdasarkan poligon borough mana yang bersinggungan dengannya. Sebelum kita menjalankan algoritme ini, mari hapus filter dari layer. Klik ikon filter dan tekan Clear di Query Builder . Klik Oke .Join atribut berdasarkan locationdot_V_SSS_SEGMENTRATING_1_20190129
+ ![image](https://user-images.githubusercontent.com/114122090/211193366-4028c49d-932a-49e4-b044-3c0a78acc69c.png)
+
+16.	Matikan di panel Lapisan . Temukan Vector general ‣ Gabungkan atribut berdasarkan lokasi algoritme di Processing Toolbox dan klik dua kali untuk meluncurkannya.Joined layer
+ ![image](https://user-images.githubusercontent.com/114122090/211193395-fe032564-e8d4-4238-9e21-207fbe1a8f13.png)
+
+17.	Pilih dot_V_SSS_SEGMENTRATING_1_20190129sebagai layer Input dan nybbsebagai layer Join . Anda dapat membiarkan predikat Geometri pada default Intersects. Klik tombol … di sebelah bidang untuk ditambahkan dan dipilih BoroName. Klik Oke .
+ ![image](https://user-images.githubusercontent.com/114122090/211193417-e238a5e8-84ab-40b5-a9ed-73ebf720a669.png)
+
+18.	Ruas garis dapat menjembatani batas wilayah, jadi kami memilih tipe Gabungan sebagai . Klik Jalankan .Crate fitur terpisah untuk setiap fitur yang terletak (one-to-many)
+ 
+19.	Setelah pemrosesan selesai, buka tabel atribut file . Anda akan melihat bahwa ada atribut baru yang ditambahkan ke setiap fitur jalan.Joined layerBoroName
+ 
+
 
 
 
