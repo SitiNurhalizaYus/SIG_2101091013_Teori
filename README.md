@@ -160,7 +160,7 @@ file : [modul2.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ```
 ![11](https://user-images.githubusercontent.com/114122090/196244447-69fb2c9e-1ab9-43cb-8f22-45daa8da2b73.png)
 
-12. Kembali ke jendela utama QGIS. Sekarang Anda akan melihat subset yang lebih kecil dari poin yang dipilih. Ini adalah hasil dari kueri kedua dan menunjukkan semua tempat dari kumpulan data yang merupakan ibu kota negara serta memiliki populasi lebih dari 1 juta.
+12. Kembali ke jendela utama QGIS. Sekarang kita akan melihat subset yang lebih kecil dari poin yang dipilih. Ini adalah hasil dari kueri kedua dan menunjukkan semua tempat dari kumpulan data yang merupakan ibu kota negara serta memiliki populasi lebih dari 1 juta.
 ![12](https://user-images.githubusercontent.com/114122090/196244464-fcaf6477-7768-41db-9df0-9cc7acbabb58.png)
 
 13. Sekarang kita akan mengekspor fitur yang dipilih sebagai layer baru. Klik kanan ne_10m_populated_places_simplelayer dan pergi ke Export Save Selected Features As...
@@ -1082,27 +1082,89 @@ view : [modul2.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 14.	Kembali ke jendela utama QGIS, kita akan melihat layer baru ditambahkan ke kanvas. Buka tabel atribut untuk lapisan ini. Anda akan melihat kolom baru ditambahkan ke layer input borough dengan rating rata-rata semua jalan yang bersinggungan dengan fitur tersebut.Joined layerRating_B_mean
 ![image](https://user-images.githubusercontent.com/114122090/211193226-19089a9e-3144-4ed1-ba61-cf67ef0ee148.png)
 
-15.	Sekarang kita dapat melakukan operasi terbalik. Terkadang analisis Anda memerlukan atribut dari lapisan lain berdasarkan hubungan spasial tetapi tidak menyelesaikan penyelesaian apa pun. Kita dapat menggunakan algoritma untuk analisis tersebut. Tugasnya adalah menambahkan nama borough ke setiap fitur di layer jalan berdasarkan poligon borough mana yang bersinggungan dengannya. Sebelum kita menjalankan algoritme ini, mari hapus filter dari layer. Klik ikon filter dan tekan Clear di Query Builder . Klik Oke .Join atribut berdasarkan locationdot_V_SSS_SEGMENTRATING_1_20190129
+15.	Sekarang kita dapat melakukan operasi terbalik. Terkadang analisis memerlukan atribut dari lapisan lain berdasarkan hubungan spasial tetapi tidak menyelesaikan penyelesaian apa pun. Kita dapat menggunakan algoritma untuk analisis tersebut. Tugasnya adalah menambahkan nama borough ke setiap fitur di layer jalan berdasarkan poligon borough mana yang bersinggungan dengannya. Sebelum kita menjalankan algoritme ini, mari hapus filter dari layer. Klik ikon filter dan tekan Clear di Query Builder . Klik Oke .Join atribut berdasarkan locationdot_V_SSS_SEGMENTRATING_1_20190129
  ![image](https://user-images.githubusercontent.com/114122090/211193366-4028c49d-932a-49e4-b044-3c0a78acc69c.png)
 
 16.	Matikan di panel Lapisan . Temukan Vector general ‣ Gabungkan atribut berdasarkan lokasi algoritme di Processing Toolbox dan klik dua kali untuk meluncurkannya.Joined layer
  ![image](https://user-images.githubusercontent.com/114122090/211193395-fe032564-e8d4-4238-9e21-207fbe1a8f13.png)
 
-17.	Pilih dot_V_SSS_SEGMENTRATING_1_20190129sebagai layer Input dan nybbsebagai layer Join . Anda dapat membiarkan predikat Geometri pada default Intersects. Klik tombol … di sebelah bidang untuk ditambahkan dan dipilih BoroName. Klik Oke .
+17.	Pilih dot_V_SSS_SEGMENTRATING_1_20190129 sebagai layer Input dan nybbsebagai layer Join . Kita dapat membiarkan predikat Geometri pada default Intersects. Klik tombol … di sebelah bidang untuk ditambahkan dan dipilih BoroName. Klik Oke .
  ![image](https://user-images.githubusercontent.com/114122090/211193417-e238a5e8-84ab-40b5-a9ed-73ebf720a669.png)
 
 18.	Ruas garis dapat menjembatani batas wilayah, jadi kami memilih tipe Gabungan sebagai . Klik Jalankan .Crate fitur terpisah untuk setiap fitur yang terletak (one-to-many)
+ ![image](https://user-images.githubusercontent.com/114122090/211194064-8a5a1aa8-dad5-49a6-b928-09f28977e4b4.png)
+
  
 19.	Setelah pemrosesan selesai, buka tabel atribut file . Anda akan melihat bahwa ada atribut baru yang ditambahkan ke setiap fitur jalan.Joined layerBoroName
+ ![image](https://user-images.githubusercontent.com/114122090/211194091-daa5268c-2339-4da6-a214-3687a02bf0a1.png)
  
-
-
+ ![Screenshot (1244)](https://user-images.githubusercontent.com/114122090/211194117-b8e47a90-099a-46c5-8a3e-aa730b40b8a5.png)
 
 
 ## Modul 3
 # `Performing Spatial Joins (QGIS3)`
 file : [modul3.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.qgz)
 view : [modul3.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/perfomating%20spatial%20joins.png)
+
+## Prosedure
+1.	Temukan metro_stations_accessbility.zipfile di Peramban QGIS dan kembangkan. Pilih metro_stations_accessbility.shpfile dan seret ke kanvas. Lapisan baru metro_stations_accessbilityakan dimuat di panel Lapisan .
+![image](https://user-images.githubusercontent.com/114122090/211194230-1f26c81c-daea-4b8e-87f1-6f767d443bb9.png)
+
+2.	Lapisan data untuk bar dan pub dalam format CSV. Untuk memuatnya di QGIS, buka Layer ‣ Add Layer ‣ Add Delimited Text Layer… . ( Lihat Mengimpor File Spreadsheet atau CSV (QGIS3) untuk detail lebih lanjut tentang mengimpor file CSV)
+![image](https://user-images.githubusercontent.com/114122090/211194242-60e55db5-ba9c-4117-bf77-a5741bb508ab.png)
+
+3.	Di Manajer Sumber Data | Dialog Teks Dibatasi , telusuri dan pilih file yang diunduh Bars_and_pubs__with_patron_capacity.csvsebagai Nama file . Bidang X dan kolom bidang Y harus dipilih secara otomatis ke dan masing- masing. Klik Tambahkan .x coordinatey coordinate
+![image](https://user-images.githubusercontent.com/114122090/211194246-0d5b7ef8-43d9-47da-bcf6-297bb27b27f7.png)
+
+4.	Kita akan melihat Bars_and_pubs__with_patron_capacitylayer baru ditambahkan ke panel Layers . Kedua layer input berada di Geograhpic Coordinate Reference System (CRS) . Untuk melakukan analisis spasial, disarankan untuk menggunakan Projected Coordinate Reference System (CRS). Jadi sekarang kita akan memproyeksikan ulang kedua layer ke CRS regional yang sesuai yang meminimalkan distorsi dan memungkinkan kita bekerja dalam satuan jarak seperti meter, bukan derajat. Pergi ke Memproses ‣ Kotak Alat .EPSG:4326 WGS84
+![image](https://user-images.githubusercontent.com/114122090/211194255-d282ac59-9a08-421f-a90a-40fdc0e7aab1.png)
+
+5.	Cari dan temukan Vector general ‣ Alat lapisan proyeksi ulang . Klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211194261-f2e2f00a-6c34-4aef-ae97-e5360dda2d89.png)
+
+6.	Pilih Bars_and_pubs__with_patron_capacitysebagai lapisan Input . Klik tombol Select CRS di sebelah Target CRS .
+![image](https://user-images.githubusercontent.com/114122090/211194267-10d2fc08-f0d9-48a2-afce-840727bf785b.png)
+
+7.	Saat memilih sistem koordinat yang diproyeksikan untuk analisis Anda, tempat pertama yang harus dicari adalah CRS regional untuk area yang diminati. Untuk Australia, Map Grid of Australia (MGA) 2020 adalah sistem grid berbasis UTM yang digunakan untuk pemetaan lokal dan regional. Melbourne termasuk dalam UTM Zone 55, jadi kita bisa memilih GDA 2020 / MGA zone 55 EPSG:7855 CRS.
+![image](https://user-images.githubusercontent.com/114122090/211194292-ccc8c0eb-f6e1-4fb5-82b4-668cf9ce3e73.png)
+
+>Catatan
+>Jika Anda tidak yakin dengan CRS lokal untuk wilayah tempat kita bekerja, memilih CRS untuk zona UTM berdasarkan datum WGS84 adalah pilihan yang aman. Kita dapat >mengetahui nomor zona UTM wilayah Anda menggunakan UTM Grid Zones of the World .
+
+8.	Selanjutnya, klik tombol … di sebelah Diproyeksikan ulang dan pilih . Geopackage adalah data spasial format data terbuka yang direkomendasikan dan merupakan format pertukaran data default untuk QGIS3. Satu file GeoPackage dapat berisi beberapa layer vektor dan raster.Save to GeoPackage.gpkg
+ ![image](https://user-images.githubusercontent.com/114122090/211194344-6e612ed0-d6da-4240-8579-bffdb4e53b86.png)
+
+9.	Beri nama geopackage sebagai spatialquerydan klik Save .
+ 
+10.	Saat diminta nama lapisan, masukkan bars_and_pubsdan klik OK . Klik Jalankan untuk memproyeksikan ulang lapisan.
+ ![image](https://user-images.githubusercontent.com/114122090/211194356-122b86c3-fc89-4244-8e70-8f03224f47d4.png)
+
+11.	Jendela akan beralih ke tab Log dan Anda akan melihat algoritme dijalankan dan membuat lapisan keluaran baru bars_and_pubs.
+![image](https://user-images.githubusercontent.com/114122090/211194361-2ed06269-621e-4da9-a037-f09e5eb5bcbe.png)
+
+12.	Sekarang kita akan memproyeksikan ulang metro_stations_accessbilitylayer. Beralih kembali ke tab Parameter di jendela Reproject layer . Pilih metro_stations_accessbilitysebagai lapisan Input . Pertahankan Target CRS yang sama . Selanjutnya, klik tombol … di sebelah Diproyeksikan ulang dan pilih . Pilih file keluaran yang sama (Ingat bahwa satu file geopackage dapat berisi banyak lapisan, jadi kami akan menyimpan lapisan baru ke file geopackage yang sama). Masukkan sebagai nama Layer . Klik Jalankan .Save to GeoPackagespatialquerymetro_stations
+![image](https://user-images.githubusercontent.com/114122090/211194367-019bea34-79c7-45ff-be18-841d9d0b3f36.png)
+
+13.	Kembali ke jendela utama QGIS, Anda akan melihat 2 layer baru dimuat di panel Layers : bars_and_pubsdan metro_stations. Anda dapat mematikan visibilitas untuk lapisan asli. Sekarang, kami siap untuk melakukan kueri spasial. Karena kami tertarik untuk memilih bar dan pub dalam jarak 500m dari stasiun metro, langkah pertama adalah membuat buffer di sekitar stasiun metro yang mewakili area pencarian kami. Cari dan temukan Vector geometry ‣ Buffer tool di Processing Toolbox dan klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211194374-dc89703d-7ce4-410e-a9cb-1b9a7e7a2171.png)
+
+14.	Dalam dialog Buffermetro_stations , pilih sebagai Input layer . Tetapkan 500meter sebagai Jarak . Simpan hasilnya ke spatialquerygeopackage yang sama dan masukkan metro_stations_bufferssebagai Layer name . Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211194377-852e2c6c-6edd-4dfd-8899-155a65cea802.png)
+
+15.	Kita akan melihat metro_stations_bufferslayer baru dimuat di panel Layers . Sekarang kita bisa mengetahui titik mana dari bars_and_pubslayer yang termasuk dalam poligon dari metro_stations_bufferslayer. Cari Vector selection ‣ Extract by Location tool dari Processing Toolbox dan klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211194389-7b74ed96-ffd1-485f-ab63-ef8f3d32d032.png)
+
+>Catatan
+>Ekstrak berdasarkan lokasi akan membuat layer baru dengan fitur yang cocok dari kueri spasial. Jika Anda hanya ingin memilih fitur, gunakan alat Pilih berdasarkan >lokasi .
+
+16.	Dalam dialog Ekstrak berdasarkan lokasibars_and_pubs , pilih sebagai Ekstrak fitur dari . Periksa Intersectsebagai predikat geometri . Tetapkan metro_stations_bufferssebagai Dengan membandingkan fitur dari . Simpan hasilnya ke spatialquerygeopackage sebagai layer selected. Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211194393-82796529-5495-4c41-a835-4d6fe49c3407.png)
+  
+17.	Setelah pemrosesan selesai, Kita akan melihat selectedlayer ditambahkan ke panel Layers . Perhatikan bahwa lapisan ini hanya berisi titik-titik dari bars_and_pubsyang termasuk dalam poligon penyangga.
+![image](https://user-images.githubusercontent.com/114122090/211194412-13d58c49-72c2-4714-9e14-a02cd674ba69.png)
+
+18.	Analisis kami selesai. Kita mungkin memperhatikan bahwa poligon penyangga terlihat berbentuk oval. Ini karena Project CRS kita masih disetel ke EPSG:4326 WGS84 . Untuk memvisualisasikan hasil dengan lebih baik, Kita dapat pergi ke Proyek ‣ Properti ‣ CRS dan pilih mana yang kami gunakan untuk analisis. Setelah diatur ke CRS ini, buffer akan muncul dalam bentuk yang benar.GDA 2020 / MGA zone 55 EPSG:7855
+![image](https://user-images.githubusercontent.com/114122090/211194423-a7cd75aa-296f-4b2b-bf5f-18b6aa2db5e1.png)
 
 
 ## Modul 4
