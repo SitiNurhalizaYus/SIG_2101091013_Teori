@@ -387,22 +387,28 @@ length / 1000
 
 ## Modul 6
 # `Styling dan Analisis Raster Dasar (QGIS3)`
-file : [modul6.qpt]()
+file : [modul6.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/9b20ef3772185f6451e9a5b2914e408540ee23b6/Basic%20Raster%20Styling%20and%20Analysis%20(QGIS3)_siti%20nurhaliza%20yus_2101091013.PNG)
 
 ## Procedure
 1.	Buka QGIS dan temukan file yang diunduh di panel Browser . Perluas gpw-v4-population-count-rev11_2000_2pt5_min_tif.zipfile dan seret gpw-v4-population-count-rev11_2000_2pt5_min.tiffile ke kanvas.
+![image](https://user-images.githubusercontent.com/114122090/211206637-11c3334a-49ea-4558-b4e7-c49a9235e9c9.png)
 
 2.	Layer baru gpw-v4-population-count-rev11_2000_2pt5_minakan ditambahkan ke panel Layers . Demikian pula, cari gpw-v4-population-count-rev11_2010_2pt5_min_tif.zipfile dan seret gpw-v4-population-count-rev11_2010_2pt5_min.tiffile ke kanvas.
+![image](https://user-images.githubusercontent.com/114122090/211206629-a992f2c2-2e77-4c9a-9f67-1a391c5e1f57.png)
 
 3.	Mari jelajahi lapisan ini. Klik tombol Identifikasi pada Bilah Alat Atribut . Setelah alat dipilih, klik titik mana pun di kanvas.
+![image](https://user-images.githubusercontent.com/114122090/211206645-c43916d2-a9fb-4c9a-bace-30507bedc0bc.png)
 
 4.	Nilai yang terkait dengan piksel tersebut akan ditampilkan di panel Identifikasi Hasil yang baru. Di panel Identifikasi Hasil , ubah Mode menjadi . Ini akan menampilkan nilai piksel dari semua raster, bukan hanya lapisan paling atas. Bandingkan nilai dari kedua layer. Karena resolusi raster kira-kira 5km x 5km, nilai piksel mewakili total populasi di area (25 km persegi) yang diwakili oleh piksel.Top down
+![image](https://user-images.githubusercontent.com/114122090/211206625-33dd40a4-00a3-4a87-a9df-5cc472d18f14.png)
 
 5.	Tutup panel Identifikasi Hasil . Mari buat visualisasi layer yang lebih baik. Klik tombol Open the layer Styling panel di panel Layers .
+![image](https://user-images.githubusercontent.com/114122090/211206616-1a8c91f6-bad0-421d-b029-6eef16846ffd.png)
 
 6.	Di panel Layer Styling , klik dropdown Render type dan pilih renderer.Singleband pseudocolor
 
 7.	Renderer ini akan memberi style pada layer menggunakan color ramp. Ramp warna default adalah putih-merah di mana nilai minimum akan diberi warna putih dan nilai maksimum di lapisan akan diberi warna merah. Nilai tengah akan diberi warna interpolasi linier merah. Perluas Pengaturan Nilai Min / Maks dan pilih opsi. Kita akan melihat bahwa visualisasi peta sekarang jauh lebih baik. Rentang data stKitar ditetapkan dari 2% hingga 98% dari nilai data, artinya outlier tidak akan digunakan untuk menetapkan nilai minimum dan maksimum, sehingga menghasilkan visualisasi yang jauh lebih representatif.Cumulative count cut
+![image](https://user-images.githubusercontent.com/114122090/211206607-4d6a737f-fb63-410f-86bd-5cee467ee18b.png)
 
 8.	Tutup panel Layer Styling . Kita bisa menerapkan gaya serupa ke lapisan lain juga. Namun ada cara yang lebih mudah untuk mentransfer gaya dari satu lapisan ke lapisan lainnya. Klik kanan gpw-v4-population-count-rev11_2010_2pt5_minlayer dan pilih Styles ‣ Copy Style .
 
@@ -411,6 +417,7 @@ file : [modul6.qpt]()
 10.	Parameter gaya yang sama akan diterapkan ke lapisan lainnya. Fitur ini sangat berguna ketika Kita ingin membandingkan lapisan yang berbeda menggunakan kategorisasi yang sama. Saat Kita mengaktifkan visibilitas lapisan atas, Kita dapat melihat perubahan populasi secara visual.
 
 11.	Tugas kita adalah membuat peta tematik dari perubahan populasi. Mari hitung selisih antara 2 layer dan buat raster lain di mana setiap piksel mewakili perubahan dalam populasi. Pergi ke Raster ‣ Kalkulator raster .
+![image](https://user-images.githubusercontent.com/114122090/211206596-99b4f212-9f56-4000-9b94-80a5911de983.png)
 
 12.	Di bagian Raster bands , Kita dapat memilih layer dengan mengklik dua kali pada layer tersebut. Band diberi nama setelah nama raster diikuti dengan @dan nomor band. Karena setiap raster kami hanya memiliki 1 band, Kita akan diberi nama dengan @1ditambahkan ke nama layer. Kalkulator raster dapat menerapkan operasi matematika pada piksel raster. Dalam hal ini kita ingin memasukkan rumus sederhana untuk mengurangkan populasi tahun 2010 dari tahun 2000. Masukkan ekspresi berikut. Selanjutnya, klik tombol ... di sebelah Output layer .
 ```
@@ -420,16 +427,20 @@ file : [modul6.qpt]()
 13.	Masukkan population_change_2010_2000.tifsebagai file Keluaran . Klik OK untuk memulai perhitungan.
 
 14.	Setelah selesai, layer baru population_change_2010_2000akan ditambahkan ke panel Layers . Mari ubah gaya sehingga perubahan populasi negatif dan positif divisualisasikan dengan lebih baik. Klik tombol Open the layer Styling panel di panel Layers .
+![image](https://user-images.githubusercontent.com/114122090/211206584-9cadf677-8d2c-4837-b955-c7b1c8f5c542.png)
 
 15.	Salah satu opsinya adalah menggunakan teknik penataan yang serupa seperti sebelumnya dan memilih jalan warna yang berbeda. Klik drop-down Color ramp dan pilih Spectralramp. Klik drop-down lagi dan pilih untuk menetapkan warna biru ke nilai rendah dan merah ke nilai tinggi.Invert Color Ramp
 
 16.	Ini adalah visualisasi yang bagus, tetapi tidak mudah untuk ditafsirkan. Mari buat peta yang lebih baik dengan 4 kategori terpisah, Decline, Neutral, Growthdan . Gulir ke bawah ke tabel dengan kelas. Tahan tombol dan pilih semua baris. Klik tombol Hapus baris yang dipilih .High GrowthShift
+![image](https://user-images.githubusercontent.com/114122090/211206578-2c56da6d-9162-4017-83f9-3e7d37fa4880.png)
 
 17.	Ubah mode InterpolasiDiscrete ke . Kami sekarang akan membuat peta warna secara manual. Klik tombol Tambahkan nilai secara manual . Masukkan -100sebagai Nilai dan Declinesebagai Label . Tetapkan warna biru untuk kategori ini. Cara kerja peta warna adalah semua nilai yang lebih rendah dari nilai yang dimasukkan akan diberi warna entri tersebut. Kita akan melihat bahwa kanvas hanya akan menampilkan area dengan perubahan populasi negatif.
 
 18.	Lengkapi peta warna dengan nilai yang sesuai. Saya memilih 100, 1000dan 100000sebagai batas atas untuk Neutral, Growthdan kategori masing-masing. Tetapkan warna untuk setiap kategori yang dibuat, misalnya krem, oranye, dan merah.High Growth
+![image](https://user-images.githubusercontent.com/114122090/211206574-1410d5fc-f076-4fd5-8965-07b78eec671a.png)
 
 19.	Setelah Kita puas dengan visualisasinya, tutup panel Layer Styling . Kita sekarang memiliki peta tematik global tentang perubahan populasi.
+![image](https://user-images.githubusercontent.com/114122090/211206568-124792c9-e1e6-4889-b506-462f3ad94ecf.png)
 
 
 ## Modul 7
@@ -804,7 +815,7 @@ Prosedur
 
 ## Modul 13
 # `Digitalisasi Data Peta (QGIS3)`
-file : [modul13.qpt]()
+file : [modul13.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/850600273cd9d9fb09fe2827aa56c43ff8067603/Digitizing%20Map%20Data%20(QGIS3).qgz)
 
 ## Procedure
 1.	Di QGIS, mari muat file gambar. Pergi ke Layer ‣ Add Layer ‣ Add Raster Layer .
@@ -924,7 +935,7 @@ file : [modul13.qpt]()
 
 ## Modul 14
 # `Mencari dan Mengunduh Data OpenStreetMap (QGIS3)`
-file : [modul14.qpt]()
+file : [modul14.qpt](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/9b20ef3772185f6451e9a5b2914e408540ee23b6/Searching%20and%20Downloading%20OpenStreetMap%20Data%20(QGIS3).png)
 
 ## Procedure
 1.	Cari dan pasang plugin QuickOSM dari QGIS Official Plugin Repository. Lihat Menggunakan Plugin untuk instruksi mengunduh plugin. Pastikan Kita telah memilih kotak centang. Klik Tutup .
