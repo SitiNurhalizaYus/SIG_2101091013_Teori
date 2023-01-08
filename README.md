@@ -938,7 +938,6 @@ view : [modul1.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211183529-54740105-7554-4b2b-9106-043e92fd9630.png)
 
 6. Dalam dialog Pengelola Sumber Data , pilih Teks yang Dibatasi . Kemudian di sebelah kanan, klik di ...sebelah Nama file dan ramban ke folder yang tidak di-zip dengan CSV populasi California.
-![image](https://user-images.githubusercontent.com/114122090/211183539-59511121-76dc-4f14-a514-e15d9f19f8f3.png)
 
 7. Sekarang di bawah Sample Data , kita dapat memeriksa data bahkan sebelum memuatnya sebagai layer. Representasi menunjukkan bahwa tabel data berisi 2 baris header.
 ![image](https://user-images.githubusercontent.com/114122090/211183552-fc545472-3443-4e6d-a438-50f6a70b5dff.png)
@@ -984,7 +983,6 @@ substr("id", -11)
 ![image](https://user-images.githubusercontent.com/114122090/211183912-b156b8ad-40d1-4751-a183-afe76cec0631.png)
 
 20. Setelah pemrosesan selesai, verifikasi bahwa algoritme berhasil jika semua fitur 8057 digabungkan. Klik Tutup .
-![image](https://user-images.githubusercontent.com/114122090/211183917-bee8f0a0-f3ff-431d-9cc6-35715cb8f4e1.png)
 
 21. Kita akan melihat layer baru california_total_populationdimuat di panel Layers . Pada titik ini, bidang dari file CSV digabungkan dengan lapisan saluran sensus. Sekarang setelah kita memiliki data kependudukan di lapisan sensus, kita dapat menatanya untuk membuat visualisasi distribusi kepadatan penduduk. Klik tombol Buka Panel Penataan Lapisan .
 ![image](https://user-images.githubusercontent.com/114122090/211183922-b5a9eefd-1f26-4dac-ab08-46040a42f8fa.png)
@@ -1053,7 +1051,6 @@ view : [modul2.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ```
 "RatingWord" != 'NR'
 ```
-![image](https://user-images.githubusercontent.com/114122090/211192637-81daddfa-e193-4b62-819f-1e695706b1b1.png)
 
 7. Kita akan melihat dot_V_SSS_SEGMENTRATING_1_20190129layer sekarang memiliki ikon filter yang menunjukkan bahwa ada filter aktif yang diterapkan ke layer ini. Sekarang kita bisa melakukan penggabungan spasial menggunakan layer ini. Pergi ke Memproses ‣ Kotak Alat .
 ![image](https://user-images.githubusercontent.com/114122090/211192652-2944b0e1-7225-44fe-b4a8-aab10ec6727f.png)
@@ -1077,10 +1074,8 @@ view : [modul2.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211193123-654b7dc4-ddff-46e1-92e5-51282b132574.png)
 
 13.	Algoritme pemrosesan akan bekerja melalui fitur dan menerapkan gabungan spasial. Verifikasi bahwa pekerjaan pemrosesan berhasil dan klik Tutup .
-![image](https://user-images.githubusercontent.com/114122090/211193203-f6871ba8-023c-43d0-ae40-72d237199a68.png)
  
 14.	Kembali ke jendela utama QGIS, kita akan melihat layer baru ditambahkan ke kanvas. Buka tabel atribut untuk lapisan ini. Anda akan melihat kolom baru ditambahkan ke layer input borough dengan rating rata-rata semua jalan yang bersinggungan dengan fitur tersebut.Joined layerRating_B_mean
-![image](https://user-images.githubusercontent.com/114122090/211193226-19089a9e-3144-4ed1-ba61-cf67ef0ee148.png)
 
 15.	Sekarang kita dapat melakukan operasi terbalik. Terkadang analisis memerlukan atribut dari lapisan lain berdasarkan hubungan spasial tetapi tidak menyelesaikan penyelesaian apa pun. Kita dapat menggunakan algoritma untuk analisis tersebut. Tugasnya adalah menambahkan nama borough ke setiap fitur di layer jalan berdasarkan poligon borough mana yang bersinggungan dengannya. Sebelum kita menjalankan algoritme ini, mari hapus filter dari layer. Klik ikon filter dan tekan Clear di Query Builder . Klik Oke .Join atribut berdasarkan locationdot_V_SSS_SEGMENTRATING_1_20190129
  ![image](https://user-images.githubusercontent.com/114122090/211193366-4028c49d-932a-49e4-b044-3c0a78acc69c.png)
@@ -1089,17 +1084,13 @@ view : [modul2.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
  ![image](https://user-images.githubusercontent.com/114122090/211193395-fe032564-e8d4-4238-9e21-207fbe1a8f13.png)
 
 17.	Pilih dot_V_SSS_SEGMENTRATING_1_20190129 sebagai layer Input dan nybbsebagai layer Join . Kita dapat membiarkan predikat Geometri pada default Intersects. Klik tombol … di sebelah bidang untuk ditambahkan dan dipilih BoroName. Klik Oke .
- ![image](https://user-images.githubusercontent.com/114122090/211193417-e238a5e8-84ab-40b5-a9ed-73ebf720a669.png)
 
 18.	Ruas garis dapat menjembatani batas wilayah, jadi kami memilih tipe Gabungan sebagai . Klik Jalankan .Crate fitur terpisah untuk setiap fitur yang terletak (one-to-many)
  ![image](https://user-images.githubusercontent.com/114122090/211194064-8a5a1aa8-dad5-49a6-b928-09f28977e4b4.png)
 
- 
-19.	Setelah pemrosesan selesai, buka tabel atribut file . Anda akan melihat bahwa ada atribut baru yang ditambahkan ke setiap fitur jalan.Joined layerBoroName
- ![image](https://user-images.githubusercontent.com/114122090/211194091-daa5268c-2339-4da6-a214-3687a02bf0a1.png)
- 
+19.	Setelah pemrosesan selesai, buka tabel atribut file . Anda akan melihat bahwa ada atribut baru yang ditambahkan ke setiap fitur jalan.Joined layerBoroName 
  ![Screenshot (1244)](https://user-images.githubusercontent.com/114122090/211194117-b8e47a90-099a-46c5-8a3e-aa730b40b8a5.png)
-
+ 
 
 ## Modul 3
 # `Performing Spatial Joins (QGIS3)`
@@ -1126,7 +1117,6 @@ view : [modul3.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211194267-10d2fc08-f0d9-48a2-afce-840727bf785b.png)
 
 7.	Saat memilih sistem koordinat yang diproyeksikan untuk analisis Anda, tempat pertama yang harus dicari adalah CRS regional untuk area yang diminati. Untuk Australia, Map Grid of Australia (MGA) 2020 adalah sistem grid berbasis UTM yang digunakan untuk pemetaan lokal dan regional. Melbourne termasuk dalam UTM Zone 55, jadi kita bisa memilih GDA 2020 / MGA zone 55 EPSG:7855 CRS.
-![image](https://user-images.githubusercontent.com/114122090/211194292-ccc8c0eb-f6e1-4fb5-82b4-668cf9ce3e73.png)
 
 >Catatan
 >Jika Anda tidak yakin dengan CRS lokal untuk wilayah tempat kita bekerja, memilih CRS untuk zona UTM berdasarkan datum WGS84 adalah pilihan yang aman. Kita dapat >mengetahui nomor zona UTM wilayah Anda menggunakan UTM Grid Zones of the World .
@@ -1140,7 +1130,6 @@ view : [modul3.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
  ![image](https://user-images.githubusercontent.com/114122090/211194356-122b86c3-fc89-4244-8e70-8f03224f47d4.png)
 
 11.	Jendela akan beralih ke tab Log dan Anda akan melihat algoritme dijalankan dan membuat lapisan keluaran baru bars_and_pubs.
-![image](https://user-images.githubusercontent.com/114122090/211194361-2ed06269-621e-4da9-a037-f09e5eb5bcbe.png)
 
 12.	Sekarang kita akan memproyeksikan ulang metro_stations_accessbilitylayer. Beralih kembali ke tab Parameter di jendela Reproject layer . Pilih metro_stations_accessbilitysebagai lapisan Input . Pertahankan Target CRS yang sama . Selanjutnya, klik tombol … di sebelah Diproyeksikan ulang dan pilih . Pilih file keluaran yang sama (Ingat bahwa satu file geopackage dapat berisi banyak lapisan, jadi kami akan menyimpan lapisan baru ke file geopackage yang sama). Masukkan sebagai nama Layer . Klik Jalankan .Save to GeoPackagespatialquerymetro_stations
 ![image](https://user-images.githubusercontent.com/114122090/211194367-019bea34-79c7-45ff-be18-841d9d0b3f36.png)
@@ -1158,7 +1147,6 @@ view : [modul3.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 >Ekstrak berdasarkan lokasi akan membuat layer baru dengan fitur yang cocok dari kueri spasial. Jika Anda hanya ingin memilih fitur, gunakan alat Pilih berdasarkan >lokasi .
 
 16.	Dalam dialog Ekstrak berdasarkan lokasibars_and_pubs , pilih sebagai Ekstrak fitur dari . Periksa Intersectsebagai predikat geometri . Tetapkan metro_stations_bufferssebagai Dengan membandingkan fitur dari . Simpan hasilnya ke spatialquerygeopackage sebagai layer selected. Klik Jalankan .
-![image](https://user-images.githubusercontent.com/114122090/211194393-82796529-5495-4c41-a835-4d6fe49c3407.png)
   
 17.	Setelah pemrosesan selesai, Kita akan melihat selectedlayer ditambahkan ke panel Layers . Perhatikan bahwa lapisan ini hanya berisi titik-titik dari bars_and_pubsyang termasuk dalam poligon penyangga.
 ![image](https://user-images.githubusercontent.com/114122090/211194412-13d58c49-72c2-4714-9e14-a02cd674ba69.png)
@@ -1189,13 +1177,11 @@ view : [modul4.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211198831-98d3b90a-e5e2-4990-baba-8a5079f2dbaf.png)
  
 6.	Ada 2586 fitur, tetapi data berisi sedikit entri tanpa informasi lintang atau bujur. Kami harus menghapusnya sebelum melanjutkan lebih jauh. Tutup Tabel Atribut.
-![image](https://user-images.githubusercontent.com/114122090/211198840-abb375ab-d7fb-43e6-8762-61a4a1d0b437.png)
 
 7.	Pergi ke Pemrosesan ‣ Kotak Alat ‣ Geometri vektor ‣ Hapus alat geometri nol. Klik dua kali untuk membukanya.
 ![image](https://user-images.githubusercontent.com/114122090/211198845-14b79194-f2a6-435f-ba08-cef18fa69dac.png)
 
 8.	Di kotak dialog Hapus Geometri Nullearthquakes-2021-11-25_13-39-30_+0530 , pilih sebagai lapisan Input dan centang kotak Juga hapus geometri kosong . Klik Jalankan . Setelah pemrosesan selesai, klik Tutup .
-![image](https://user-images.githubusercontent.com/114122090/211198855-fe88fd1d-f505-4767-b8dc-a83fd34260f1.png)
  
 9.	Layer baru akan ditambahkan ke panel Layers . Untuk analisis kita akan menggunakan layer ini sebagai pengganti layer aslinya. Hapus centang pada layer di panel Layers untuk menyembunyikannya. Pilih layer dan klik tombol Open Attribute Table dari Attributes Toolbar .Non null geometriesearthquakes-2021-11-25_13-39-30_+0530Non null geometries
 ![image](https://user-images.githubusercontent.com/114122090/211198867-ae00c717-0ae6-411d-b7ce-e24a7cad5046.png)
@@ -1241,7 +1227,6 @@ view : [modul5.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211199187-70ac4e9f-cf23-4639-a9e0-490d41bc7dae.png)
 
 6.	Pilih 2018_Gaz_ua_nationalsebagai Layer Titik Input . Pilih us.tmax_nohads_ll_20190501_floatsebagai Lapisan Raster untuk sampel . Luaskan parameter Lanjutan dan masukkan tmaxsebagai awalan kolom Keluaran . Klik Jalankan . Setelah pemrosesan selesai, klik Tutup .
-![image](https://user-images.githubusercontent.com/114122090/211199199-78edc734-97f5-4f71-bd52-0259f66b38b2.png)
 
 7.	Lapisan baru akan dimuat di panel Lapisan . Pilih alat Identifikasi di Bilah Alat Atribut dan klik titik mana saja. Anda akan melihat atribut ditampilkan di panel Identifikasi Hasil . Kita akan melihat atribut baru bernama tmax_1 ditambahkan ke setiap fitur. Ini adalah nilai piksel dari lapisan raster yang diekstraksi di lokasi titik. Angka 1 mewakili nomor pita raster. Jika lapisan raster memiliki banyak pita, kita akan melihat banyak kolom baru di lapisan keluaran.Sampled Points
 ![image](https://user-images.githubusercontent.com/114122090/211199208-a46a52c8-7556-4b47-a194-8a21b606628d.png)
@@ -1262,19 +1247,15 @@ view : [modul5.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
  ![image](https://user-images.githubusercontent.com/114122090/211199252-281f3df2-1094-46be-873f-1ac2a324bf2e.png)
 
 12.	Pilih us.tmax_nohads_ll_20190501_floatsebagai layer Raster dan tl_2018_us_countysebagai layer Vector yang mengandung zones . Masukkan tmax_sebagai awalan kolom Keluaran . Klik … di sebelah Statistik untuk menghitung .
-![image](https://user-images.githubusercontent.com/114122090/211199259-bf9946c5-903b-454d-96b0-300d552bb72b.png)
 
 13.	Pilih hanya Meannilainya dan klik OK .
-![image](https://user-images.githubusercontent.com/114122090/211199265-32750de3-f6fc-4edf-81ec-1d472facb59a.png)
 
 14.	Klik Jalankan untuk memulai pemrosesan. Algoritme mungkin membutuhkan waktu beberapa menit untuk selesai. Klik Tutup .
-![image](https://user-images.githubusercontent.com/114122090/211199270-c5b195b1-1974-4a18-8132-6949a5ff6baa.png)
 
 15.	Seperti disebutkan sebelumnya, algoritma Zonal Statistics tidak membuat layer baru, tetapi memodifikasi layer zona. Klik kanan tl_2018_us_countylayer, dan pilih Open Attribute Table .
 ![image](https://user-images.githubusercontent.com/114122090/211199276-1bd5e552-0ce3-4fa8-85df-160f46a877e8.png)
 
 16.	Kita akan melihat kolom baru bernama tmax_meanditambahkan ke tabel atribut. Ini berisi nilai suhu rata-rata yang diekstraksi di atas poligon untuk setiap fitur. Ada beberapa nilai nol karena kabupaten tersebut (milik Alaska, Hawaii, dan Puerto Riko) berada di luar jangkauan lapisan raster.
-![image](https://user-images.githubusercontent.com/114122090/211199289-6cde49e4-ced0-4a1d-a423-780cee365999.png)
 
 
 ## Modul 6
@@ -1293,7 +1274,6 @@ view : [modul6.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211199434-3c246efc-6903-4ae3-9e69-a2797969ab8b.png)
 
 4.	Dalam dialog Clip Raster by Mask Layer , pilih ESA_WorldCover_10m_2020_v100_N24_E093_Maplayer sebagai Input layer dan WDPA_WDOECM_Apr2022_Publicc_10744_shp-polygonslayer sebagai Mask Layer . Masukkan -9999di Tetapkan nilai nodata yang ditentukan ke bagian pita keluaran.
-![image](https://user-images.githubusercontent.com/114122090/211199441-5e7f9c2a-7e3c-4a44-ab51-e92a46cc4b84.png)
 
 5.	Sekarang buka bagian Advanced Parameters dan pilih di Profile . Sekarang di bawah Clipped (mask) , klik dan pilih Save To File… . Masukkan nama file sebagai . Klik Jalankan .High Compression...worldcover_clipped.tif
 ![image](https://user-images.githubusercontent.com/114122090/211199450-587234c4-a93d-47c4-8a17-9b933c525980.png)
@@ -1308,13 +1288,11 @@ view : [modul6.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211199477-58674454-89ba-44f3-b36c-bddea02df66a.png)
 
 9.	Area minat kami termasuk dalam Zona UTM 46N. Cari 46 N dan pilih CRS.WGS 84 / UTM zone 46N
- ![image](https://user-images.githubusercontent.com/114122090/211199486-a116a537-ac8d-4658-8faf-bdd4c4ef6db2.png)
 
 >Catatan :
 >Untuk mengetahui zona UTM mana untuk wilayah Anda, lihat situs web What UTM Zone am I.
 
 10.	Di bagian Diproyeksikan ulang , klik ...dan pilih Simpan Ke File… . Masukkan nama sebagai nationalpark_reprojected.gpkg. Klik Jalankan .
-![image](https://user-images.githubusercontent.com/114122090/211199510-188d227b-0f4c-4e9e-a33f-76c2af16749c.png)
 
 11.	Sekarang nationalpark_reprojectedlayer akan dimuat di kanvas. Klik kanan WDPA_WDOECM_Apr2022_Publicc_10744_shp-polygonslayer dan pilih Remove Layer… untuk menghapusnya. Sekarang kita akan memproyeksikan ulang layer raster. Di Kotak Alat Pemrosesan , cari dan temukan GDAL ‣ Proyeksi raster ‣ Warp (proyeksi ulang)
 ![image](https://user-images.githubusercontent.com/114122090/211199517-66947f16-cb45-429b-a8be-d32d89c39622.png)
@@ -1323,7 +1301,6 @@ view : [modul6.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211199519-08e255d4-8702-4afd-93ef-7b5527fcddb4.png)
 
 13.	Sekarang di bawah Diproyeksikan ulang , klik ...dan pilih Simpan Ke File… . Masukkan nama sebagai worldcover_reprojected.tif. Klik Jalankan .
-![image](https://user-images.githubusercontent.com/114122090/211199522-142d767b-3349-4dc6-b9f7-67e5e1d258c1.png)
 
 14.	Sekarang worldcover_reprojectedlayer akan dimuat di kanvas, hapus worldcover_clippedlayer tersebut. Mari atur layer proyek ke zona UTM. Klik pada layer mana saja dan pilih Layer CRS ‣ Set Project CRS from Layer .
 ![image](https://user-images.githubusercontent.com/114122090/211199527-1a17bbe6-8c3a-4a1f-8eda-6dfccc2b56d0.png)
@@ -1344,10 +1321,8 @@ view : [modul6.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211199572-67a168ab-ec04-4983-9a3e-c937f872a454.png)
 
 20.	Dalam dialog Raster Layer Unique Values Report , pilih Input layer sebagai worldcover_reprojected. Di bawah tabel Unique values klik ...dan pilih Save to File… . Masukkan nama sebagai class_areas.gpkg. Klik Jalankan .
-![image](https://user-images.githubusercontent.com/114122090/211199578-69ccc633-9916-4dc4-91eb-24a1fdc77516.png)
 
 21.	Sekarang class_areaslayer akan ditambahkan ke panel Layers . Klik kanan pada layer dan klik Open Attribute Table . Kolom m2berisi luas untuk setiap kelas dalam meter persegi.
-![image](https://user-images.githubusercontent.com/114122090/211199584-19248c7e-2e31-4252-ad30-44db9f1f8f44.png)
 
 22.	Mari ubah luas menjadi kilometer persegi. Di Processing Toolbox , cari dan pilih Vector table ‣ Field Calculator .
 ![image](https://user-images.githubusercontent.com/114122090/211199586-b1a142f2-9538-495d-9c2f-d9dd3e78e2f1.png)
@@ -1380,7 +1355,6 @@ END
 ![image](https://user-images.githubusercontent.com/114122090/211199632-7e29173d-4cb9-40cb-a642-236eef45b9bb.png)
 
 26.	Sekarang class_area_with_landcoverlayer akan dimuat di kanvas. Buka tabel Atribut. Kolom tutupan lahan akan berisi nama tutupan lahan terhadap setiap nilai tutupan lahan.
-![image](https://user-images.githubusercontent.com/114122090/211199637-7703db11-e56d-4049-b1f5-13eb1744f330.png)
 
 27.	Mari ekspor hasil ini sebagai file excel. Sebelum mengekspor, kami juga akan mengatur tabel dan menghapus kolom yang tidak diinginkan. Di Processing Toolbox , cari dan pilih Vector table ‣ Refactor fields .
 ![image](https://user-images.githubusercontent.com/114122090/211199659-f652a9cf-036f-4f34-a1b2-0cb5bda4375b.png)
@@ -1389,9 +1363,9 @@ END
 ![image](https://user-images.githubusercontent.com/114122090/211199666-99e79801-931c-489c-9414-398809e0fe3b.png)
 
 29.	Kita juga dapat mengubah urutan bidang dalam tabel menggunakan tombol Pindahkan Bidang yang Dipilih . Setelah kita selesai mengedit, klik ...tombol di sebelah Refactored dan pilih Save To File… . Pilih sebagai format. Masukkan nama file sebagai dan klik Simpan . Dalam dialog Bidang Refaktor, klik Jalankan untuk menerapkan perubahan Anda.XLSX Files (*.xlsx)park_area_by_landcover.xlsx
-![image](https://user-images.githubusercontent.com/114122090/211199727-0a6eba36-8a06-47a0-a157-4398e6686914.png)
 
 30.	Hasilnya akan berupa spreadsheet dengan kolom landcover dan area_sqkm .
+![Calculating Raster Area (QGIS3)](https://user-images.githubusercontent.com/114122090/211202295-61f1b538-8d04-41ae-9a28-bae4906591b1.png)
 
 
 ## Modul 7
@@ -1431,10 +1405,8 @@ view : [modul7.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211200020-b86d109f-4ee7-41ca-8c77-93d470d32f8b.png)
 
 11.	Kita akan melihat bidang teks yang disebut dalam data masukan yang menjelaskan jenis kejahatan. Kita dapat menggunakan ini untuk mengkategorikan berbagai jenis kejahatan dan menetapkan bobot yang lebih tinggi untuk kejahatan yang lebih kejam.Crime type
-![image](https://user-images.githubusercontent.com/114122090/211200029-45098367-9c36-4cb0-8888-b5b383769ce3.png)
 
 12.	Klik Kalkulator lapangan terbuka .
-![image](https://user-images.githubusercontent.com/114122090/211200036-3fa413e7-bfe2-4e33-8d50-499c73775360.png)
 
 13.	Kami sekarang akan memasukkan rumus yang menggunakan dan menentukan nilai bobot. QGIS memiliki cara praktis untuk menambahkan bidang yang dihitung tersebut menggunakan Bidang Virtual . Bidang virtual disimpan dalam proyek QGIS dan tidak mengubah data sumber. Ini juga dihitung secara dinamis dan dapat digunakan di mana saja di QGIS seperti halnya nilai atribut lainnya. Masukkan sebagai nama bidang Keluaran dan setel jenis bidang Keluaran ke . Masukkan ekspresi berikut di editor Ekspresi . Di sini kita menggunakan pernyataan CASE untuk menetapkan nilai yang berbeda berdasarkan kondisi yang berbeda. Klik Oke .Crime typeweightWhole number (integer)
 ```
@@ -1505,10 +1477,8 @@ view : [modul8.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ![image](https://user-images.githubusercontent.com/114122090/211200330-b305a582-ae4a-49ad-ab43-bb0d03bb1859.png)
 
 6.	Di kotak dialog Properti lapisan , pilih tab Temporal dan aktifkan dengan mengklik kotak centang..
-![image](https://user-images.githubusercontent.com/114122090/211200336-c0e8cc17-467c-4c97-b38f-f34fde6269af.png)
 
 7.	Data sumber berisi atribut dateofocc- yang mewakili tanggal terjadinya insiden. Ini adalah bidang yang akan digunakan untuk menentukan poin yang diberikan untuk setiap periode waktu. Pilih di menu Drop down Konfigurasi , sebagai Field .Single Field with Data/Timedateofocc
-![image](https://user-images.githubusercontent.com/114122090/211200342-445d3ed2-8239-46bf-bd2c-e321d8deb4d0.png)
 
 8.	Sekarang simbol jam akan muncul di sebelah nama layer. Klik pada (ikon Jam) dari Bilah Alat Navigasi Peta.Temporal Control Panel
 
@@ -1528,10 +1498,8 @@ view : [modul8.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 ```
 format_date(@map_start_time, 'yyyy')
 ```
-![image](https://user-images.githubusercontent.com/114122090/211200414-03dc7047-95ea-4ff0-94b2-7a35915f8d47.png)
 
 13.	Pilih ukuran font sebagai 25, atur warna bilah latar belakang sebagai Whitedan atur transparansi menjadi 50%. Di Penempatan pilih . Sekarang klik Oke.Bottom Right
-![image](https://user-images.githubusercontent.com/114122090/211200429-b1b58a78-252c-4718-a6b3-730a3a575e0e.png)
 
 14.	Setelah parameter diatur sesuai, tahun akan ditampilkan seperti yang ditunjukkan. Untuk mengekspornya sebagai gambar dan mengonversinya sebagai GIF, pilih (ikon simpan) di jendela kontrol Temporal.Export Animation
 
@@ -1542,6 +1510,8 @@ format_date(@map_start_time, 'yyyy')
 17.	Setelah ekspor selesai, Kita akan melihat gambar PNG untuk setiap tahun (total 18 gambar) di direktori keluaran.
  
 18.	Sekarang mari buat GIF animasi dari gambar-gambar ini. Ada banyak opsi untuk membuat animasi dari masing-masing bingkai gambar. ezgif untuk alat yang mudah dan online. Kunjungi situs dan klik Pilih File dan pilih semua file .png. Setelah dipilih, klik Unggah dan buat GIF! tombol. Setelah dibuat, Kita dapat mengunduh GIF menggunakan tombol Simpan .
+![Animating Time Series Data (QGIS3)](https://user-images.githubusercontent.com/114122090/211202271-3f6ab969-e0c5-465c-b74a-67914116898a.png)
+
 
 ## Modul 9
 # `Handling Invalid Geometries (QGIS3)`
@@ -1550,11 +1520,14 @@ view : [modul9.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 
 ## Prosedure
 1.	Jelajahi India-States.zipfile yang diunduh di Peramban QGIS. Perluas dan seret India-States.shpfile ke kanvas peta.
- 
+![image](https://user-images.githubusercontent.com/114122090/211202472-b67e684a-61ce-4be7-a883-134fdb09bef5.png)
+
 2.	Kita akan melihat India-Stateslayer baru dimuat di panel Layers . Pergi ke Memproses ‣ Kotak Alat .
- 
+![image](https://user-images.githubusercontent.com/114122090/211202480-93371c4c-24d0-413c-ba7e-57dd7bb2b8e2.png)
+
 3.	Kami akan mencoba menjalankan algoritme pemrosesan pada lapisan input untuk mendemonstrasikan bagaimana geometri yang tidak valid dapat menyebabkan masalah selama operasi geoproses. Cari dan temukan Kartografi ‣ Algoritma pewarnaan topologi. Klik dua kali untuk meluncurkannya.
- 
+![image](https://user-images.githubusercontent.com/114122090/211202458-8e75a5f1-f05b-4843-90a2-11b082d77f64.png)
+
 4.	Dalam dialog pewarnaan Topologi , pilih India-Statessebagai lapisan Input . Simpan semua parameter lain ke default dan klik Run .
  
 >Catatan :
@@ -1563,32 +1536,39 @@ view : [modul9.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 5.	Saat algoritme berjalan, kita akan melihat peringatan ditampilkan di tab Log . 1 fitur di lapisan input memiliki geometri yang tidak valid dan dilewati selama pemrosesan. Pengaturan default untuk menangani geometri yang tidak valid di Kotak Alat Pemrosesan terletak di Pengaturan ‣ Opsi ‣ Pemrosesan ‣ Umum ‣ Pemfilteran fitur tidak valid dan diatur ke . Ini adalah pengaturan default yang bagus, tetapi jika masukan Anda besar, Anda mungkin melewatkan peringatan ini dan mungkin tidak mengetahui bahwa fitur masukan telah dilewati. Anda mungkin ingin mengubah nilainya menjadi .Skip (ignore) features with invalid geometriesStop algorithm execution when a geometry is invalid
  
 6.	Kembali ke jendela utama QGIS, kita akan melihat layer baru Coloredditambahkan ke panel Layers . Perhatikan bahwa layer baru tidak memiliki status yang geometrinya tidak valid. Kami sekarang tahu bahwa poligon keadaan tertentu ini memiliki geometri yang tidak valid tetapi kami tidak tahu apa penyebabnya. Kita dapat dengan mudah mengetahuinya. Cari dan temukan geometri Vektor ‣ Periksa algoritme validitas.
- 
+![image](https://user-images.githubusercontent.com/114122090/211202447-2aaf3171-2dcb-4b9d-a83e-8ee7548bd668.png)
+
 7.	Dalam dialog Check ValidityIndia-States , pilih sebagai Input layer . Pilih GEOSsebagai Metode . Klik Jalankan .
  
 8.	Saat algoritme selesai diproses, Anda akan melihat 3 layer baru di panel Layers - , dan . Lapisan berisi lokasi dan deskripsi kesalahan geometri. Klik kanan dan pilih Open Attribute Table .Valid outputInvalid outputError outputError output
- 
+![image](https://user-images.githubusercontent.com/114122090/211202441-f772180d-d6a0-4abd-97c6-ada486d2eb68.png)
+
 >Catatan :
 >Dokumentasi QGIS memiliki artikel terperinci tentang Jenis pesan kesalahan dan artinya yang menjelaskan penyebab semua kesalahan.
 
 9.	Kita akan melihat bahwa pesan kesalahannya adalah Ring self-intersection . Pilih baris dan klik tombol Zoom map to selected features . Saat memperbesar, Anda akan melihat akar penyebab galat geometri.
  
 10.	QGIS hadir dengan algoritme bawaan untuk memperbaiki kesalahan geometri secara otomatis. Cari dan temukan geometri Vektor ‣ Perbaiki algoritma geometri . Klik dua kali untuk menjalankannya.
- 
+![image](https://user-images.githubusercontent.com/114122090/211202419-b2d7695a-9b33-4047-95db-f27280f594ad.png)
+
 11.	Dalam dialog Fix GeometriesIndia-States , pilih sebagai Input layer dan klik Run .
  
 12.	Layer baru akan ditambahkan ke panel Layers . Pada titik ini, kesalahan geometri telah diperbaiki dan Kita dapat menjalankan algoritme pemrosesan apa pun pada lapisan ini tanpa masalah. Tetapi kita dapat melihat bahwa masih ada celah antara poligon yang berdekatan yang tidak terduga dan dapat menyebabkan kesalahan topologi di kemudian hari. Kami juga dapat memperbaikinya dengan mengedit poligon. Klik tombol Toggle Editing pada Digitizing Toolbar . Pilih Vertex Tool dan dari drop-down pilih .Fixed GeometriesVertex Tool (Current Layer)
  
 13.	Saat alat vertex aktif, klik pada vertex untuk memilihnya. Kita dapat menekan Deletetombol untuk menghapus simpul atau menyeretnya untuk memindahkannya. Kita dapat memindahkan simpul sehingga tepi poligon sekarang menyentuh poligon yang berdekatan.
- 
+![image](https://user-images.githubusercontent.com/114122090/211202405-4a890718-f67a-4ec0-99f2-dd23891687f2.png)
+
 14.	Setelah selesai, klik tombol Toggle Editing lagi dan klik Save .
  
 15.	Mari jalankan lagi algoritma Kartografi ‣ Pewarnaan topologi .
- 
+![image](https://user-images.githubusercontent.com/114122090/211202394-fcf0cd22-8de4-47af-8ec9-2a59c95235b5.png)
+
 16.	Dalam dialog Pewarnaan Topologi , pastikan Anda memilih sebagai lapisan Input . Klik Jalankan .Fixed Geometries
  
 17.	Kita akan melihat algoritme berjalan tanpa kesalahan dan lapisan baru Coloredakan ditambahkan ke panel Lapisan . Perhatikan bahwa algoritme tidak mewarnai lapisan dengan sendirinya, tetapi bekerja dengan menambahkan kolom baru yang dipanggil color_idke setiap poligon yang dapat digunakan untuk menetapkan warna unik yang berbeda dari poligon yang berdekatan. Pilih Coloredlayer dan klik tombol Open the Layer Styling Panel .
- 
+![image](https://user-images.githubusercontent.com/114122090/211202388-33c0d312-33b5-4ded-8877-09f6b2f7b133.png)
+
 18.	Pilih Categorizedpenyaji dan kolom color_id sebagai Value . Klik Klasifikasikan . Kita sekarang akan melihat peta berwarna sehingga poligon yang berdekatan memiliki warna yang berbeda.
+![Handling Invalid Geometries (QGIS3)](https://user-images.githubusercontent.com/114122090/211202249-542649ee-2077-47de-9c44-c9ae6bcaad1d.png)
 
 
