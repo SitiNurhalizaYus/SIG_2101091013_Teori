@@ -1172,11 +1172,109 @@ view : [modul3.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 file : [modul4.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Nearest%20Neighbor%20Analysis%20(QGIS3).qgz)
 view : [modul4.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Nearest%20Neighbor%20Analysis%20(QGIS3).png)
 
+## Prosedure
+1.	Temukan ne_10m_populated_places_simple.zipfile yang diunduh di panel Browser dan perluas. Seret ne_10m_populated_places_simple.shpfile ke kanvas.
+![image](https://user-images.githubusercontent.com/114122090/211198783-d0effc44-c7ba-4bcc-b5b3-b0bf16df261a.png)
+
+2.	Kita akan melihat layer baru ne_10m_populated_places_simple dimuat di panel Layers . Lapisan ini berisi titik-titik yang mewakili tempat berpenduduk. Sekarang kita akan memuat lapisan gempa bumi. Lapisan ini hadir sebagai file teks Tab Serepated Values (TSV) . Untuk memuat file ini, klik tombol Open Data Source Manager di Data Source Toolbar . Anda juga dapat menggunakan pintasan keyboard.Ctrl + L
+![image](https://user-images.githubusercontent.com/114122090/211198806-1dc611a7-94c0-475c-923a-876dbc56aa85.png)
+
+3.	Di kotak dialog Pengelola Sumber Data , pilih Teks yang Dibatasi .
+![image](https://user-images.githubusercontent.com/114122090/211198811-709045e8-dfa2-4f5d-ae98-cc7aedabb26d.png)
+
+4.	Klik tombol … di sebelah Nama file dan ramban ke earthquakes-2021-11-25_13-39-30_+0530.tsvfile yang diunduh. Bergantung pada sistem operasi, Anda mungkin tidak melihat file di direktori yang diunduh. Jika demikian, alihkan ke Semua file (*; .) dalam dialog Pilih File Teks yang Dibatasi untuk Dibuka . Setelah dibuka, pilih Pembatas khusus di bagian Format file , dan centang Tab. Di bagian Definisi geometri , pilih Koordinat titik . Secara default nilai bidang X dan bidang Y akan diisi secara otomatis dengan bidang yang sesuai di input. Dalam kasus kami, mereka adalah LongitudedanLatitude. Anda dapat meninggalkan CRS Geometri ke CRS default . Jika file Anda berisi koordinat dalam CRS yang berbeda, Anda dapat memilih CRS yang sesuai di sini. Klik Tambah diikuti oleh Tutup .EPSG:4326 - WGS 84
+![image](https://user-images.githubusercontent.com/114122090/211198820-9408de04-fc03-4c82-8cea-51c76504f7b8.png)
+
+5.	Perbesar dan jelajahi kedua set data. Setiap titik merah mewakili lokasi kejadian gempa bumi, dan setiap titik hijau mewakili lokasi tempat berpenduduk. Tujuan kita adalah menemukan titik terdekat dari lapisan tempat berpenduduk untuk setiap titik di lapisan gempa. Mari periksa tabel Atribut lapisan gempa bumi. Pilih layer dan klik ikon Open Attribute Table di Toolbar .
+![image](https://user-images.githubusercontent.com/114122090/211198831-98d3b90a-e5e2-4990-baba-8a5079f2dbaf.png)
+ 
+6.	Ada 2586 fitur, tetapi data berisi sedikit entri tanpa informasi lintang atau bujur. Kami harus menghapusnya sebelum melanjutkan lebih jauh. Tutup Tabel Atribut.
+![image](https://user-images.githubusercontent.com/114122090/211198840-abb375ab-d7fb-43e6-8762-61a4a1d0b437.png)
+
+7.	Pergi ke Pemrosesan ‣ Kotak Alat ‣ Geometri vektor ‣ Hapus alat geometri nol. Klik dua kali untuk membukanya.
+![image](https://user-images.githubusercontent.com/114122090/211198845-14b79194-f2a6-435f-ba08-cef18fa69dac.png)
+
+8.	Di kotak dialog Hapus Geometri Nullearthquakes-2021-11-25_13-39-30_+0530 , pilih sebagai lapisan Input dan centang kotak Juga hapus geometri kosong . Klik Jalankan . Setelah pemrosesan selesai, klik Tutup .
+![image](https://user-images.githubusercontent.com/114122090/211198855-fe88fd1d-f505-4767-b8dc-a83fd34260f1.png)
+ 
+9.	Layer baru akan ditambahkan ke panel Layers . Untuk analisis kita akan menggunakan layer ini sebagai pengganti layer aslinya. Hapus centang pada layer di panel Layers untuk menyembunyikannya. Pilih layer dan klik tombol Open Attribute Table dari Attributes Toolbar .Non null geometriesearthquakes-2021-11-25_13-39-30_+0530Non null geometries
+![image](https://user-images.githubusercontent.com/114122090/211198867-ae00c717-0ae6-411d-b7ce-e24a7cad5046.png)
+
+10.	Kita akan melihat jumlah fitur total yang lebih rendah karena semua baris dengan nilai lintang dan bujur kosong telah dihapus. Tutup tabel atribut.
+![image](https://user-images.githubusercontent.com/114122090/211198872-e9e26323-f872-4f6f-b7d5-c4f0b8a6a1a2.png)
+
+11.	Sekarang saatnya untuk melakukan analisis tetangga terdekat. Cari dan temukan Pemrosesan ‣ Toolbox ‣ Analisis vektor ‣ Jarak ke alat hub (baris ke hub) terdekat . Klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211198892-db0704dc-b7cd-403f-9d22-52c99db2133e.png)
+
+>Catatan
+>Kita juga dapat menambahkan lapisan titik sebagai keluaran, gunakan alat Jarak ke hub (titik) terdekat untuk itu.
+
+12.	Di kotak dialog Distance to Nearest Hub (Line to Hub) , pilih sebagai layer Source points . Pilih sebagai layer Destination hubs . Pilih sebagai atribut nama lapisan Hub . Alat ini juga akan menghitung jarak garis lurus antara tempat berpenduduk dan gempa terdekat. Tetapkan sebagai unit Pengukuran . Klik di Jarak Hub dan klik Simpan ke File… untuk menyimpan file sebagai . Klik Jalankan . Setelah pemrosesan selesai, klik Tutup .Non null geometriesne_10m_populated_places_simplenameKilometers...earthquakes_with_nearest_city.gpkg
+![image](https://user-images.githubusercontent.com/114122090/211198928-917400ee-f6eb-4921-ad86-4ce983b6aca5.png)
+
+13.	Kembali ke jendela utama QGIS, Anda akan melihat lapisan baris baru bernama earthquakes_with_nearest_citydimuat di panel Lapisan . Lapisan ini memiliki ciri-ciri garis yang menghubungkan setiap titik gempa dengan tempat berpenduduk terdekat. Pilih earthquakes_with_nearest_citylayer dan klik ikon Open Attribute Tabel di Toolbar .
+![image](https://user-images.githubusercontent.com/114122090/211198943-b2d98e16-5ba6-441f-9b27-43e60a0033a9.png)
+
+14.	Gulir ke kanan ke kolom terakhir, dan Anda akan melihat 2 atribut baru bernama HubName dan HubDist ditambahkan ke fitur gempa asli. Ini adalah nama jarak ke tetangga terdekat dari layer tempat berpenduduk.
+![image](https://user-images.githubusercontent.com/114122090/211198946-7c6a06c7-cc94-4667-bb78-4d583d1392da.png)
+
 
 ## Modul 5
 # `Sampling Raster Data using Points or Polygons (QGIS3)`
 file : [modul5.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Sampling%20Raster%20Data%20using%20Points%20or%20Polygons%20(QGIS3).qgz)
 view : [modul5.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Sampling%20Raster%20Data%20using%20Points%20or%20Polygons%20(QGIS3).png)
+
+## Prosedure
+1.	Buka zip dan ekstrak keduanya 2018_Gaz_ua_national.zipdan tl_2018_us_county.zipke folder di komputer Anda. Buka QGIS dan cari us.tmax_nohads_ll_20190501_float.tiffile di Peramban QGIS seret ke kanvas.
+![image](https://user-images.githubusercontent.com/114122090/211199153-092743bd-30c7-42c6-8c8c-14b59114d90f.png)
+
+2.	Kita akan melihat layer raster baru us.tmax_nohads_ll_20190501_floatdimuat di panel Layers . Lapisan raster ini berisi suhu maksimum yang tercatat pada setiap piksel dalam derajat Celcius. Selanjutnya kita akan memuat file titik area perkotaan. File ini hadir sebagai file teks dalam format Tab Separated Values (TSV). Klik tombol Buka Pengelola Sumber Data di Bilah Alat Sumber Data .
+![image](https://user-images.githubusercontent.com/114122090/211199168-94abfc88-8254-4bb9-a41e-a3b95b0a8c67.png)
+
+3.	Beralih ke tab Teks Dibatasi . Klik tombol … di sebelah Nama file dan tentukan jalur ke file teks yang Kita unduh. Di bagian File format , pilih Custom delimiters dan centang Tab . Pilih INTPTLONGsebagai bidang X dan INTPTLATsebagai bidang Y . Klik Tambah lalu Tutup .
+![image](https://user-images.githubusercontent.com/114122090/211199174-b0440c76-059d-436b-8e44-e94043a4dbff.png)
+
+4.	Lapisan titik baru 2018_Gaz_ua_nationalakan dimuat di panel Lapisan . Sekarang kita siap untuk mengekstrak nilai dari lapisan raster pada titik-titik ini. Pergi ke Memproses ‣ Kotak Alat .
+![image](https://user-images.githubusercontent.com/114122090/211199178-78abd11b-b2b5-48d1-8f92-dd62d1035d64.png)
+
+5.	Cari dan temukan analisis Raster ‣ Contoh algoritme nilai raster. Klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211199187-70ac4e9f-cf23-4639-a9e0-490d41bc7dae.png)
+
+6.	Pilih 2018_Gaz_ua_nationalsebagai Layer Titik Input . Pilih us.tmax_nohads_ll_20190501_floatsebagai Lapisan Raster untuk sampel . Luaskan parameter Lanjutan dan masukkan tmaxsebagai awalan kolom Keluaran . Klik Jalankan . Setelah pemrosesan selesai, klik Tutup .
+![image](https://user-images.githubusercontent.com/114122090/211199199-78edc734-97f5-4f71-bd52-0259f66b38b2.png)
+
+7.	Lapisan baru akan dimuat di panel Lapisan . Pilih alat Identifikasi di Bilah Alat Atribut dan klik titik mana saja. Anda akan melihat atribut ditampilkan di panel Identifikasi Hasil . Kita akan melihat atribut baru bernama tmax_1 ditambahkan ke setiap fitur. Ini adalah nilai piksel dari lapisan raster yang diekstraksi di lokasi titik. Angka 1 mewakili nomor pita raster. Jika lapisan raster memiliki banyak pita, kita akan melihat banyak kolom baru di lapisan keluaran.Sampled Points
+![image](https://user-images.githubusercontent.com/114122090/211199208-a46a52c8-7556-4b47-a194-8a21b606628d.png)
+
+8.	Bagian pertama dari analisis kami selesai. Mari kita hapus lapisan yang tidak perlu. Tahan Shifttombol dan pilih dan lapisan. Klik kanan dan pilih Hapus untuk menghapusnya dari QGIS. Saat diminta untuk Hapus 2 entri legenda? , pilih Oke .Sampled Points2018_Gaz_ua_national
+![image](https://user-images.githubusercontent.com/114122090/211199224-a5ece14c-f99a-4603-a838-aa3c641f64a2.png)
+
+9.	Sekarang kita akan menggunakan lapisan kabupaten untuk mengambil sampel raster dan menghitung suhu rata-rata untuk setiap kabupaten. Temukan tl_2018_us_county.shpfile di Peramban QGIS seret ke kanvas.
+![image](https://user-images.githubusercontent.com/114122090/211199227-6ff4cd5b-0b0c-4ec4-a5e2-ca8df3fa712e.png)
+
+>Catatan
+>Sebagian besar algoritme pemrosesan akan membaca lapisan masukan dan membuat lapisan baru. Tetapi algoritma Statistik Zona berbeda. Itu memodifikasi lapisan input >dan menambahkan atribut baru ke dalamnya. Itulah mengapa penting untuk meng-unzip file input terlebih dahulu. QGIS dapat memuat lapisan dari arsip zip secara >langsung, tetapi tidak dapat memodifikasi lapisan yang di-zip. Algoritme pemrosesan akan gagal jika tidak dapat memperbarui lapisan masukan.
+
+10.	Lapisan baru tl_2018_us_countyakan dimuat ke panel Lapisan . Pergi ke Memproses ‣ Kotak Alat .
+![image](https://user-images.githubusercontent.com/114122090/211199242-b03a32d3-aec1-4f07-841e-7f79c5d6a409.png)
+
+11.	Cari dan temukan analisis Raster ‣ Algoritme statistik zona dan klik dua kali untuk meluncurkannya.
+ ![image](https://user-images.githubusercontent.com/114122090/211199252-281f3df2-1094-46be-873f-1ac2a324bf2e.png)
+
+12.	Pilih us.tmax_nohads_ll_20190501_floatsebagai layer Raster dan tl_2018_us_countysebagai layer Vector yang mengandung zones . Masukkan tmax_sebagai awalan kolom Keluaran . Klik … di sebelah Statistik untuk menghitung .
+![image](https://user-images.githubusercontent.com/114122090/211199259-bf9946c5-903b-454d-96b0-300d552bb72b.png)
+
+13.	Pilih hanya Meannilainya dan klik OK .
+![image](https://user-images.githubusercontent.com/114122090/211199265-32750de3-f6fc-4edf-81ec-1d472facb59a.png)
+
+14.	Klik Jalankan untuk memulai pemrosesan. Algoritme mungkin membutuhkan waktu beberapa menit untuk selesai. Klik Tutup .
+![image](https://user-images.githubusercontent.com/114122090/211199270-c5b195b1-1974-4a18-8132-6949a5ff6baa.png)
+
+15.	Seperti disebutkan sebelumnya, algoritma Zonal Statistics tidak membuat layer baru, tetapi memodifikasi layer zona. Klik kanan tl_2018_us_countylayer, dan pilih Open Attribute Table .
+![image](https://user-images.githubusercontent.com/114122090/211199276-1bd5e552-0ce3-4fa8-85df-160f46a877e8.png)
+
+16.	Kita akan melihat kolom baru bernama tmax_meanditambahkan ke tabel atribut. Ini berisi nilai suhu rata-rata yang diekstraksi di atas poligon untuk setiap fitur. Ada beberapa nilai nol karena kabupaten tersebut (milik Alaska, Hawaii, dan Puerto Riko) berada di luar jangkauan lapisan raster.
+![image](https://user-images.githubusercontent.com/114122090/211199289-6cde49e4-ced0-4a1d-a423-780cee365999.png)
 
 
 ## Modul 6
@@ -1184,11 +1282,208 @@ view : [modul5.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 file : [modul6.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Calculating%20Raster%20Area%20(QGIS3).qgz)
 view : [modul6.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Calculating%20Raster%20Area%20(QGIS3).png)
 
+## Prosedure
+1.	Buka zip semua file yang diunduh. Di Browser , cari folder yang berisi file batas WDPA_WDOECM_Apr2022_Publicc_10744_shp-polygons.shpdan seret dan lepas ke kanvas QGIS.
+![image](https://user-images.githubusercontent.com/114122090/211199422-0490f564-8ab8-41c5-a54b-a73600493753.png)
+
+2.	Sekarang cari ubin raster penutup dunia ESA_WorldCover_10m_2020_v100_N24_E093_Map.tifdan jatuhkan ke kanvas QGIS.
+![image](https://user-images.githubusercontent.com/114122090/211199428-22675d56-a301-4df3-aac4-f5582be8efd4.png)
+
+3.	Kita sekarang akan memiliki layer vektor batas dan raster tutupan lahan dimuat di panel Layers . Mari potong raster tutupan lahan ke batas taman nasional. Pergi ke Processing ‣ Toolbox untuk membuka Processing toolbox. Cari dan temukan GDAL ‣ Ekstraksi raster ‣ Klip raster dengan algoritma lapisan topeng. Klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211199434-3c246efc-6903-4ae3-9e69-a2797969ab8b.png)
+
+4.	Dalam dialog Clip Raster by Mask Layer , pilih ESA_WorldCover_10m_2020_v100_N24_E093_Maplayer sebagai Input layer dan WDPA_WDOECM_Apr2022_Publicc_10744_shp-polygonslayer sebagai Mask Layer . Masukkan -9999di Tetapkan nilai nodata yang ditentukan ke bagian pita keluaran.
+![image](https://user-images.githubusercontent.com/114122090/211199441-5e7f9c2a-7e3c-4a44-ab51-e92a46cc4b84.png)
+
+5.	Sekarang buka bagian Advanced Parameters dan pilih di Profile . Sekarang di bawah Clipped (mask) , klik dan pilih Save To File… . Masukkan nama file sebagai . Klik Jalankan .High Compression...worldcover_clipped.tif
+![image](https://user-images.githubusercontent.com/114122090/211199450-587234c4-a93d-47c4-8a17-9b933c525980.png)
+
+6.	Sekarang worldcover_clippedlayer akan dimuat di kanvas QGIS. Klik kanan ESA_WorldCover_10m_2020_v100_N24_E093_Maplayer dan pilih Hapus Lapisan…
+![image](https://user-images.githubusercontent.com/114122090/211199463-8419e5fb-c0fe-468c-ac7d-4c70f130328d.png)
+
+7.	Kedua layer kami masuk dalam CRS Geografis EPSG:4326. CRS ini memiliki satuan derajat dan tidak cocok untuk menghitung luas. Pertama-tama kita harus memproyeksikan ulang layer ke Projected CRS. untuk analisis regional seperti ini, UTM adalah pilihan yang baik untuk proyeksi CRS. Kami akan memproyeksikan ulang layer ke CRS untuk zona UTM lokal. Buka kotak alat Pemrosesan dan cari Vector general ‣ Algoritma lapisan proyeksi ulang . Klik dua kali untuk meluncurkannya.
+![image](https://user-images.githubusercontent.com/114122090/211199471-57245391-2c45-475e-96ff-67b92d457e73.png)
+
+8.	Dalam dialog Reproject Layer , pilih WDPA_WDOECM_Apr2022_Publicc_10744_shp-polygonslayer sebagai Input layer , klik tombol Select CRS di bawah Target CRS .
+![image](https://user-images.githubusercontent.com/114122090/211199477-58674454-89ba-44f3-b36c-bddea02df66a.png)
+
+9.	Area minat kami termasuk dalam Zona UTM 46N. Cari 46 N dan pilih CRS.WGS 84 / UTM zone 46N
+ ![image](https://user-images.githubusercontent.com/114122090/211199486-a116a537-ac8d-4658-8faf-bdd4c4ef6db2.png)
+
+>Catatan :
+>Untuk mengetahui zona UTM mana untuk wilayah Anda, lihat situs web What UTM Zone am I.
+
+10.	Di bagian Diproyeksikan ulang , klik ...dan pilih Simpan Ke File… . Masukkan nama sebagai nationalpark_reprojected.gpkg. Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211199510-188d227b-0f4c-4e9e-a33f-76c2af16749c.png)
+
+11.	Sekarang nationalpark_reprojectedlayer akan dimuat di kanvas. Klik kanan WDPA_WDOECM_Apr2022_Publicc_10744_shp-polygonslayer dan pilih Remove Layer… untuk menghapusnya. Sekarang kita akan memproyeksikan ulang layer raster. Di Kotak Alat Pemrosesan , cari dan temukan GDAL ‣ Proyeksi raster ‣ Warp (proyeksi ulang)
+![image](https://user-images.githubusercontent.com/114122090/211199517-66947f16-cb45-429b-a8be-d32d89c39622.png)
+
+12.	Dalam dialog Warp (Reproject) pilih worldcover_clippedsebagai Input layer , pilih CRS di Target CRS . Buka Advanced Parameters dan pilih di Profile .WGS 84 / UTM zone 46NHigh Compression
+![image](https://user-images.githubusercontent.com/114122090/211199519-08e255d4-8702-4afd-93ef-7b5527fcddb4.png)
+
+13.	Sekarang di bawah Diproyeksikan ulang , klik ...dan pilih Simpan Ke File… . Masukkan nama sebagai worldcover_reprojected.tif. Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211199522-142d767b-3349-4dc6-b9f7-67e5e1d258c1.png)
+
+14.	Sekarang worldcover_reprojectedlayer akan dimuat di kanvas, hapus worldcover_clippedlayer tersebut. Mari atur layer proyek ke zona UTM. Klik pada layer mana saja dan pilih Layer CRS ‣ Set Project CRS from Layer .
+![image](https://user-images.githubusercontent.com/114122090/211199527-1a17bbe6-8c3a-4a1f-8eda-6dfccc2b56d0.png)
+
+15.	Sekarang proyek CRS akan diperbarui. Mari atur simbologi lapisan raster sesuai nama kelas dan warna kumpulan data ESA WorldCover. Klik kanan pada worldcover_reprojectedlayer dan klik Properties…
+![image](https://user-images.githubusercontent.com/114122090/211199535-e9aa6038-a09d-4513-8e61-f43755c8e3c2.png)
+
+16.	Dalam dialog Layer Properties , pilih Symbology . Kita dapat melihat warna Layer divisualisasikan dalam nada putih-hitam. Untuk memperbaikinya, klik Style ‣ Load Style… . Telusuri dan pilih ESAWorldCover_ColorLegend.qmlfile.
+![image](https://user-images.githubusercontent.com/114122090/211199541-7ff8e565-d20c-46ca-a20f-05d7e19ad0eb.png)
+
+17.	Sekarang Kita dapat melihat warna simbol yang diperbarui dan deskripsi kelas. Klik Oke .
+![image](https://user-images.githubusercontent.com/114122090/211199554-0cf27dbc-b651-4512-8720-7c7d687ae400.png)
+
+18.	Perluas worldcover_reprojectedlayer di panel Layers untuk melihat legenda dengan deskripsi kelas yang benar.
+![image](https://user-images.githubusercontent.com/114122090/211199567-570b171b-c6cd-435d-af7e-5a81905c4afc.png)
+
+19.	Sekarang mari kita hitung luas untuk setiap kelas. Di kotak alat pemrosesan, cari dan temukan alat laporan nilai unik lapisan Raster . Klik dua kali untuk membukanya.
+![image](https://user-images.githubusercontent.com/114122090/211199572-67a168ab-ec04-4983-9a3e-c937f872a454.png)
+
+20.	Dalam dialog Raster Layer Unique Values Report , pilih Input layer sebagai worldcover_reprojected. Di bawah tabel Unique values klik ...dan pilih Save to File… . Masukkan nama sebagai class_areas.gpkg. Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211199578-69ccc633-9916-4dc4-91eb-24a1fdc77516.png)
+
+21.	Sekarang class_areaslayer akan ditambahkan ke panel Layers . Klik kanan pada layer dan klik Open Attribute Table . Kolom m2berisi luas untuk setiap kelas dalam meter persegi.
+![image](https://user-images.githubusercontent.com/114122090/211199584-19248c7e-2e31-4252-ad30-44db9f1f8f44.png)
+
+22.	Mari ubah luas menjadi kilometer persegi. Di Processing Toolbox , cari dan pilih Vector table ‣ Field Calculator .
+![image](https://user-images.githubusercontent.com/114122090/211199586-b1a142f2-9538-495d-9c2f-d9dd3e78e2f1.png)
+
+23.	Dalam dialog Kalkulator Bidangclass_areas , pilih lapisan di Lapisan Input . Masukkan nama Bidang sebagai area_sqkm. Di bidang Hasil, pilih Float. Di jendela Ekspresi , masukkan ekspresi di bawah ini. Ini akan mengubah sqmt menjadi sqkm dan membulatkan hasilnya menjadi 2 tempat desimal. Di bawah Terhitung klik ...dan pilih Simpan Ke File… . Masukkan nama sebagai class_area_sqkm.gpkg. Klik Jalankan .
+```
+round("m2"/ 1e6, 2)
+```
+![image](https://user-images.githubusercontent.com/114122090/211199603-4294917e-818a-4d8d-819c-a21ad5d3addc.png)
+
+24.	Sekarang class_area_sqkmlayer akan dimuat di kanvas. Buka tabel Atribut dan periksa kolom area_sqkm yang baru ditambahkan . Anda akan melihat bahwa kolom Nilai berisi angka untuk setiap kelas. Agar hasilnya lebih mudah diinterpretasikan, Mari tambahkan juga deskripsi untuk setiap nomor kelas. Deskripsi kelas tersedia di Panduan Pengguna Produk ESA .
+![image](https://user-images.githubusercontent.com/114122090/211199607-f65105a3-51fb-4e5c-a979-8f5552ceb5f0.png)
+
+25.	Buka Field Calculator, dan pilih class_areas_sqkmlayer di Input Layer . Masukkan nama Bidang sebagai landcover, dalam jenis bidang Hasil , pilih String. Di jendela Expression masukkan ekspresi di bawah ini. Ekspresi ini menggunakan pernyataan CASE untuk menetapkan nilai berdasarkan beberapa kondisi. Di bawah Terhitung klik ...dan pilih Simpan Ke File… . Masukkan nama sebagai class_area_with_landcover.gpkg. Klik Jalankan .
+```
+CASE
+WHEN "value" = 10 THEN 'Tree cover'
+WHEN "value" = 20 THEN 'Shrubland'
+WHEN "value" = 30 THEN 'Grassland'
+WHEN "value" = 40 THEN 'Cropland'
+WHEN "value" = 50 THEN 'Built-up'
+WHEN "value" = 60 THEN 'Bare / sparse vegetation'
+WHEN "value" = 70 THEN 'Snow and Ice'
+WHEN "value" = 80 THEN 'Permanent water bodies'
+WHEN "value" = 90 THEN 'Herbaceous wetland'
+WHEN "value" = 95 THEN 'Moss and lichen'
+WHEN "value" = 100 THEN 'Mangroves'
+END
+```
+![image](https://user-images.githubusercontent.com/114122090/211199632-7e29173d-4cb9-40cb-a642-236eef45b9bb.png)
+
+26.	Sekarang class_area_with_landcoverlayer akan dimuat di kanvas. Buka tabel Atribut. Kolom tutupan lahan akan berisi nama tutupan lahan terhadap setiap nilai tutupan lahan.
+![image](https://user-images.githubusercontent.com/114122090/211199637-7703db11-e56d-4049-b1f5-13eb1744f330.png)
+
+27.	Mari ekspor hasil ini sebagai file excel. Sebelum mengekspor, kami juga akan mengatur tabel dan menghapus kolom yang tidak diinginkan. Di Processing Toolbox , cari dan pilih Vector table ‣ Refactor fields .
+![image](https://user-images.githubusercontent.com/114122090/211199659-f652a9cf-036f-4f34-a1b2-0cb5bda4375b.png)
+
+28.	Dalam dialog Refactor Fieldsclass_area_with_landcover , pilih layer di Input Layer . Pilih semua kolom kecuali area_sqkm dan landcover , lalu klik Delete selected field .
+![image](https://user-images.githubusercontent.com/114122090/211199666-99e79801-931c-489c-9414-398809e0fe3b.png)
+
+29.	Kita juga dapat mengubah urutan bidang dalam tabel menggunakan tombol Pindahkan Bidang yang Dipilih . Setelah kita selesai mengedit, klik ...tombol di sebelah Refactored dan pilih Save To File… . Pilih sebagai format. Masukkan nama file sebagai dan klik Simpan . Dalam dialog Bidang Refaktor, klik Jalankan untuk menerapkan perubahan Anda.XLSX Files (*.xlsx)park_area_by_landcover.xlsx
+![image](https://user-images.githubusercontent.com/114122090/211199727-0a6eba36-8a06-47a0-a157-4398e6686914.png)
+
+30.	Hasilnya akan berupa spreadsheet dengan kolom landcover dan area_sqkm .
+
 
 ## Modul 7
 # `Creating Heatmaps (QGIS3)`
 file : [modul7.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Creating%20Heatmaps%20(QGIS3).qgz)
 view : [modul7.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Creating%20Heatmaps%20(QGIS3).png)
+
+## Prosedure
+1.	Pertama-tama kita akan memuat layer peta dasar dari OpenStreetMap dan kemudian mengimpor data CSV. Di tab Browser , gulir ke bawah dan temukan bagian Ubin XYZ .
+ ![image](https://user-images.githubusercontent.com/114122090/211199915-6bd38a0c-319b-4311-8726-c159232cd8f3.png)
+
+2.	Bentangkan untuk melihat layer petak OpenStreetMap . Seret dan lepas ke kanvas utama. Selanjutnya kita akan memuat file CSV. Klik tombol Buka Pengelola Sumber Data .
+![image](https://user-images.githubusercontent.com/114122090/211199941-87db68b2-2a4b-4070-a142-335ec0f228e4.png)
+
+3.	Beralih ke tab Teks Dibatasi . Di sini kita akan mengimpor data kejahatan yang datang dalam file teks format CSV. Klik tombol … di sebelah Nama file dan ramban ke 2019-02-surrey-street.csvfile yang diunduh. Bidang X dan bidang Y di bagian Definisi Geometri akan diisi secara otomatis dengan kolom Longitudedan Latitude. Geometri CRS harus dibiarkan definisi default . Pastikan data terlihat benar di panel Sample data dan klik Add , diikuti oleh Close .EPSG:4326 - WGS 84
+ ![image](https://user-images.githubusercontent.com/114122090/211199947-a983d4fe-e85e-4c77-9fa5-55619cbdd0d6.png)
+
+4.	Kita akan melihat 2 lapisan - OpenStreetMapdan dimuat di panel Lapisan2019-02-surrey-street QGIS . Klik kanan layer dan pilih Zoom to Layer .2019-02-surrey-street
+![image](https://user-images.githubusercontent.com/114122090/211199952-c8c0f4f8-9ff3-4ca9-84ad-460f63a765c0.png)
+
+5.	Kita akan melihat layer poin insiden kejahatan dihamparkan pada peta dasar OpenStreetMap. Zoom dan Pan untuk menjelajahi data. Datanya cukup padat dan sulit untuk mengetahui di mana terdapat konsentrasi kejahatan yang tinggi. Di sinilah visualisasi peta panas akan berguna. Pilih 2019-02-surrey-streetlayer dan klik tombol panel Open the Layer Styling .
+![image](https://user-images.githubusercontent.com/114122090/211199959-a1aae562-7ebe-493a-b87d-c65134a4b988.png)
+
+6.	Pilih Heatmapsebagai penyaji di menu dropbox. Panel Layer Styling bersifat interaktif dan Anda dapat segera melihat efek perubahan Anda tercermin di kanvas. Lapisan sekarang akan ditampilkan di jalan warna skala abu-abu default.
+![image](https://user-images.githubusercontent.com/114122090/211199968-c785e9e9-a500-4226-864d-765252761a4a.png)
+
+7.	Peta panas biasanya dirender menggunakan jalur warna kuning ke merah atau putih ke merah di mana konsentrasi titik yang lebih tinggi menghasilkan lebih banyak panas . Klik menu dropdown Color ramp dan pilih Redscolor-ramp.
+![image](https://user-images.githubusercontent.com/114122090/211199976-f007723a-8f51-44b5-9660-214badb4cc36.png)
+
+8.	Selanjutnya kita harus memilih Radius . Parameter ini menentukan lingkungan melingkar di sekitar setiap titik di mana titik tersebut akan memiliki pengaruh. Nilai ini akan sangat bergantung pada jenis data masukan kita. Untuk data kami, anggap saja insiden kejahatan akan berdampak hingga 5 Kilometer dari lokasi. Perhatikan bahwa CRS proyek saat ini diatur ke sudut kanan bawah. CRS ini memiliki satuan meter, jadi kita harus menentukan meter sebagai radius. Parameter lain yang disembunyikan dari menu ini adalah bentuk Kernel . Ini adalah fungsi yang menentukan bagaimana pengaruh suatu titik harus tersebar pada radius yang diberikan. Perender Heatmap menggunakan fungsi untuk perhitungan ini. Ada jenis kernel lain seperti ,EPSG: 38575000QuarticTriangularUniform, Triweightdan Epanechnikovitu bisa ditentukan saat menggunakan metode pembuatan peta panas berbeda yang dijelaskan nanti di tutorial ini. Lihat posting ini untuk penjelasan dan panduan yang bagus untuk memilih radius dan bentuk kernel yang tepat.
+![image](https://user-images.githubusercontent.com/114122090/211200002-7f41028d-24ab-49ae-8323-b1dd37d956bb.png)
+
+9.	Visualisasi peta panas sudah siap. Kita bisa mengatur Opacity dari heatmap di bagian Layer Rendering di bagian bawah. Atur opacity agar Anda dapat melihat peta dasar beserta peta panasnya.60 %
+![image](https://user-images.githubusercontent.com/114122090/211200012-97cb4893-2f06-47ec-8b07-80bad379f727.png)
+
+10.	Untuk banyak jenis analisis, hanya mempertimbangkan kerapatan poin sudah cukup baik. Namun terkadang, Anda mungkin ingin memberikan kepentingan yang berbeda untuk setiap poin. Kejahatan yang lebih kejam seharusnya memiliki pengaruh lebih besar pada peta panas keluaran daripada perampokan. Demikian pula, kadang-kadang suatu titik dapat mewakili beberapa pengamatan di satu lokasi yang perlu diperhitungkan dalam analisis. Untuk melakukannya, Anda dapat menyediakan kolom bobot numerik opsional yang menentukan nilai untuk setiap titik. Mari tambahkan bidang bobot dan gunakan untuk menyempurnakan peta panas. Klik kanan 2019-02-surrey-streetlayer dan pilih Open Attribute Table .
+![image](https://user-images.githubusercontent.com/114122090/211200020-b86d109f-4ee7-41ca-8c77-93d470d32f8b.png)
+
+11.	Kita akan melihat bidang teks yang disebut dalam data masukan yang menjelaskan jenis kejahatan. Kita dapat menggunakan ini untuk mengkategorikan berbagai jenis kejahatan dan menetapkan bobot yang lebih tinggi untuk kejahatan yang lebih kejam.Crime type
+![image](https://user-images.githubusercontent.com/114122090/211200029-45098367-9c36-4cb0-8888-b5b383769ce3.png)
+
+12.	Klik Kalkulator lapangan terbuka .
+![image](https://user-images.githubusercontent.com/114122090/211200036-3fa413e7-bfe2-4e33-8d50-499c73775360.png)
+
+13.	Kami sekarang akan memasukkan rumus yang menggunakan dan menentukan nilai bobot. QGIS memiliki cara praktis untuk menambahkan bidang yang dihitung tersebut menggunakan Bidang Virtual . Bidang virtual disimpan dalam proyek QGIS dan tidak mengubah data sumber. Ini juga dihitung secara dinamis dan dapat digunakan di mana saja di QGIS seperti halnya nilai atribut lainnya. Masukkan sebagai nama bidang Keluaran dan setel jenis bidang Keluaran ke . Masukkan ekspresi berikut di editor Ekspresi . Di sini kita menggunakan pernyataan CASE untuk menetapkan nilai yang berbeda berdasarkan kondisi yang berbeda. Klik Oke .Crime typeweightWhole number (integer)
+```
+CASE
+WHEN "Crime type" LIKE 'Violence%' THEN 10
+WHEN "Crime type" LIKE 'Criminal%' THEN 5
+ELSE 1
+END
+```
+![image](https://user-images.githubusercontent.com/114122090/211200044-38637462-9d87-4ea6-b641-1711d1e0f2f3.png)
+
+14.	Atribut baru akan ditambahkan untuk setiap fitur dengan nilai bobot yang sesuai.
+![image](https://user-images.githubusercontent.com/114122090/211200058-cec1784a-8665-49b4-b6fb-ec7946be142a.png)
+
+15.	Kembali ke panel Layer Styling , klik menu drop-down untuk Weight points by dan pilih bidang yang baru ditambahkan weight.
+![image](https://user-images.githubusercontent.com/114122090/211200066-a0c2b363-8e2c-4b1b-b438-e6605ab6ec86.png)
+
+16.	Kita akan melihat perubahan rendering peta panas untuk memperhitungkan parameter bobot. Tutup panel Layer Styling .
+![image](https://user-images.githubusercontent.com/114122090/211200072-e6853b02-6800-4045-b93e-cb37e9da1778.png)
+
+17.	Jika kita memerlukan visualisasi peta panas untuk disimpan sebagai lapisan raster permanen atau ingin menyesuaikan peta panas dengan opsi lanjutan seperti kernel yang berbeda atau radius dinamis, Anda dapat menggunakan Peta Panas (Estimasi Kepadatan Kernel) dari Kotak Alat Pemrosesan. Kami sekarang akan menggunakan algoritma ini. Pergi ke Memproses ‣ Kotak Alat .
+![image](https://user-images.githubusercontent.com/114122090/211200086-aec4fdad-607c-4b50-b384-f3488ff94a75.png)
+
+18.	Sebelum kita dapat membuat peta panas, kita perlu memproyeksikan ulang data sumber ke CRS yang diproyeksikan. Karena jarak memainkan peran penting dalam perhitungan peta panas, tidak benar menggunakan CRS geografis. Cari dan temukan algoritma Vector general ‣ Proyeksi ulang layer .
+![image](https://user-images.githubusercontent.com/114122090/211200093-6b6102e7-ffa8-46fa-8163-7b8dcc175dc4.png)
+
+19.	Pada dialog Reproject layer , klik tombol Select CRS untuk Target CRS . Cari dan pilih CRS. CRS yang diproyeksikan ini adalah pilihan yang baik untuk data di Inggris. Klik Jalankan .EPSG:27700 OSGB 1936 / British National Grid
+![image](https://user-images.githubusercontent.com/114122090/211200105-7f85b848-c0e0-4ce2-9214-aede80a366eb.png)
+
+20.	Layer baru bernama Reprojectedakan ditambahkan ke panel Layers . Hapus centang pada kotak di sebelah 2019-02-surrey-streetlapisan lama untuk menyembunyikannya.
+![image](https://user-images.githubusercontent.com/114122090/211200117-8e1611af-8320-48b8-8d94-294ed9b2847b.png)
+
+21.	Cari dan temukan algoritma Interpolation ‣ Heatmap (Kernel Density Estimation) .
+![image](https://user-images.githubusercontent.com/114122090/211200124-64f09d5b-d5a4-4579-8482-a4debdb2f097.png)
+
+22.	Pada dialog Heatmap (Kernel Density Estimation) , kita akan menggunakan parameter yang sama seperti sebelumnya. Pilih Radius sebagai 5000meter dan Berat dari bidang sebagai weight. Atur ukuran Piksel X dan Ukuran Piksel Y menjadi 50meter. Biarkan Kernel membentuk nilai default Quartic. Klik Jalankan .
+![image](https://user-images.githubusercontent.com/114122090/211200136-13c7f2a9-b9eb-410e-b6d4-bbc06aee2b05.png)
+
+>Catatan :
+>Parameter Radius from field memungkinkan Anda menentukan radius pencarian dinamis untuk setiap titik. Ini dapat digunakan bersama dengan Bobot dari bidang untuk >memiliki kontrol yang lebih baik tentang bagaimana pengaruh setiap titik tersebar.
+
+23.	Setelah pemrosesan selesai, lapisan raster baru bernama OUTPUTakan dimuat. Visualisasi default jelek karena menggunakan perender. Klik tombol panel Open the Layer Styling .Singleband gray
+![image](https://user-images.githubusercontent.com/114122090/211200147-ff3a8ab7-117a-471a-886c-e9741a352632.png)
+
+24.	Ubah render menjadi dan pilih ramp warna. Lapisan sekarang terlihat seperti visualisasi peta panas yang telah kita buat sebelumnya.Singleband PseudocolorReds
+![image](https://user-images.githubusercontent.com/114122090/211200155-25856776-faf2-4090-92bd-df62582c3d8a.png)
+
+>Catatan :
+>Perhatikan bahwa OUTPUTlayer pada panel Layers memiliki legenda tetapi 2019-02-surrey-streetlayer tidak. Masalah umum saat menggunakan lapisan peta panas yang >dibuat dengan perender Peta Panas adalah kurangnya legenda. Katakanlah Anda ingin menggunakan peta panas di Tata Letak Cetak dan menambahkan legenda. Peta panas >raster yang dibuat dengan metode algoritme pemrosesan Peta Panas memungkinkan hal ini.
 
 
 ## Modul 8
@@ -1196,8 +1491,70 @@ view : [modul7.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blo
 file : [modul8.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Animating%20Time%20Series%20Data%20(QGIS3).qgz)
 view : [modul8.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Animating%20Time%20Series%20Data%20(QGIS3).png)
 
+## Prosedure
+1.	Di Panel Peramban QGIS, temukan direktori tempat kita menyimpan data unduhan. Luaskan ne_10m_land.zipdan pilih ne_10m_land.shplayer. Seret layer ke kanvas. Selanjutnya, cari ASAM_shp.zipfile. Perluas dan pilih asam_data_download/ASAM_events.shplayer dan seret ke kanvas.
+![image](https://user-images.githubusercontent.com/114122090/211200281-f3c34c6a-895f-472f-9967-c8d726472193.png)
+
+2.	Setelah lapisan dimuat, kita dapat melihat masing-masing titik yang mewakili insiden lokasi pembajakan. Ada ribuan insiden dan sulit ditentukan dengan lebih banyak pembajakan. Daripada poin individual, cara yang lebih baik untuk memvisualisasikan data ini adalah melalui peta panas. Pilih ASAM_eventslayer dan klik tombol Open the layer Styling Panel di panel Layers . Klik tarik-turun.Single symbol
+![image](https://user-images.githubusercontent.com/114122090/211200305-696be455-2e39-4fc3-b2bd-109216f80581.png)
+
+3.	Di drop-down pemilihan penyaji, pilih Heatmappenyaji. Selanjutnya, pilih jalur Viridiswarna dari pemilih Jalur warna .
+![image](https://user-images.githubusercontent.com/114122090/211200313-6ddc92a1-e0db-41be-a68d-7c09dac50853.png)
+
+4.	Sesuaikan nilai Radius ke 5.0. Di bagian bawah, luaskan bagian Layer Rendering dan sesuaikan Opacity menjadi 75.0%. Ini memberikan efek visual yang bagus dari hotspot dengan lapisan tanah di bawahnya.
+![image](https://user-images.githubusercontent.com/114122090/211200320-794da2c7-3cab-44a5-bfa7-75068e309aae.png)
+
+5.	Sekarang mari kita animasikan data ini untuk menunjukkan peta insiden pembajakan tahunan. Klik kanan pada ASAM_eventlayer, dan pilih Properties.
+![image](https://user-images.githubusercontent.com/114122090/211200330-b305a582-ae4a-49ad-ab43-bb0d03bb1859.png)
+
+6.	Di kotak dialog Properti lapisan , pilih tab Temporal dan aktifkan dengan mengklik kotak centang..
+![image](https://user-images.githubusercontent.com/114122090/211200336-c0e8cc17-467c-4c97-b38f-f34fde6269af.png)
+
+7.	Data sumber berisi atribut dateofocc- yang mewakili tanggal terjadinya insiden. Ini adalah bidang yang akan digunakan untuk menentukan poin yang diberikan untuk setiap periode waktu. Pilih di menu Drop down Konfigurasi , sebagai Field .Single Field with Data/Timedateofocc
+![image](https://user-images.githubusercontent.com/114122090/211200342-445d3ed2-8239-46bf-bd2c-e321d8deb4d0.png)
+
+8.	Sekarang simbol jam akan muncul di sebelah nama layer. Klik pada (ikon Jam) dari Bilah Alat Navigasi Peta.Temporal Control Panel
+![image](https://user-images.githubusercontent.com/114122090/211200345-22a18ff5-c1e7-4696-87eb-82d6109d805c.png)
+
+9.	Klik pada (ikon putar) untuk mengaktifkan kontrol animasi. Klik Atur ke Rentang Penuh (ikon segarkan) di sebelah Rentang untuk secara otomatis mengatur rentang waktu agar cocok dengan kumpulan data.Animated Temporal Navigation
+![image](https://user-images.githubusercontent.com/114122090/211200359-a68aedc9-d41a-4d4e-ae12-d0252c2cb653.png)
+
+10.	Sekarang kita siap untuk melihat animasi. Atur Langkah lalu klik tombol Play untuk memulai animasi.1 Year
+![image](https://user-images.githubusercontent.com/114122090/211200368-1ed904af-7888-4ea7-85ec-827e30d48b06.png)
+
+>Catatan :
+>Jika animasi terlalu cepat, kita dapat menyesuaikan frame rate dengan mengklik (ikon gerigi kuning) di pojok kanan atas panel Temporal Controller. Menurunkan frame >rate (frame per detik) akan memperlambat animasi.Temporal Settings 
+
+11.	Akan sangat membantu juga untuk menampilkan label yang menunjukkan kerangka waktu saat ini di peta. Kita dapat melakukannya dengan menggunakan dekorasi Judul bawaan. Pergi ke Lihat ‣ Dekorasi ‣ Label Judul 
+![image](https://user-images.githubusercontent.com/114122090/211200386-66db0c1b-01b9-4ceb-85f9-b680db6e8b42.png)
+
+ 
+12.	Klik kotak centang untuk mengaktifkannya dan klik tombol dan masukkan ekspresi berikut untuk menampilkan tahun. Di sini variabel berisi stempel waktu irisan waktu saat ini yang ditampilkan. Jadi kita bisa menggunakan stempel waktu itu dan memformatnya untuk menampilkan tahun kejadian. Lihat Dokumentasi QGIS untuk detail tentang berbagai opsi pemformatan yang didukung untuk stempel waktu.Insert an Expression@map_start_time
+```
+format_date(@map_start_time, 'yyyy')
+```
+![image](https://user-images.githubusercontent.com/114122090/211200414-03dc7047-95ea-4ff0-94b2-7a35915f8d47.png)
+
+13.	Pilih ukuran font sebagai 25, atur warna bilah latar belakang sebagai Whitedan atur transparansi menjadi 50%. Di Penempatan pilih . Sekarang klik Oke.Bottom Right
+![image](https://user-images.githubusercontent.com/114122090/211200429-b1b58a78-252c-4718-a6b3-730a3a575e0e.png)
+
+14.	Setelah parameter diatur sesuai, tahun akan ditampilkan seperti yang ditunjukkan. Untuk mengekspornya sebagai gambar dan mengonversinya sebagai GIF, pilih (ikon simpan) di jendela kontrol Temporal.Export Animation
+
+15.	Klik pada ... direktori Output untuk memilih direktori tempat gambar akan disimpan.
+
+
+16.	Pada Extent pilih Hitung dari Layer ‣ ne_10_land layer. Klik Simpan.
+
+17.	Setelah ekspor selesai, Kita akan melihat gambar PNG untuk setiap tahun (total 18 gambar) di direktori keluaran.
+ 
+18.	Sekarang mari buat GIF animasi dari gambar-gambar ini. Ada banyak opsi untuk membuat animasi dari masing-masing bingkai gambar. ezgif untuk alat yang mudah dan online. Kunjungi situs dan klik Pilih File dan pilih semua file .png. Setelah dipilih, klik Unggah dan buat GIF! tombol. Setelah dibuat, Kita dapat mengunduh GIF menggunakan tombol Simpan .
+ 
+
+
 
 ## Modul 9
 # `Handling Invalid Geometries (QGIS3)`
 file : [modul9.qgz](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Handling%20Invalid%20Geometries%20(QGIS3).qgz)
 view : [modul9.png](https://github.com/SitiNurhalizaYus/SIG_2101091013_Teori/blob/2ffd583730d50424557a3ef44fa0c97bae8a5554/Handling%20Invalid%20Geometries%20(QGIS3).png)
+
+## Prosedure
